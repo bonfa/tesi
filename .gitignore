@@ -1,4 +1,5 @@
 *~
+*.backup
 thesis.pdf
 
 #Files temporanei generati durante la compilazione .tex
