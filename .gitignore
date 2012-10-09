@@ -1,6 +1,6 @@
 *~
 *.backup
-thesis.pdf
+enrico/thesis.pdf
 
 #Files temporanei generati durante la compilazione .tex
 *.aux
