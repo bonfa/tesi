@@ -3,10 +3,13 @@
 thesis.pdf
 
 #Files temporanei generati durante la compilazione .tex
-thesis.aux
-thesis.idx
-thesis.lof
-thesis.log
-thesis.out
-thesis.toc
+*.aux
+*.idx
+*.lof
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.brf
 
