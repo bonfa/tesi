@@ -18,16 +18,8 @@ The\mbox{ACT-R} counter part of the human procedural memory are the \emph{produc
 
 Both the declarative memory and the procedural memory are called \emph{modules} of \mbox{ACT-R}.  The many activities carried out by the brain, i.e. talking or moving, are performed by neurons located together, in the same areas. In analogue way each module of\mbox{ACT-R} represents a function of the human brain. In all this infrastructure the task of the procedural module is to coordinate all the other modules. The exchange of information between the modules is achieved through \emph{buffers}.
 
-The buffers are the built in interface between modules. Every buffer is connected to a module, while a module can also have no buffers. The role of the modules is to relay queries for actions from the module and to get information about the internal state of the module. Each module can hold maximum one chunk, accessible in read only from all the other module, and in read and write mode for the module owner of the buffer. The modules usually work in a parallel way, but their interaction is only serial. There are two reasons for this kind of interaction: the first one is due to the structure of the buffers, that can hold only one chunk at a certain time; the second one is to allow only one production, which have its preconditions satisfied, to be fired.
+The buffers are the built in interface between modules. Every buffer is connected to a module, while a module can also have no buffers. The role of the modules is to relay queries for actions from the module and to get information about the internal state of the module. Each module can hold maximum one chunk, accessible in read only from all the other module, and in read and write mode for the module owner of the buffer. The modules usually work in a parallel way, but their interaction is only serial. There are two reasons for this kind of interaction: the first one is due to the structure of the buffers, that can hold only one chunk at a certain time; the second one is to allow only one production, which have its preconditions satisfied, to be fired. When the preconditions of more than one production are satisfied the one to be fired is the one with the higher \emph{utility value}. This is a numeric quantity, it can be associated with each production in advance or it can be learned while the model runs.
 
-
-ACT-R is the ultimate successor of a series of increasingly precise models of human cognition, developed by John R. Anderson. Anderson credits Allen Newell as source of influence to his theory.
-
-
-As programming language,\mbox{ACT-R} is a framework: it provides generic features and functionality, that can be specialized for different task. In\mbox{ACT-R} for different tasks 
-(e.g., Tower of Hanoi, memory for text or for list of words, language comprehension, 
-communication, aircraft controlling), researchers create "models" (i.e., programs) in\mbox{ACT-R}. 
-These models reflect the modelers' assumptions about the task within the\mbox{ACT-R} view of 
-cognition.
+From an informatics point of view ACT-R is a software written in Lisp, and its functionalities are offered in a Lisp-like language. It is taught to have a modular structure so that it can be easily extended to fit to different tasks. ACT-R is the ultimate successor of a series of increasingly precise models of human cognition, developed by John R. Anderson. Anderson credits Allen Newell as source of influence to his theory.
 \section{OpenCV}
 \section{The objective}
