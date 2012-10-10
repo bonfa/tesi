@@ -3,7 +3,7 @@
 \usepackage[small]{caption}	%per i cara piccoli
 \usepackage[english]{babel}	%l?ultima lingua È quella predefinita
 \usepackage{listings}		%codice sorgente
-\ensuremath{\lstset{frame=shadowbox, rulesepcolor=\color{blue}, breaklines=true, basicstyle=\small\ttfamily, columns=fullflexible,  keepspaces=true}}	%disegna un rettangolo attorno al codice sorgente
+\lstset{frame=shadowbox, rulesepcolor=\color{blue}, breaklines=true, basicstyle=\small\ttfamily, columns=fullflexible,  keepspaces=true}	%disegna un rettangolo attorno al codice sorgente
 \usepackage{indentfirst}	%rientra il primo paragrafo di ogni sezione
 \usepackage{amsmath}%,amssymb,amsthm       % indispensabili per la matematica
 \usepackage{graphicx}		% per inserire le immagini
@@ -22,6 +22,7 @@
 \usepackage{varioref}
 \usepackage[table]{xcolor}
 \usepackage{epstopdf}
+\usepackage{wrapfig}
 %Setta dimensioni body
 \usepackage[total={16.5cm,25cm},
 						top=3.5cm,
@@ -38,14 +39,13 @@
 \usepackage{appendix}
 \usepackage{acronym}%?
 \usepackage{makecell}
-\usepackage{wrapfig}
 
 %Intestazioni e pie? pag.  
 \usepackage[automark,headsepline,footsepline,autooneside,plainheadsepline,plainfootsepline]{scrpage2}	%i comandi plain-ecccc servono a dire che nella prima pag. del nuovo cap. voglio queste cose.
 \usepackage[pagebackref=true, colorlinks=true, linkcolor=blue, hyperindex=true, urlcolor=blue, citecolor = green, linktocpage=true]{hyperref}		% indici e riferimenti cliccabili
 \pagestyle{scrheadings}
 \clearscrheadfoot
-\ihead [Francesco Bonfadelli]{Francesco Bonfadelli}	%Kopfzeile Innen
+\ihead [Enrico Rizzardi]{Enrico Rizzardi}	%Kopfzeile Innen
 \chead {}					%Kopfzeile Mitte
 \ohead [\headmark]{\headmark}			%Kopfzeile Auﬂen
 \ifoot {}					%Fuﬂzeile Innen
@@ -75,7 +75,7 @@
 %******************************************************************
 
 \input{beginningEnding/frontespizio}
-ciao
+
 \pagenumbering{arabic}
 \tableofcontents
 \listoffigures
@@ -84,10 +84,9 @@ ciao
 \thispagestyle{empty}
 \mbox{}
 
-\input{chapters/chap_01_intro}
-\input{chapters/chap_02_project}
+\input{chapters/chap_01_intro.tex}
 \newpage
-
+%\input{chapters/chap_02_project.tex}
 %\input{Chapters/introduzione}
 
 \pagenumbering{roman}

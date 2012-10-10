@@ -8,12 +8,7 @@ CC_BIB=bibtex
 all: tesi
 	
 tesi: 
-	$(CC) $(SOURCES) \
-	&& $(CC_BIB) $(FILENAME) \
-	&& $(CC) $(SOURCES) \
-	&& $(CC) $(SOURCES) \
-	&& rm $(TEMP_FILES) \
-	&& evince $(BIN)
+	$(CC) $(SOURCES) && rm $(TEMP_FILES) && evince $(BIN)
 
 view:
 	evince $(BIN)
