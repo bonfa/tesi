@@ -2,7 +2,7 @@ FILENAME=thesis
 SOURCES=./$(FILENAME).tex
 BIN=./$(FILENAME).pdf
 TEMP_FILES= thesis.idx thesis.log thesis.aux  thesis.lof  thesis.out thesis.toc thesis.brf thesis.blg thesis.bbl 
-CC=pdflatex
+CC=pdflatex -shell-escape
 CC_BIB=bibtex
 
 all: tesi
