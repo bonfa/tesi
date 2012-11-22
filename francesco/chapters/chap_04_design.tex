@@ -1,4 +1,5 @@
 \chapter{Design}
+ 
   The following chapter describes the architecture of the software. 
   The software design is supported by diagrams to better explain the contents and the structure of the project itself. The following sections, after having given a brief description of the hole architecture of the sofware, describe the class hierarchy, the \todo{terminare...}.
   
@@ -8,7 +9,7 @@
 	  \begin{center} 
 	    \includegraphics[scale=0.1]{images/ch_04/classDesign.jpg}
 	  \end{center} 
-	  \caption{\textit{Structure of Act-r.}}  
+	  \caption{\textit{Class diagram of the whole software }}  
 	  \label{fig:modulesActr}
   \end{figure}
   \todo{cambiare l immagine e aggiungere la descrizione...}.
@@ -19,9 +20,13 @@
 	  \begin{center} 
 	    \includegraphics[scale=0.2]{images/ch_04/designClassObjectHierarchy.jpeg}
 	  \end{center} 
-	  \caption{\textit{Structure of Act-r.}}  
+	  \caption{\textit{Class hierarchy of the recognized objects}}  
 	  \label{fig:modulesActr}
   \end{figure}
+   {\newpage}
+   {\newpage}
+   {\newpage}
+   {\newpage}
   The picture above describes the hierarchy of the classes defined to contain the objects detected in the images. The \textit{Object} class represents a generic object that can be found in an image. Thus, everything which is different from the background can be seen as an instance of the \textit{Object} class. Every object must be bounded by a \textit{bounding box}. This structure is represented by the \textit{BoundingBox} class. All the bounding boxes have rectangular shape. The requirements were such that it was not necessary to define more complicate shapes \todo{migliorare questa frase, fa schifo}. The \textit{attended} attribute of the \textit{Object}  class is set to \textit{true} if the object has been already returned to ACT-R, otherwise it is set to \textit{false}. The \textit{rotation} is a value that gives the amount of the rotation in the counterclockwise directions starting from the horizontal direction \todo{controllare la correttezza}. \todo{vedere se il metodo getChunk esiste ancora}\todo{se non esiste eliminarlo 
 dall immagine}.
   Besides the generic objects, there are two categories of object that can be found in the processed images, the \textit{QR codes} and the \textit{simples shapes}. A simple shape can be, for example, a circle, a square, a rectangle or a triangle. The QR codes is represented in the hierarchy with the \textit{QRObject} class, the generic shape with the \textit{Blob} class.
