@@ -18,7 +18,7 @@
 	\mbox{ACT-R}, that stands for \emph{Adaptive Control of Thought-Rational}, is a cognitive architecture that implements the homonym theory developed by John Robert Anderson, professor of psychology and computer science at Carnegie Mellon University. 
 	\mbox{ACT-R} is a software written in Lisp and its models are written in a Lisp-like language. It is thought to have a modular structure so that it can be easily extended. The current version of the software is the 6.0. \todo{mancano le fonti praticamente ovunque}
 		
-	\subsection*{The Basic Concept of ACT-R's Theory}
+	\subsection*{The basic concept of ACT-R's theory}
 	In psychology, memory is defined as the processes by which information is encoded, stored, and retrieved ~\cite{baddeley2009memory}. 
 	
 	\mbox{ACT-R's} most important assumption about knowledge is based on Anderson's theory about memory. 
@@ -26,10 +26,11 @@
 	Declarative memory refers to all the memories that can be consciously recalled. This kind of knowledge comprehends facts and knowledge that human beings explicitly know. To call back this kind of information, there must be a conscious process by the human being. For this reason, this kind of memory is also called \emph{explicit}.
 	In contrast, procedural memory refers to all that notions or skills that human beings have but which they learnt in an implicit way. Examples of this knowledge are, for example, driving, reading and writing. In this case, in order to call back this kind of information, the human being does not need a conscious process. That is why this kind of memory is also called \emph{implicit} ~\cite{anderson1976language}. 
 	
-	One of the the most common examples used to explain how these two kinds of memory work is the typewriter example. 
-	A skilled typewriter can write quickly without looking at the keyboard, putting his fingers in the right place and pushing them in the correct order. If we ask to the same typewriter where a certain character is positioned in the keyboard, he will probably answer that he is not sure about that without looking at it. In this example the procedural memory is stored as the action of "putting the right finger in the right place" when the typewriter has the goal to "write a certain character". \todo{e la memoria dichiarativa?}
-
-	In \mbox{ACT-R} theory the declarative memory is represented by the so called \emph{chunks}, data structures defined as a n-tuple (slots) of arbitrary size. The n-tuples and their values are specified in the \emph{chunk-type}, which defines also (if any) the initial value of the slot. Every chunk has also a name, used to reference it, but that is not considered to be a part of the chunk itself. The chunks and their slots are used to implement the mechanisms of \mbox{ACT-R's} theory, even if the slots are only software construct and not part of the theory itself. The chunk-types can be organized into hierarchies.
+	The following example is used to explain better how these two kinds of memory work. 
+	When a person starts learning typewriting, an attempt he can make in the beginning is trying to memorize the layout of the keyboard. The knowledge of all the positions of the keys is the declarative memory. After having become a skilled typewriter, the same person will write quickly putting his fingers in the right keys and pushing them in the correct order without thinking anymore about the positions of the keys on the keyboard. Moreover, if we ask him where the position of a certain character is on the keyboard, he will probably answer that he can not say it without looking at it. This is because, now, he is using his procedural memory ~\cite{anderson1993rules}.
+	
+	\subsection*{Representation of declarative and procedural memories in ACT-R}
+	In \mbox{ACT-R} theory the declarative memory is represented by \emph{chunks}, data structures defined as a n-tuple (slots) of arbitrary size. The n-tuples and their values are specified in the \emph{chunk-type}, which defines also the initial value of the slot. Every chunk has also a name, used to reference it and to make easier the pr, but that is not considered to be a part of the chunk itself. The chunks and their slots are used to implement the mechanisms of \mbox{ACT-R's} theory, even if the slots are only software construct and not part of the theory itself. The chunk-types can be organized into hierarchies.
 
 	The \mbox{ACT-R's} counter part of the human procedural memory are the \emph{productions}. Productions are the \mbox{ACT-R} equivalent of functions. They define sequences of actions and can be fired only if a set of preconditions is satisfied.  
 
