@@ -16,31 +16,51 @@
   %% ACT-R
   \section{ACT-R}
 	\mbox{ACT-R}, that stands for \emph{Adaptive Control of Thought-Rational}, is a cognitive architecture that implements the homonym theory developed by John Robert Anderson, professor of psychology and computer science at Carnegie Mellon University. 
-	\mbox{ACT-R} is a software written in Lisp and its models are written in a Lisp-like language. It is thought to have a modular structure so that it can be easily extended. The current version of the software is the 6.0. \todo{mancano le fonti praticamente ovunque}
-		
-	\subsection*{Basic concept of ACT-R's theory}
-	In psychology, memory is defined as the processes by which information is encoded, stored, and retrieved ~\cite{baddeley2009memory}. 
+	\mbox{ACT-R} is a software written in Lisp and its models are written in a Lisp-like language. It is thought to have a modular structure so that it can be easily extended. The current version of the software is the 6.0. 
+	
+	The following section describes the differences between declarative and procedural memory. This is important because it is the basic theory on which ACT-R is founded. Then, after the definition of chunk and productions, the building blocks of ACT-R structure, you can find an overview on the architecture of the framework and, after this, the most important applications in which the framework has been used.
+	
+	\subsection{Declarative memory and procedural memory}
+	In psychology, \emph{memory} is defined as the processes by which information is encoded, stored and retrieved ~\cite{baddeley2009memory}. 
 	
 	\mbox{ACT-R's} most important assumption about knowledge is based on Anderson's theory about memory. 
-	Anderson, divides memory into \emph{declarative} and \emph{procedural}. 
-	Declarative memory refers to all the memories that can be consciously recalled. This kind of knowledge comprehends facts and knowledge that human beings explicitly know. To call back this kind of information, there must be a conscious process by the human being. For this reason, this kind of memory is also called \emph{explicit}.
+	Anderson divides memory into \emph{declarative} and \emph{procedural}. 
+	
+	Declarative memory refers to all the information that can be consciously recalled. This kind of knowledge comprehends facts and notions that human beings explicitly know. To call back this kind of information, there must be a conscious process by the human being. For this reason, this kind of memory is also called \emph{explicit}.
+	
 	In contrast, procedural memory refers to all that notions or skills that human beings have but which they learnt in an implicit way. Examples of this knowledge are, for example, driving, reading and writing. In this case, in order to call back this kind of information, the human being does not need a conscious process. That is why this kind of memory is also called \emph{implicit} ~\cite{anderson1976language}. 
 	
 	The following example is used to explain better how these two kinds of memory work. 
-	When a person starts learning typewriting, an attempt he can make in the beginning is trying to memorize the layout of the keyboard. The knowledge of all the positions of the keys is the declarative memory. After having become a skilled typewriter, the same person will write quickly putting his fingers in the right keys and pushing them in the correct order without thinking anymore about the positions of the keys on the keyboard. Moreover, if we ask him where the position of a certain character is on the keyboard, he will probably answer that he can not say it without looking at it. This is because, now, he is using his procedural memory ~\cite{anderson1993rules}.
+	When a person starts learning typewriting, an attempt he can make in the beginning is trying to memorize the layout of the keyboard. The aware knowledge of all the positions of the keys is the declarative memory. After having become a skilled typewriter, the same person will write quickly putting his fingers on the right keys and pushing them in the correct order, without thinking anymore about the positions of the keys on the keyboard. Moreover, if we ask him where the position of a certain character is on the keyboard, he will probably answer that he can not say it without looking at it. This is because, now, for this task he is using his procedural memory ~\cite{anderson1993rules}.
 	
-	\subsection*{Architecture}
-	In \mbox{ACT-R}, declarative memory is represented in structures, called \emph{chunks}, and procedural memory is represented as rules, called \emph{productions}. Chunks and productions are the basic building blocks of an ACT-R model ~\cite{actr6refman}.
+	\subsection{Chunks and productions}
+	In \mbox{ACT-R}, declarative memory is represented by structures, called \emph{chunks}, and procedural memory  by rules, called \emph{productions}. Chunks and productions are the basic building blocks of an ACT-R model ~\cite{actr6refman}.
 	
-	The \emph{chunks} are data structures which are defined by their \emph{type} and their \emph{attribute list}, that is a tuple of pairs, each of which is called \emph{slot} and is composed by the \emph{name} of the attribute, which is fixed for a certain chunk, and the \emph{value} of the attribute, which, instead, can assume different values. Each chunk has also a \emph{name} but it is not considered to be a part of the chunk itself, as it does not exist in \mbox{ACT-R} theory. It is used only for convenience to reference the specific chunk when writing models. The chunk-types can be organized into hierarchies ~\cite{actr6refman}.
+	The \emph{chunks} are data structures which are defined by their \emph{type} and their \emph{attribute list}. This is a tuple of pairs, each of which is made up by a fixed part and a variable part.
+	The fixed part is the \emph{name} of the attribute and is called \emph{slot}.
+	The variable part is the \emph{value} of the attribute.
+% 	called \emph{slot} and is composed by the \emph{name} of the attribute, which is fixed for a certain chunk, and the \emph{value} of the attribute, which, instead, can assume different values. 
+	Each chunk has also a \emph{name} but it is not considered to be a part of the chunk itself, as it does not exist in \mbox{ACT-R} theory. It is used only for convenience to reference the specific chunk when writing models. The chunk-types can be organized into hierarchies ~\cite{actr6refman}.
 	
-	The \emph{productions} are the \mbox{ACT-R} equivalent of functions. They define sequences of actions and can be fired only if a set of preconditions is satisfied. They can be represented as \emph{if-then} rules, where the \emph{if-part} is a set of conditions that must be true for the production to apply and the \emph{then-part} is the action of the production and consists of the operations the model should perform when the production is selected and used ~\cite{actr6refman}.
+	The \emph{productions} are the \mbox{ACT-R} equivalent of functions. They define sequences of actions and can be fired only if a set of preconditions is satisfied. They can be represented as \emph{if-then} rules, where the \emph{if-part} is a set of conditions that must be true for the production to apply and the \emph{then-part} is the action of the production and consists of the operations the model should perform when the production is selected and used. 
+	In general there could be some conflicts between productions. This happens when preconditions of two or more productions are satisfied at the same time. In these cases the production to be fired is the one with the highest \emph{utility value}. This is a numeric quantity which gives a priority measure. It can be set a priori by the modeler or learnt while the model is running ~\cite{actr6refman}.
 	\newline{}
 
+	\subsection{Architecture}
+	All the activities carried out by the human brain, like talking or moving, are performed by neurons located close together in a well defined and limited area of the cortex. Trying to imitate this "architecture", \mbox{ACT-R's} framework is structured in different \emph{modules}, each of which represents one specific function of the human brain ~\cite{actr6refman}. 
 	
-	All the activities carried out by the human brain, like talking or moving, are performed by neurons located close together, in a well defined and limited area of the cortex. Trying to imitate this "architecture", \mbox{ACT-R's} framework is structured in different \emph{modules}, each of which represents one specific function of the human brain ~\cite{actr6refman}. 
+	Figure \ref{fig:modulesActr} shows the modular structure of ACT-R. In the picture you can see two groups of modules, separated by the \emph{procedural module} ~\cite{actr6refman}. 
 	
-	Figure \ref{fig:modulesActr} shows the modular structure of ACT-R. The \emph{visual module} is responsible for recognizing objects in the visual scene and shifting the focus to them. Similarly, the \emph{aural module} identifies sounds and moves the attention to them. The \emph{manual module} moves the virtual hands and can perform actions like pressing the key on a keyboard or moving the mouse while the \emph{vocal model} controls the virtual voice. The \emph{goal module} provides the system with the structure of the goal of the task, defined as a chunk and the \emph{imaginal module} has to contain and update the current context relevant to the current task. In addition, the \emph{declarative module} provides the model with a declarative memory, thus it stores the declarative chunks generated by the model and provides a mechanism for retrieving them. Finally, the \emph{procedural module} is responsible of the communication and the coordination of all the other modules ~\cite{actr6refman}. 
+	The first group comprehends \emph{visual}, \emph{aural}, \emph{manual } and \emph{vocal modules}. These let the model interact with the environment.
+	The \emph{visual module} is responsible for recognizing objects in the visual scene and shifting the focus to them. Similarly, the \emph{aural module} identifies sounds and moves the attention to them. 
+	The \emph{manual module} can move the virtual hands and perform actions like pressing the key on a keyboard or moving the mouse while the \emph{vocal module} controls the virtual voice ~\cite{actr6refman}.
+	
+	The other group comprehends \emph{goal module}, \emph{imaginal module} and \emph{declarative module}. These represent the internal information of the model.  
+	The \emph{goal module} provides the system with the structure of the goal of the task, defined as a chunk. 
+	The \emph{imaginal module} has to contain and update the current context relevant to the current task. 
+	The \emph{declarative module} provides the model with a declarative memory, thus it stores the declarative chunks generated by the model and provides a mechanism for retrieving them ~\cite{actr6refman}. 
+	
+	Finally, the \emph{procedural module} is responsible of the communication and the coordination of all the other modules ~\cite{actr6refman}. 
 	
 	\begin{figure}[h]
 	  \begin{center} 
@@ -51,12 +71,12 @@
 	\end{figure}
 	
 	
-	
-	In fact, modules are independent of each other, they do not share variables or information. They can communicate with each other thanks to the \emph{buffers}, which represent the interface of the module towards the others. A module can have no buffers as well as one or more than one. The communication consists in exchanging chunks. Each module can read chunks from every buffer, but it can make changes only to the chunks in its own buffers. Moreover each buffer can hold one chunk at a time ~\cite{actr6refman}. 
+	In fact, modules are independent of each other, they do not share variables or information. They can communicate with each other thanks to the \emph{buffers}, which represent the interfaces of a module towards the others. A module can have no buffers as well as one or more than one. The communication consists in exchanging chunks. Each module can read chunks from every buffer, but it can make changes only to the chunks in its own buffers. Moreover each buffer can hold one chunk at a time ~\cite{actr6refman}. 
 
-	The modules usually work in a parallel way, but their interactions can be only serial. There are two reasons for this limitation: firstly the structure of the buffers can hold only one chunk, secondly only one production whose preconditions are satisfied can be fired. In general there could be some conflicts between productions. This happens when preconditions of two or more productions are satisfied. In this case the production to be fired is the one with the highest \emph{utility value}. This is a numeric quantity which represents a priority value and can be set a priori or learnt while the model is running ~\cite{actr6refman}.
+	Although modules usually work in a parallel way, their interactions can be only serial.
+	There are two reasons for this limitation: firstly the structure of the buffers can hold only one chunk, secondly only one production whose preconditions are satisfied can be fired at a time ~\cite{actr6refman}.
 	
-	\subsection*{Applications}
+	\subsection{Applications}
 	Up to now, it has been used in many different areas, the most important of which are problem solving, communication and perception. \todo{espandere e aggiungere fonti}.
 	For example, it has been shown that \mbox{ACT-R} can successfully predict \emph{Blood Oxygen Level Dependence} of several parts of the brain, through experiments with \emph{Functional Magnetic Resonance Imaging}. \todo{aggiungere fonti}
 	
