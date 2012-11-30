@@ -32,11 +32,9 @@
 	\subsection*{Architecture}
 	In \mbox{ACT-R}, declarative memory is represented in structures, called \emph{chunks}, and procedural memory is represented as rules, called \emph{productions}. Chunks and productions are the basic building blocks of an ACT-R model.
 	
+	The \emph{chunks} are data structures which are defined by their \emph{type} and their \emph{attribute list}, that is a tuple of pairs, each of which is called \emph{slot} and is composed by the \emph{name} of the attribute, which is fixed for a certain chunk, and the \emph{value} of the attribute, which, instead, can assume different values. Each chunk has also a \emph{name} but it is not considered to be a part of the chunk itself, as it does not exist in \mbox{ACT-R} theory. It is used only for convenience to reference the specific chunk when writing models. The chunk-types can be organized into hierarchies.
 	
-
-	In \mbox{ACT-R's} theory the declarative memory is represented by \emph{chunks}, data structures defined as a n-tuple (slots) of arbitrary size. The n-tuples and their values are specified in the \emph{chunk-type}, which defines also the initial value of the slot. Every chunk has also a name, used to reference, but that is not considered to be a part of the chunk itself. The chunks and their slots are used to implement the mechanisms of \mbox{ACT-R's} theory, even if the slots are only software construct and not part of the theory itself. The chunk-types can be organized into hierarchies.
-
-	The \mbox{ACT-R's} counter part of the human procedural memory are the \emph{productions}. Productions are the \mbox{ACT-R} equivalent of functions. They define sequences of actions and can be fired only if a set of preconditions is satisfied.  
+	The \emph{productions} are the \mbox{ACT-R} equivalent of functions. They define sequences of actions and can be fired only if a set of preconditions is satisfied.  
 
 	All the activities carried out by the brain, i.e. talking or moving, are performed by neurons located close together, in a well defined and limited area of the cortex. Similarly each module of \mbox{ACT-R} represents a function of the human brain. In the \mbox{ACT-R's architecture} the task of the procedural module is to coordinate all the other modules. The exchange of information between the modules is achieved through \emph{buffers}.
 
