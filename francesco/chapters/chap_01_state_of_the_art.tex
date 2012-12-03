@@ -71,10 +71,10 @@
 	\end{figure}
 	
 	
-	In fact, modules are independent of each other, they do not share variables or information. They can communicate with each other thanks to the \emph{buffers}, which represent the interfaces of a module towards the others. A module can have no buffers as well as one or more than one. The communication consists in exchanging chunks. Each module can read chunks from every buffer, but it can make changes only to the chunks in its own buffers. Moreover each buffer can hold one chunk at a time ~\cite{actr6refman}. 
+	In fact, modules are independent of each other, they do not share variables or information. They can communicate with each other thanks to the \emph{buffers}, which represent the interfaces of a module towards the others. A module can have no buffers as well as one or more than one. The communication consists in exchanging chunks. Each module can read chunks from every buffer but it can make changes only to the chunks in its own buffers. Moreover each buffer can hold one chunk at a time ~\cite{actr6refman}. 
 
 	Although modules usually work in a parallel way, their interactions can be only serial.
-	There are two reasons for this limitation: firstly the structure of the buffers can hold only one chunk, secondly only one production whose preconditions are satisfied can be fired at a time ~\cite{actr6refman}.
+	There are two reasons for this limitation: the first one is that the structure of the buffers can hold only one chunk and the second one is that only one production can be fired at a time ~\cite{actr6refman}.
 	
 	\subsection{Applications}
 	Up to now, it has been used in many different areas, the most important of which are problem solving, communication and perception. \todo{espandere e aggiungere fonti}.
