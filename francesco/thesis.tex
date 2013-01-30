@@ -41,6 +41,7 @@
 \usepackage{acronym}%?
 \usepackage{makecell}
 \usepackage{todonotes} %%todo things
+\usepackage{verbatim} %%commenti multilinea
 
 %Intestazioni e pie? pag.  
 \usepackage[automark,headsepline,footsepline,autooneside,plainheadsepline,plainfootsepline]{scrpage2}	%i comandi plain-ecccc servono a dire che nella prima pag. del nuovo cap. voglio queste cose.
@@ -86,16 +87,19 @@
 \newpage
 \thispagestyle{empty}
 \mbox{}
-
-\input{chapters/chap_01_state_of_the_art.tex}
-\newpage
-\input{chapters/chap_02_requirements.tex}
-\newpage
-\input{chapters/chap_03_development_process.tex}
-\newpage
-\input{chapters/chap_04_design.tex}
-\newpage
-\input{chapters/chap_05_implementation.tex}
+	\input{chapters/chap_01_introduction.tex}
+	\newpage
+	\input{chapters/chap_02_state_of_the_art.tex}
+	\newpage
+	\input{chapters/chap_03_objective.tex}
+	\newpage
+	\input{chapters/chap_04_development_process.tex}
+	\newpage
+	\input{chapters/chap_05_design.tex}
+	\newpage
+	\input{chapters/chap_06_implementation_and_testing.tex}
+	\newpage
+	\input{chapters/chap_07_conclusions.tex}
 
 
 \pagenumbering{roman}

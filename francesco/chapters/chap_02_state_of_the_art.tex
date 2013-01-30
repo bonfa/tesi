@@ -1,7 +1,11 @@
 \chapter{State Of The Art}
+
   This chapter, after having introduced the concept of cognitive architecture, describes the main working instrument used for this work: \mbox{ACT-R,} the cognitive architecture and \mbox{OpenCV,} the computer vision library. 
+
+%TODO inserire in act-r
   %% Cognitive Architecture
-  \section{Cognitive Architecture}	
+\begin{comment}
+ \section{Cognitive Architecture}	
 	A cognitive architecture is the implementation through computer simulation softwares \todo{controllare correttezza di softwares} of a theory about human cognition. The theory generally relies on a wide selection of human experimental data. The design of these architectures tries to simulate human intelligence in a humanlike way.
 	
 	\textit{"A cognitive architecture is not a single algorithm or method for solving a problem; rather, it is the task-independent infrastructure that brings an agent’s knowledge to bear on a problem in order to produce behavior"}~\cite{SoarCogArch2012}. A cognitive architecture alone can not solve any problem. In order to be able to do it, it needs to be supplied with the knowledge to perform it. The combination of an architecture and the knowledge necessary to solve a specific task is called \emph{model}. It is possible to create many models able to solve the same task. The specific knowledge is determined by the \emph{modeler} ~\cite{Sears2012}. 
@@ -11,7 +15,8 @@
 	As the term \emph{infrastructure} suggests, cognitive architectures usually are built aggregating many software modules, most of which represent functions of the human brain. Anyway, there exist other modules, which coordinate the overall functioning and without which the whole architecture could not work. In the following section, which describes \emph{ACT-R}, the \emph{procedural module} is an example of such modules. In fact, it does not represent a function of the human being, though it is necessary to coordinate the communication between all the other modules. 
 	
 	Some architectures, can, in addition, include some \emph{learning mechanisms}. This can be the attempt to simulate the human memory system, thanks to which the behaviour of a human can be different after having experienced facts or consequences of a specific choice ~\cite{Sears2012}.
-	
+
+\end{comment}		
 	
   %% ACT-R
   \section{ACT-R}
@@ -75,7 +80,7 @@
 	Although modules usually work in a parallel way, their interactions can be only serial.
 	There are two reasons for this limitation: the first one is that the structure of the buffers can hold only one chunk at a time and the second one is that only one production can be fired at a time ~\cite{actr6refman}.
 	
-	
+	%TODO allungare (di parecchio)	questa parte
   %% OPENCV
   \section{OpenCV}
 	\mbox{OpenCV}, an abbreviation that stands for \emph{Open Source Computer Vision}, is a computer vision library that was originally developed by Intel and, later on, by Willow Garage.
