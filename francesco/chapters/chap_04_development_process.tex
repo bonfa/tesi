@@ -1,11 +1,11 @@
 \chapter{Development Process}
-This chapter, after having introduced the agile development framework SCRUM, describes the development process adopted by the team in order to complete the work.
+This chapter, after having introduced the agile development framework \emph{Scrum}, describes the development process adopted by the team in order to complete the work.
 
-	% TODO
-	\section{SCRUM}\label{ref_scrum}
-	SCRUM is a framework for the agile management of the project development. 
+	%TODO: qui i corsivi sono usati quando il termine è usato per la prima volta senza essere stato definito (non è una convenzione)
+	\section{Scrum}\label{ref_scrum}
+	\emph{Scrum} is a framework for the agile management of the project development. 
 	As such, it does not define the technical way in which the developers must do the job but it follows the development process. 	
-	The framework has many dimensions: roles, events, rules and artifacts within the framework serve specific purposes and contribute the Scrum's success. 
+	The framework has many dimensions: roles, events, rules and artifacts within the framework serve specific purposes and contribute the Scrum's success ~\cite{scrumEnglishGuide}.  
 
 	The following sections describe one by one these components. The first section describes the main roles of people within the framework, the second focuses on the events and the meetings necessary for the implementation of the methodology and the third one puts in evidence the artifacts needed.
 
@@ -22,27 +22,34 @@ This chapter, after having introduced the agile development framework SCRUM, des
 
 		\subsection{The Scrum Team}\label{ref_scrum_team}
 		The \emph{Scrum Team} is composed of a \emph{Product Owner}, the \emph{Development Team}, and a \emph{Scrum Master}.
-		These figures have different roles but all of them have to reach the same goal, deliver an increment part of usable product at constant time intervals. %(see \ref{ref_scrum_sprint_plan}). 
-		Scrum Teams are self-organizing and cross-functional. Self-organization gives the members the possibility to choose how best to accomplish their work, without being directed by others outside the team. Cross-functionality gives the team all the competencies needed to accomplish the work without depending on others not part of the team. The delivery of the products is iterative and incremental. This fact guarantees a constant feedback on the correctness of the job and ensures that a potentially useful version of the working product is always available ~\cite{scrumEnglishGuide}.
+		These figures have different roles but all of them have to reach the same goal, deliver an increment part of usable product at constant time intervals ~\cite{scrumEnglishGuide}. %(see \ref{ref_scrum_sprint_plan}). 
 
-			The following paragraphs will describe each of the three roles.
+		Scrum Teams are self-organizing and cross-functional. Self-organization gives the members the possibility to choose how best to accomplish their work, without being directed by others outside the team. Cross-functionality gives the team all the competencies needed to accomplish the work without depending on others not part of the team ~\cite{scrumEnglishGuide}. 
 
-			\begin{figure}[h]
-			  \begin{center} 
-				%immagine senza copywright  :)
-			    \includegraphics[scale=0.75]{images/ch_04/scrum_team_final.jpg}
-			  \end{center} 
-			  \caption{\textit{The Scrum Team}}  
-			  \label{fig:ScrumTeam}
-		  	\end{figure}
+		The delivery of the products is iterative and incremental. This fact guarantees a constant feedback on the correctness of the job and ensures that a potentially useful version of the working product is always available ~\cite{scrumEnglishGuide}.
+
+		The following paragraphs will describe each of the three roles.
+
+		\begin{figure}[h]
+		  \begin{center} 
+			%immagine senza copywright  :)
+		    \includegraphics[scale=0.75]{images/ch_04/scrum_team_final.jpg}
+		  \end{center} 
+		  \caption{\textit{The Scrum Team}}  
+		  \label{fig:ScrumTeam}
+	  	\end{figure}
 			
 
-
 			\subsubsection{Product Owner}\label{ref_prod_owner}
-			The \emph{Product Owner} is the person who represents the stakeholders of the product. The Product Owner can represent the will of a committee but must be one person. His role is to define the requirements of the new versions of the product, assign them the priorities, explain them to the team in detail and is responsible for the performance of the team. The requirements are called \emph{Backlog Items} and are included in the \emph{Product Backlog}. This document is described in more details in section \ref{ref_scrum_artifacts} ~\cite{scrumEnglishGuide}.
+			The \emph{Product Owner} is the person who represents the stakeholders of the product. His role is to define the requirements of the new versions of the product, assign them the priorities, explain them to the team in detail and is responsible for the performance of the team. 
+			The requirements are called \emph{Backlog Items} and are included in the \emph{Product Backlog}. This document is described in more details in section \ref{ref_scrum_artifacts}.
+			The Product Owner can represent the will of a committee but must be one person ~\cite{scrumEnglishGuide}. 
+			
 
 			\subsubsection{Development Team}\label{ref_scrum_dev_team}
-			The \emph{Development Team} consists of professionals who have to add the new functionalities to the product. The team is usually composed of a number of member which varies from three to nine. One team must be self-organizing, this means that only the members can decide the step by step tasks to be accomplished in order to add functionalities to the product. Every team is also cross-functional, i.e. is composed by people who have different skills. In this way it can be autonomous and it does not have to depend on other people outside the team to accomplish its job. More the Development Team's synergy is, more optimized its overall efficiency and effectiveness are ~\cite{scrumEnglishGuide}.
+			The \emph{Development Team} consists of professionals who have to add the new functionalities to the product. The team is usually composed of a number of member which varies from three to nine. 	
+			One team must be self-organizing, this means that only the members can decide the step by step tasks to be accomplished in order to add functionalities to the product. Every team is also cross-functional, i.e. is composed by people who have different skills. In this way it can be autonomous and it does not have to depend on other people outside the team to accomplish its job.
+			More the Development Team's synergy is, more optimized its overall efficiency and effectiveness are ~\cite{scrumEnglishGuide}.
  
 			\subsubsection{Scrum Master}\label{ref_scrum_master}
 			The \emph{Scrum Master} has the role to verify that Scrum is understood and put in place. He or she does this checking that everyone in the team follows Scrum theory, practices, and rules. 
@@ -54,7 +61,7 @@ This chapter, after having introduced the agile development framework SCRUM, des
 		\subsection{Events}\label{ref_scrum_events}
 			Prefixed meetings in Scrum have the purpose to create regularity and hence to minimize the need for meetings not defined in Scrum, which can distract the members of the team from their tasks. In this events, different roles in the Scrum Team can interact with regularity, without the need for continuous interruptions. All the events are time-boxed, i.e. every event has a maximum duration. This ensures that only the appropriate amount of time is spent planning avoiding time wasting ~\cite{scrumEnglishGuide}. 
 
-			The following sections describe the Sprint, the Sprint Planning Meeting, the Daily Scrum, the Sprint Review and the Sprint Retrospective.
+			The following sections describe the \emph{Sprint}, the \emph{Sprint Planning Meeting}, the \emph{Daily Scrum}, the \emph{Sprint Review} and the \emph{Sprint Retrospective}.
 
 			\begin{figure}[h]
 			  \begin{center} 
@@ -71,15 +78,15 @@ This chapter, after having introduced the agile development framework SCRUM, des
 			\subsubsection{Sprint}\label{ref_scrum_sprint}
 			The \emph{Sprint} is the primary unit of development in Scrum. It is a time-box with a fixed in advance duration. The duration can last from one week to one month. During this period of time the team creates finished portions of a product ~\cite{scrumEnglishGuide}. 
 	
-			Each Sprint is preceded by a \emph{Sprint Planning Meeting}, where the Scrum Team defines the tasks for the Sprint and gives an estimation for the Sprint goal. It ends with the \emph{Sprint Review Meeting} and \emph{Sprint Retrospective Meeting}, where the Scrum Team respectively reviews the progress and analyses the mistakes in the Scrum method and proposes solutions in order to avoid it in the next sprint. All these events will be described with more details in the next sections ~\cite{scrumEnglishGuide}.  
+			Each Sprint is preceded by a \emph{Sprint Planning Meeting}, where the Scrum Team defines the tasks for the Sprint and gives an estimation for the Sprint Goal. It ends with the \emph{Sprint Review Meeting} and \emph{Sprint Retrospective Meeting}, where the Scrum Team respectively reviews the progress and analyses the mistakes in the Scrum method and proposes solutions in order to avoid it in the next Sprint. All these events will be described with more details in the next sections ~\cite{scrumEnglishGuide}.  
 
 
 			\subsubsection{Sprint Planning Meeting}\label{ref_scrum_sprint_plan}
 			The \emph{Sprint Planning Meeting} is a meeting at which all the member of the Scrum Team participate. It precedes every Sprint. In this meeting the team decides which feature add to the product by the end of the Sprint ~\cite{scrumEnglishGuide}.
 
-			At first the Product Owner informs the team of the features that he wants to be completely added to the product. Every feature is an item in the \emph{product backlog}, which is described in the section \ref{ref_scrum_prod_backlog}. Then, the Development Team estimates how long it takes to add every new feature to the product and, consequently, how many of them will be added by the end of the Sprint. Often this part of the meeting is signed by a clarification about the requirements between the Product Owner and the Development Team that leads to new time estimation for each goal. The goals are split into tasks, each of which takes no more than two days to be accomplished by the development team. Every task and the plan for delivery them are collected in the \emph{Sprint Backlog}, described in the section \ref{ref_scrum_sprint_backlog} ~\cite{scrumEnglishGuide}.
+			At first the Product Owner informs the team of the features that he wants to be completely added to the product. Every feature is an item in the \emph{Product Backlog}, which is described in the section \ref{ref_scrum_prod_backlog}. Then, the Development Team estimates how long it takes to add every new feature to the product and, consequently, how many of them will be added by the end of the Sprint. Often this part of the meeting is signed by a clarification about the requirements between the Product Owner and the Development Team that leads to new time estimation for each goal. The goals are split into tasks, each of which takes no more than two days to be accomplished by the Development Team. Every task and the plan for delivery them are collected in the \emph{Sprint Backlog}, described in the section \ref{ref_scrum_sprint_backlog} ~\cite{scrumEnglishGuide}.
 
-			Every Sprint must have a \emph{Sprint Goal}. The Sprint Goal acts like a sort of motivation which reminds the Development Team during the whole sprint which is in a wider context the goal of their activities. For this the sprint goals should not be changed during the sprint ~\cite{scrumEnglishGuide}.
+			Every Sprint must have a \emph{Sprint Goal}. The Sprint Goal acts like a sort of motivation which reminds the Development Team during the whole Sprint which is in a wider context the goal of their activities. For this the Sprint Goal should not be changed during the Sprint ~\cite{scrumEnglishGuide}.
 		
 			\subsubsection{Daily Scrum}\label{ref_scrum_daily}
 			The \emph{Daily Scrum} is a fifteen minutes event for the Development Team, that allows the team to synchronize the work and plan the next day activities. This purpose is achieved analyzing the work done in the last day and forecasting the work for the next one. 
@@ -88,31 +95,31 @@ This chapter, after having introduced the agile development framework SCRUM, des
 
 			\subsubsection{Sprint Review}\label{ref_scrum_sprint_rev}
 			The \emph{Sprint Review} is a time-boxed meeting which closes every Sprint. In this meeting the increment of the work is analyzed and, if needed, the Product Backlog is updated. 
-			During the meeting, the Product Owner analyzes what has been completed and what has not been completed. The Development Team describes the problem it encountered, how it solved them and shows the new functionalities added to the product. Then the whole team discusses of new opportunities and, more generally, collaborates on what to do next, updating consequently the Product Backlog ~\cite{scrumEnglishGuide}.			
+			During the meeting, the Product Owner analyzes what has been completed and what has not been completed. The Development Team describes the problems it encountered, how it solved them and shows the new functionalities added to the product. Then the whole team discusses of new opportunities and, more generally, collaborates on what to do next, updating consequently the Product Backlog ~\cite{scrumEnglishGuide}.			
 
 			\subsubsection{Sprint Retrospective}\label{ref_scrum_sprint_retro}
-			The \emph{Sprint Retrospective} is a time-boxed meeting which is fixed after ever Sprint Review. It is an opportunity for the Scrum Team to analyze its scrum implementation and create a plan for the improvements of the next Sprint. 
-			During the meeting the focus is set on people, relationships, process and tools. The most important successes are shown and a plan for implementing potential improvements is created. 
+			The \emph{Sprint Retrospective} is a time-boxed meeting which is fixed after ever Sprint Review. It is an opportunity for the Scrum Team to analyze its Scrum implementation and create a plan for the improvements of the next Sprint. 
+			During the meeting the focus is set on people, relationships, processes and tools. The most important successes are shown and a plan for implementing potential improvements is created. 
 			The purpose of this meeting is to make the implementation of the method more effective optimizing the development process and introducing techniques that make the method more productive and enjoyable ~\cite{scrumEnglishGuide}. 
 
 		
 		\subsection{Artifacts}\label{ref_scrum_artifacts}
-			Scrum's \emph{artifacts} represent the work in many different ways. The basic artifacts required by the framework are the Product Backlog and the Sprint Backlog.
+			Scrum's \emph{artifacts} represent the work in many different ways. The basic artifacts required by the framework are the \emph{Product Backlog} and the \emph{Sprint Backlog}.
 
 			\subsubsection{Product Backlog}\label{ref_scrum_prod_backlog}
-			The \emph{Product Backlog} is an artifact which contains the list of the requirements for a product. The elements of the list, called \emph{Backlog Items}, are sorted by priority. 
+			The \emph{Product Backlog} is an artifact which contains the list of the requirements for a product. The elements of the list, called \emph{Backlog Items}, are sorted by priority ~\cite{scrumEnglishGuide}.
 
-			Every Item must have a name, a description, an estimate and a priority. For each Item, the Product Owner, representing the stakeholder will, sets the priority and	 the Development Team defines the estimate.
+			Every Item must have a name, a description, an estimate and a priority. For each Item, the Product Owner, representing the stakeholder will, sets the priority and	 the Development Team defines the estimate ~\cite{scrumEnglishGuide}.
 
-			The Product Backlog is dynamic. The earliest versions of it only contain the initially and best understood requirements of the product. Then, as long as the product evolves and new requirements are introduced, it is continuously updated. In this way, it always contains all the features, enhancements and fixes that must be added in the future at the product. 
+			The Product Backlog is dynamic. The earliest versions of it only contain the initially and best understood requirements of the product. Then, as long as the product evolves and new requirements are introduced, it is continuously updated. In this way, it always contains all the features, enhancements and fixes that must be added in the future at the product ~\cite{scrumEnglishGuide}.  
 
-			As the higher ordered Items are more important than lower ordered ones, they are clearer and more detailed. The team makes more precise estimates basing on the greater clarity and increased detail. The lower the order of the items, the less detailed are the description and the time estimation.
+			As the higher ordered Items are more important than lower ordered ones, they are clearer and more detailed. The team makes more precise estimates basing on the greater clarity and increased detail. The lower the order of the items, the less detailed are the description and the time estimation ~\cite{scrumEnglishGuide}.  \todo{correggi questa frase}
 			
-			The activity of adding detail, estimates, and order to the items in the Product Backlog is called \emph{grooming}. The Scrum Team decides how and when doing it. Anyway the grooming activity must not consume more than the 10\% of the capacity of the team.
+			The activity of adding detail, estimates, and order to the items in the Product Backlog is called \emph{grooming}. The Scrum Team decides how and when doing it. Anyway the grooming activity must not consume more than the 10\% of the capacity of the team ~\cite{scrumEnglishGuide}. 
 		
 
 			\subsubsection{Sprint Backlog}\label{ref_scrum_sprint_backlog}
-			The \emph{Sprint Backlog} contains the \emph{Product Backlog Items} selected for the current Sprint and a plan for completing all the modification to the product and realizing the Sprint Goal. 
+			The \emph{Sprint Backlog} contains the Product Backlog Items selected for the current Sprint and a plan for completing all the modification to the product and realizing the Sprint Goal. 
 			The Sprint Backlog is a forecast about which functionalities should be added to the product by the end of the Sprint and, at the same time, monitors the state of the work during every day of the Sprint ~\cite{scrumEnglishGuide}.
 			
 			\begin{figure}[h]
@@ -123,11 +130,11 @@ This chapter, after having introduced the agile development framework SCRUM, des
 			  \label{fig:SprintBacklog}
 		  	\end{figure}
 
-			The level of detail of the work is such that it can be measured during the \emph{Daily Scrum}. Usually every Product Backlog Item is split into tasks, each of which must be accomplished in not more than than sixteen hours of work. The tasks are never assigned; rather, every member of the team takes charge of one of it during the daily scrum, according to the set priority and his own skills.
+			The level of detail of the work is such that it can be measured during the Daily Scrum. Usually every Product Backlog Item is split into tasks, each of which must be accomplished in not more than than sixteen hours of work. The tasks are never assigned; rather, every member of the team takes charge of one of it during the Daily Scrum, according to the set priority and his own skills ~\cite{scrumEnglishGuide}. 
 	
-			The Sprint Backlog is updated every day during the \emph{Daily Scrum}. If some new work emerges to be necessary in order to complete some requirements, the Development Team adds it to the Sprint Backlog. If there are some elements which are deemed unnecessary, they are removed.
+			The Sprint Backlog is updated every day during the Daily Scrum. If some new work emerges to be necessary in order to complete some requirements, the Development Team adds it to the Sprint Backlog. If there are some elements which are deemed unnecessary, they are removed ~\cite{scrumEnglishGuide}. 
 
-			The state of the ongoing activities can be monitored by a \emph{Burn Down Chart}, which measures the number of completed tasks per day and compares it with an ideal trend, which represents the estimates of the tasks. This chart allows to analyze the accuracy of the estimates and to have a visual representation of the ongoing work ~\cite{scrumEnglishGuide}.
+			The state of the ongoing activities can be monitored by a \emph{Burn Down Chart}, which measures the number of completed tasks per day and compares it with an ideal trend, which represents the estimates of the tasks. This chart allows to analyze the accuracy of the estimates and to have a visual representation of the ongoing work ~\cite{scrumEnglishGuide}. 
 
 					
 			
@@ -135,6 +142,22 @@ This chapter, after having introduced the agile development framework SCRUM, des
 	
 	% TODO 
 	\section{The Adopted Development Process}
+		% the development development process 
+		The development team decided to adopt an incremental and iterative development process, implementing the \emph{Scrum} framework. 
+
+		% argumentations
+		%This choice is led by the main motivation that such method can front very well the modifications of the requirements. 
+		The main motivation of this choice is the capacity of this method to front very well the modifications of the requirements. 
+		In most of cases, in fact, even if the requirements at the beginning seem to be well defined and clear, they change during the development. For example, it could happen that new requirements reveal to be more important than other ones or that after some clarifications between the client and the developers some features are redefined, some are deleted and some others are added. The possibility of an incremental and iterative development process to make continuous reviews of the product faces better such changes in the requirements. 
+
+		Moreover, the introduction of meetings in which is possible to discuss the state of the work and the working method improves considerably the performances of the team itself. In this way, in fact, the supervisors of the development team can postpone all the not essential communications until the next meetings, without the need to interrupt his work nor the developers. This leads to a more focused and less stressed work both for the developers and the supervisors.
+
+		The possibility to check the work at every Sprint increases the compliance between the system and the requirements. During the Sprint Reviews, the new increment of the software is shown. In this meetings, the clients give the Scrum Team a feedback about what they want and if the feature developed satisfy their need. So if there have been some misunderstandings in the comprehension of the requirements, they can be fixed in the next Sprints. This continuous product revision leads to a strict adherence between the system and the requirements.
+
+		The adopted development process allows the Product Owner and the Scrum Master to evaluate the performance of the team. As the features to be added and the estimates are decided during the Spring Planning Meeting, the Product Owner and all the members of the team have the plan of the whole Sprint. During the Sprint Review, the members can monitor how the actual work has been done in comparison with the plan. On a shorter period, the Daily Scrum is used to monitor the activity of the days, while the Product Backlog contains the history of all the modifications done on the software since its born. So with Scrum, the performances of the team are constantly measured.
+		
+			
+		\begin{comment}
 		%Cose che voglio dire:
 		1) Processo di sviluppo incementale e iterativo
 		2) No pair programmin nè test driven development  (dirlo ? )
@@ -143,9 +166,10 @@ This chapter, after having introduced the agile development framework SCRUM, des
 			-) sprint: 2 settimane
 			-) non c'era un committente ma c'era il project manager
 			-) 1 team
+		\end{comment}
 
 \begin{comment}
-	\section{SCRUM}
+	
 
 	\section{Working Instruments}
 	In addition to ACT-R and OpenCV, many other tools have been used. Here follows a list of the most important ones.
