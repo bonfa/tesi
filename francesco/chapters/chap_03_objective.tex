@@ -1,8 +1,68 @@
 \chapter{Objective}
 
-	\section{How psycologists define the experiments with ACT-R}
+	%\section{How psychologists define the experiments with ACT-R}
 
-	\section{The requirements}
+	\section{Functional Requirements}
+	The objective of the work is to project and implement a standalone software module which receives as input an image and is able to analyze it and extract the most important features of the it.
+
+	The input image is a color image which contains simple shapes. The shapes must not be overlapped and must have the same color hue.
+
+	The software must recognize shapes and for each of them must calculate area, perimeter, colors, dimensions, rotation, a bounding box and a center. It also has to be able to recognize the color of a single pixel, to calculate distances between objects, dimensional comparison between objects and the relative position of one object in respect with another one.
+	The shapes to be recognized are circles, triangles, rectangles and squares. 
+	The color of the object is calculated averaging all the pixels of the object.
+	The rotation is defined as the angle between the less sloped segment of the boundary of the object and the horizontal direction calculated in the counterclockwise order.
+	The bounding box is a rectangle whose coordinates are calculated getting the minimum and the maximum coordinates of the pixel in the image. 
+	The center of an image, is the center of the bounding box.
+	The distances between object are calculated in two different ways. The first one is the distance between the centers of two shapes. The second one is the shortest of all the distances calculated between each vertex of the bounding box of the first shape with all the vertexes of the bounding box of the second shape.
+	The dimensional relation between object is made comparing the areas of the two objects. 
+	The relative position of the object is made comparing the two top-left vertexes of each bounding box.
+
+	The software must be able to communicate with ACT-R. 
+	ACT-R must signal to the module which is the image to process and ask for a subset of the features that can be extracted. The module must return a chunk containing the information requested by ACT-R.
+
+	\section{Non functional Requirements}
+
+		\subsection{Product Requirements}
+		The software module must be general purpose, portable and it must work in background.
+		As general purpose is intended that, if possible, it should be easily adapted to be able to work with all the experiments that will be put in place by the psychologist in the future. Moreover it could be used as a shape recognition tool in the navigation with robot. %TODO reference più avanti
+		It must work on Windows, Linux and Mac OS operative systems.
+	
+		\subsection{Organizational Requirements}
+		The language of the implementation of the software must be c++. 
+		The computer vision library to be used must be OpenCV.
+		The adopted version control system must be Git.
+		A strict monitoring of the work is required.
+
+
+
+	\section{The Goal of the Software}
+	The goal of this software is to simplify the work of the psychologists when they define a new test case for one experiment. 
+
+	At the moment, a psychologist, in order to insert a new test in ACT-R, has to create two interfaces, one for the user and one for ACT-R.
+	The interface for the user is generally an image and can be created with any graphical editor. 
+	The interface for ACT-R, instead, is much more complicated and requires the creator of the experiment to write directly on the visual buffer each shape. \todo{check correctness of this}
+	
+	The following picture shows an example of an image used in the test.
+	The image on the left is the image shown to the user while the image on the right represents the ACT-R one. 
+	\todo{mettere le foto}
+
+	%qui metterei le due figure
+
+	So, to create a test, the psychologist has to create the same image in two different formats.
+	This double work causes a loss of time for the psychologist. Moreover, writing by hand all the shapes on ACT-R visual buffer is a low-level work and results in a stressing activity which can lead to errors.
+
+
+	The purpose of the software to be developed is to avoid to the psychologist the activity of writing on ACT-R visual buffer. This because the software module will analyze the image created for the user, will process it extracting the features needed to ACT-R and will communicate them to the artificial intelligence framework, which will design them automatically on its visual buffer. 
+	This will relieve the test creators of the double work described above leading to a better working experience, a less stressed work and a lower probability of errors.
+	
+
+	A further goal of the software is that the feature extraction process that is going to be implemented is used like an object recognition to be used during the robot navigation inside a building. \todo{lo metto? lo metto negli sviluppi futuri? era un requisito all'inizio}
+	
+
+	%The simple shapes recognized are circles, triangles, squares, rectangles and ellipses.
+	%Another important feature that must be introduced is the recognition of the text
+
+
 \begin{comment}
 	\section{Functional Requirements}
 		The objective of this work is to make easier the creation of an ACT-R test.\newline
