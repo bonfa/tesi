@@ -4,26 +4,26 @@ The objective of the work is composed by the goals the software have to reach an
 \end{comment}
 
 	\section{The Goals of the Software}
-	The software to be designed and developed is a visual module for the cognitive architecture ACT-R, whose aim is to improve ACT-R visual perception in order to make it more similar to human one. 
+	The software to be designed and developed is a visual module for the cognitive architecture ACT-R, whose aim is to improve ACT-R visual perception in order to make it more similar to the human one. 
 	
-	After a model is developed in ACT-R, it needs to be validated. Model validations usually are realized with experiments in which human beings take part. For every experiment some variables are measured like, for example, the time needed to complete a task. Then the results of these experiment are compared with the ones obtained by model.
+	After a model is developed in ACT-R, it needs to be validated. Model validations usually are realized with experiments in which human beings take part. For every experiment some variables are measured as, for example, the time needed to complete a task and the accuracy of the result. The variables obtained by the model are then compared with the ones obtained in these experiments.
  
-	For example, image \ref{RushHourHuman} shows a test case of an experiment in which the goal is to solve some levels of the game \emph{Rush Hour}. As shown, in a grid there are many colored rectangles, each of which represents a car. The player must free the red one making it go out of the grid through the exit on the right. The cars can be moved only in the horizontal and vertical directions. The goal of the game is to free the red car in the minimum number of moves and in the shortest possible time.
+	Image~\ref{fig:RushHourHuman} shows a test case of an experiment in which the goal is to solve some levels of the game \emph{Rush Hour}. As shown, in a grid there are many colored rectangles, each of which represents a car. The player must free the red one making it go out of the grid through the exit on the right. The cars can be moved only in the horizontal and vertical directions. The goal of the game is to free the red car in the minimum number of moves and in the shortest possible time.
 
-	\begin{figure}[h]
+	\begin{figure}[!h]
 	  \begin{center} 
-	    \includegraphics[scale=0.3]{images/ch_03/original.bmp}
+	    \includegraphics[scale=0.6]{images/ch_03/originale.jpg}	
 	  \end{center} 
-	  \caption{\textit{Example of level of Rush Hour game}}  
-	  \label{fig:RushHourHuman}
+	  \caption{\textit{Example of level of Rush Hour game}}
+	  \label{fig:RushHourHuman}	
   	\end{figure}
 	
-	For each test of the experiment, the image with the initial configuration is shown and the person his to give his solution of the game by clicking on the rectangles in the order he thinks to be the correct one and the best one to free the red car. The image never updates, it is static. The direction of the movement is interpreted by analyzing the movement of the eye, thanks to a software of eye tracking. Moreover, the movements and the clicks of the mouse are recorded and the time needed to give the solution is measured. 
+	For each test of the experiment, the image with the initial configuration is shown and the person has to give his solution of the game by clicking on the rectangles in the order he thinks to be the correct one and the best one to free the red car. The image never updates, it is static. The direction of the movement is interpreted by analyzing the movement of the eye, thanks to a software of eye tracking. Moreover, the movements and the clicks of the mouse are recorded and the time needed to give the solution is measured. 
 
 	The models written in ACT-R that need as first activity to process an image, like the one used to solve the rush hour game, at the moment skip this step and start directly from a list of objects which is written directly in the input of the project. 
 	In addition to the fact that writing the objects in a model is a loss of time for the psychologists, is a not scalable approach and presents many problems, the inability of the framework to process the real images is a big limitation for the architecture and leads to a gap between the human and the framework system.
 	
-	The goal of the developed software is to reduce this gap, being a starting point for a complete \todo{and general purpose??} tool for recognizing objects. To achieve this, the software analyzes the image created for the user, processes it extracting the features needed by ACT-R and stores the information in dedicated data structures. Then, when requested by the cognitive architecture, it communicates to the artificial intelligent framework all this information.
+	The goal of the developed software is to reduce this gap, being a starting point for a complete \todo{and general purpose??} tool for recognizing objects. To achieve this, the software analyzes the image created for the user, processes it extracting the features needed by ACT-R and stores the information in dedicated data structures. Then, when requested by the cognitive architecture, it communicates to the artificial intelligent framework all the stored information.
 
 \begin{comment}
 	The goals of the software  are to simplify the psychologists work of defining new test cases for experiments in ACT-R and to recognize objects during the navigation of robots.
@@ -53,14 +53,9 @@ The objective of the work is composed by the goals the software have to reach an
 	This relieves the creators of the test of the double task described above leading to a better working experience, a less stressed work and a lower probability of errors.
 	
 
-	The other scope in which the software is used is the robot navigation. 
-	The shapes identified by the software are used like a starting point for an object recognition process. 
-	The information about these objects, then, is used by ACT-R in order to take intelligent decisions during the robot navigation inside a building, without any other knowledge of the environment. The object recognition module has not been developed yet nor the requirements for achieving this second goal are defined. \todo{will i put this? or will i put it in the future developments? at the beginning it was a requirement. Will i say that the object recognition part is not developed yet?}
+	\todo{will i put this? or will i put it in the future developments? at the beginning it was a requirement. Will i say that the object recognition part is not developed yet?}
 \end{comment}
-\begin{comment}
-	The feature recognition, in particular, will be used by ACT-R in order to recognize objects starting from the simple shapes recognized by the software
- further use of the software is that the feature extraction process that is going to be implemented is used like an object recognition to be used during the robot navigation inside a building. 
-\end{comment}	
+
 
 	\section{Requirements}
 	The requirements are grouped in the following sections according to the functional/non-functional classification. 
@@ -68,12 +63,38 @@ The objective of the work is composed by the goals the software have to reach an
 	%Another important feature that must be introduced is the recognition of the text
 
 		\subsection{Functional Requirements}
-		The objective of the work is to design and implement a standalone software module which receives as input an image and is able to analyze it and extract the most important features of it.
+		The objective of the work is to design and implement a standalone software module which receives as input an image and is able to analyze it and extract some features of it.
 
-		The input image is a color image which contains simple shapes. The shapes must not be overlapped and must have the same color hue.
+		The input image is a color image which contains simple shapes. The shapes must not be overlapping and must have the same color hue.
 
-		The software must recognize shapes and for each of them must calculate area, perimeter, colors, dimensions, rotation, a bounding box and a center. It also has to be able to recognize the color of a single pixel, calculate distances between objects, make dimensional comparisons between objects and calculate the relative position of one object in respect with another one.
+		The software must recognize simple shapes, in particular:
+		\begin{itemize}
+	    		\item triangles;
+			\item rectangles;
+			\item quadrilaterals;
+			\item circles.
+		\end{itemize}
 
+		For each shape, it must calculate:
+		\begin{itemize}
+		    	\item area;
+		    	\item perimeter;
+			\item dimensions;
+			\item rotation;
+			\item a rectangular bounding box;
+			\item center;
+		\end{itemize}
+
+		Moreover, it has to:
+		\begin{itemize}
+			\item recognize the color of a single pixel;
+			\item recognize the color of a shape;
+		    	\item calculate distances between objects;			
+			\item make dimensional comparisons between objects
+			\item calculate the relative position of one object in respect with another one
+		\end{itemize}
+
+\begin{comment}
 		The shapes to be recognized are circles, triangles, rectangles and squares. 
 		The color of the object is calculated averaging all the pixels of the object.
 		The rotation is defined as the angle between the less sloped segment of the boundary of the object and the horizontal direction, calculated in the counterclockwise order.
@@ -82,18 +103,18 @@ The objective of the work is composed by the goals the software have to reach an
 		The distances between objects are calculated in two different ways. The first one is the distance between the centers of two shapes. The second one is the minimum distance calculated between each vertex of the bounding box of the first shape and all the vertexes of the bounding box of the second shape.
 		The dimensional relation between two objects is made comparing their areas. 
 		The relative position of two objects is found comparing the positions of the two top-left vertexes of each bounding box.
-		\todo{make a bulleted list?}
+\end{comment}
 
 		The software must be able to communicate with ACT-R. 
-		In particular, ACT-R must signal to it which is the image to process and ask for a subset of the features that can be extracted. The module must return a chunk containing the information requested by ACT-R.
+		In particular, ACT-R must signal to it which is the image to process and ask for a the features to be extracted. The module must return all the information extracted by ACT-R.
 
 		\subsection{Non-Functional Requirements}
 		The non-functional requirements described in the following subsections are respectively the requirements on the product and the organizational ones.
 
 			\subsubsection{Product Requirements}
 			The software module must be multi-purpose, portable and must work in background.
-			As multi-purpose is intended that, if possible, it should be easily adapted to be able to work with all the experiments that will be put in place in the future. Moreover it must be possible to adapt the software in order to use it as a shape recognition tool in the navigation with robots. %TODO reference più avanti
-			It must work on Windows, Linux and Mac OS operative systems.
+			As multi-purpose is intended that, if possible, it should be easily adapted to be able to work with all the experiments that will be put in place in the future. Moreover, it must be possible to adapt the software in order to use it as a shape recognition tool in the navigation with robots. %TODO reference più avanti
+			It has to be multi-platform, and work on Linux and Mac OS operative systems.
 	
 			\subsubsection{Organizational Requirements}
 			The language of the implementation of the software must be C++. 
@@ -102,6 +123,12 @@ The objective of the work is composed by the goals the software have to reach an
 			A strict monitoring of the work is required.
 
 	\section{Future Development}
+		Another scope in which the software will be used is the robot navigation. 
+		The shapes identified by the software will be used like a starting point for an object recognition process. 
+		The information about these objects, then, will be used by ACT-R in order to take intelligent decisions during the robot navigation inside a building, without any other knowledge of the environment. 
+		The object recognition module has not been developed yet nor the requirements for achieving this second goal are defined. 	
+
+		Moreover, in order to scale with other kinds of experiments an \emph{optical character recognition} tool will be added and other simple shapes will be recognized.
 
 
 
