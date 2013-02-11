@@ -1,9 +1,31 @@
 \chapter{Objective}
-
+\begin{comment}
 The objective of the work is composed by the goals the software have to reach and the definition of the requirements for achieving them. These two aspects are described in the following sections.
+\end{comment}
 
 	\section{The Goals of the Software}
-\begin{comment}to be developed\end{comment}
+	The software to be designed and developed is a visual module for the cognitive architecture ACT-R, whose aim is to improve ACT-R visual perception in order to make it more similar to human one. 
+	
+	After a model is developed in ACT-R, it needs to be validated. Model validations usually are realized with experiments in which human beings take part. For every experiment some variables are measured like, for example, the time needed to complete a task. Then the results of these experiment are compared with the ones obtained by model.
+ 
+	For example, image \ref{RushHourHuman} shows a test case of an experiment in which the goal is to solve some levels of the game \emph{Rush Hour}. As shown, in a grid there are many colored rectangles, each of which represents a car. The player must free the red one making it go out of the grid through the exit on the right. The cars can be moved only in the horizontal and vertical directions. The goal of the game is to free the red car in the minimum number of moves and in the shortest possible time.
+
+	\begin{figure}[h]
+	  \begin{center} 
+	    \includegraphics[scale=0.3]{images/ch_03/original.bmp}
+	  \end{center} 
+	  \caption{\textit{Example of level of Rush Hour game}}  
+	  \label{fig:RushHourHuman}
+  	\end{figure}
+	
+	For each test of the experiment, the image with the initial configuration is shown and the person his to give his solution of the game by clicking on the rectangles in the order he thinks to be the correct one and the best one to free the red car. The image never updates, it is static. The direction of the movement is interpreted by analyzing the movement of the eye, thanks to a software of eye tracking. Moreover, the movements and the clicks of the mouse are recorded and the time needed to give the solution is measured. 
+
+	The models written in ACT-R that need as first activity to process an image, like the one used to solve the rush hour game, at the moment skip this step and start directly from a list of objects which is written directly in the input of the project. 
+	In addition to the fact that writing the objects in a model is a loss of time for the psychologists, is a not scalable approach and presents many problems, the inability of the framework to process the real images is a big limitation for the architecture and leads to a gap between the human and the framework system.
+	
+	The goal of the developed software is to reduce this gap, being a starting point for a complete \todo{and general purpose??} tool for recognizing objects. To achieve this, the software analyzes the image created for the user, processes it extracting the features needed by ACT-R and stores the information in dedicated data structures. Then, when requested by the cognitive architecture, it communicates to the artificial intelligent framework all this information.
+
+\begin{comment}
 	The goals of the software  are to simplify the psychologists work of defining new test cases for experiments in ACT-R and to recognize objects during the navigation of robots.
 
 	At the moment, a psychologist, in order to insert a new test in ACT-R, has to create two interfaces, one for the user and one for ACT-R.
@@ -26,7 +48,7 @@ The objective of the work is composed by the goals the software have to reach an
 	So, to create a test, the psychologist has to create the same image in two different formats.
 	This double work causes a loss of time for the psychologist. Moreover, writing by hand all the shapes on ACT-R visual buffer is a low-level activity and can lead to stress and consequently to errors.
 
-\begin{comment}to be developed\end{comment}
+
 	The purpose of the software is to avoid to the psychologists the activity of writing on ACT-R visual buffer. To achieve this, the software analyzes the image created for the user, processes it extracting the features needed by ACT-R and communicates them to the artificial intelligence framework, which designs them automatically on its visual buffer. 
 	This relieves the creators of the test of the double task described above leading to a better working experience, a less stressed work and a lower probability of errors.
 	
@@ -34,7 +56,7 @@ The objective of the work is composed by the goals the software have to reach an
 	The other scope in which the software is used is the robot navigation. 
 	The shapes identified by the software are used like a starting point for an object recognition process. 
 	The information about these objects, then, is used by ACT-R in order to take intelligent decisions during the robot navigation inside a building, without any other knowledge of the environment. The object recognition module has not been developed yet nor the requirements for achieving this second goal are defined. \todo{will i put this? or will i put it in the future developments? at the beginning it was a requirement. Will i say that the object recognition part is not developed yet?}
-
+\end{comment}
 \begin{comment}
 	The feature recognition, in particular, will be used by ACT-R in order to recognize objects starting from the simple shapes recognized by the software
  further use of the software is that the feature extraction process that is going to be implemented is used like an object recognition to be used during the robot navigation inside a building. 
@@ -79,7 +101,7 @@ The objective of the work is composed by the goals the software have to reach an
 			The adopted version control system must be Git.
 			A strict monitoring of the work is required.
 
-
+	\section{Future Development}
 
 
 
