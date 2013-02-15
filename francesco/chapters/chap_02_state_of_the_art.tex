@@ -120,12 +120,47 @@ This chapter describes the main working instrument used for this work: the cogni
   %% OPENCV
   \section{OpenCV}
 	\mbox{OpenCV}, an abbreviation that stands for \emph{Open Source Computer Vision}, is a computer vision library that was originally developed by Intel and, later on, by Willow Garage.
-	It is a cross-platform library, released under a BSD license, thus it is free and open source. In the beginning it was developed in C and C++ and afterwards it was expanded by the addition of interfaces for Java and Python. \mbox{OpenCV} is designed for computational efficiency and with a strong focus on real-time applications. The version 2.4 has more than 2500 algorithms. The library has been used in many applications as, for example, mine inspection and robotics \cite{OpenCV:MainWebPage}. The following sections contain a brief history of the library and a list of its main features.
-		
-	\subsection*{History}
-	The \mbox{OpenCV} Project started in 1999 as an Intel Reasearch initiative aimed to improve CPU intensive applications as a part of projects including real-time ray tracing and 3D display walls. The early goals of the project were developing optimized code for basic vision infrastructure, spreading this infrastructure to developers and making it portable and available for free, using a license that let the developers create both commercial and free applications.\newline
+	It is a cross-platform library and can run under Linux, Windows and Mac OS X. 
+	It is released under a BSD license, thus it is free and open source. 
+	In the beginning it was developed in C and C++ and afterwards it was expanded by the addition of interfaces for other languages as, for example, Java, Python, Ruby and Matlab. 
+
+	\mbox{OpenCV} is designed for computational efficiency and with a strong focus on real-time applications. On Intel architectures there is the possibility to further optimize the library thanks to Intel's \emph{IPP} library. IPP library, that stands for \emph{Integrated Performance Primitives}, contains a series of low-level optimized routines in many different algorithmic areas. If this library is installed, \mbox{OpenCV} uses it automatically at runtime.
+
+	\mbox{OpenCV} offers a simple to use infrastructure that helps programmers create quite complicated vision applications in an acceptable time. The version 2.4 has more than 2500 algorithms that covers many areas of vision. The library has been used in many applications as, for example, mine inspection and robotics 
+	It also contains \emph{MLL}, a full and general purpose \emph{Machine Learning Library}, which allows provides functions for pattern recognition and clustering\cite{bradski2008learning}. 
+
+	The following sections contain a brief history of the library, a description of its main features and an overview on the architecture of the library. As the aim of this work is not to list and describe all the algorithms and techniques implemented in the computer vision library, for more information about this see texts by Trucco~\cite{trucco1998introductory} for a simple introduction, Forsyth~\cite{forsyth2011computer} as a comprehensive reference, and Hartley~\cite{hartley2003multiple} and Faugeras~\cite{faugeras1993three} for how 3D vision really works.
+
+
+
+
+	
+	\subsection{History}
+	The \mbox{OpenCV} Project started in 1999 as an Intel Research initiative aimed to improve CPU intensive applications as a part of projects including real-time ray tracing, which in computer graphics is a particular technique for generating images, and 3D display walls. The early goals of the project were: developing optimized code for basic vision infrastructure, spreading this infrastructure to developers and making it portable and available for free, using a license that let the developers create both commercial and free applications.
+
 	The first alpha version was released to the public in 2000, followed by five beta versions between 2001 and 2005, which lead to version 1.0 in 2006. In 2008, the technology incubator Willow Garage begun supporting the project and, in the same year, version 1.1  was released.
+
 	In October 2009, \mbox{OpenCV} 2.0 was released. It includes many improvements, such as a better C++ interface, more programming patterns, new functions and an optimization for multi-core architectures. According to the current \mbox{OpenCV} release plan, a new version of the library is delivered on a six-months basis. \cite{OpenCV:ChangeLogs}.
 	
-	\subsection*{Main Features}
-	\mbox{OpenCV} offers a wide range of possibilities. First of all, it provides an easy way to manage image and video data types. It also offers functions to load, copy, edit, convert and store images and a basic graphical user interface that lets \todo{perchè non va bene?} the developers handle keyboard and mouse and display images and videos. The library lets manipulate images even with matrix and vector algebra routines. It supports the most common dynamic data structures and offers many different basic image processing functions: filtering, edge and corner detection, color conversion, sampling and interpolation, morphological operations, histograms and image pyramids. Beyond this, it integrates many functions for structural analysis of the image, camera calibration, motion analysis and object recognition. \cite{Agam2006}.
+	\subsection{Main Features}
+	\mbox{OpenCV} offers a wide range of possibilities. First of all, it provides an easy way to manage image and video data types. It also offers functions to load, copy, edit, convert and store images and a basic graphical user interface that allows the developers to handle keyboard and mouse and display images and videos. The library permits to manipulate images even with matrix and vector algebra routines. It supports the most common dynamic data structures and offers many different basic image processing functions: filtering, edge and corner detection, color conversion, sampling and interpolation, morphological operations, histograms and image pyramids. Beyond this, it integrates many functions for structural analysis of the image, camera calibration, motion analysis and object recognition. \cite{Agam2006}.
+	
+	\subsection{Architecture}
+	Since version 2.2, the OpenCV library is divided into several modules. These modules are built in library files located in the lib directory. They are:
+	 The opencv core module that contains the core functionalities of the library, in   particular, the basic data structures and arithmetic functions.
+
+	The opencv imgproc module that contains the main image processing functions.
+
+	The opencv highgui module that contains the image and video reading and   writing functions, along with other user interface functions.
+
+	The opencv features2d module that contains the feature point detectors and   descriptors and the feature point matching framework.
+
+	The opencv calib3d module that contains the camera calibration, two-view   geometry estimation, and stereo functions.
+
+	The opencv video module that contains the motion estimation, feature tracking,   and foreground extraction functions and classes.
+
+	 The opencv objdetect module containing the object detection functions such as   the face and people detectors.
+
+	The library also includes other utility modules containing machine learning functions (opencv ml), computational geometry algorithms (opencv flann), contributed code (opencv contrib), obsolete code (opencv legacy), and gpu accelerated code (opencv gpu).
+
+
