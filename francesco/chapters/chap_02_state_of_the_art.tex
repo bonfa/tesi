@@ -126,41 +126,56 @@ This chapter describes the main working instrument used for this work: the cogni
 
 	\mbox{OpenCV} is designed for computational efficiency and with a strong focus on real-time applications. On Intel architectures there is the possibility to further optimize the library thanks to Intel's \emph{IPP} library. IPP library, that stands for \emph{Integrated Performance Primitives}, contains a series of low-level optimized routines in many different algorithmic areas. If this library is installed, \mbox{OpenCV} uses it automatically at runtime.
 
-	\mbox{OpenCV} offers a simple to use infrastructure that helps programmers create quite complicated vision applications in an acceptable time. The version 2.4 has more than 2500 algorithms that covers many areas of vision. The library has been used in many applications as, for example, mine inspection and robotics 
+	\mbox{OpenCV} offers a simple to use infrastructure that helps programmers create quite complicated vision applications in an acceptable time. The version 2.4 has more than 2500 algorithms that covers many areas of vision. The library has been used in many applications as, for example, mine inspection and robotics. 
 	It also contains \emph{MLL}, a full and general purpose \emph{Machine Learning Library}, which allows provides functions for pattern recognition and clustering\cite{bradski2008learning}. 
 
-	The following sections contain a brief history of the library, a description of its main features and an overview on the architecture of the library. As the aim of this work is not to list and describe all the algorithms and techniques implemented in the computer vision library, for more information about this see texts by Trucco~\cite{trucco1998introductory} for a simple introduction, Forsyth~\cite{forsyth2011computer} as a comprehensive reference, and Hartley~\cite{hartley2003multiple} and Faugeras~\cite{faugeras1993three} for how 3D vision really works.
+	The following sections contain a brief history of the library, a description of its main features and an overview on the architecture of the library. The aim of this work is not to list and describe all the algorithms and techniques implemented in the computer vision library. For more information about this see texts by Trucco~\cite{trucco1998introductory} for a simple introduction, Forsyth~\cite{forsyth2011computer} as a comprehensive reference, and Hartley~\cite{hartley2003multiple} and Faugeras~\cite{faugeras1993three} for how 3D vision really works.
 
 
 
 
 	
 	\subsection{History}
-	The \mbox{OpenCV} Project started in 1999 as an Intel Research initiative aimed to improve CPU intensive applications as a part of projects including real-time ray tracing, which in computer graphics is a particular technique for generating images, and 3D display walls. The early goals of the project were: developing optimized code for basic vision infrastructure, spreading this infrastructure to developers and making it portable and available for free, using a license that let the developers create both commercial and free applications.
+	The \mbox{OpenCV} Project starts in 1999 as an Intel Research initiative aimed to improve CPU intensive applications as a part of projects including real-time ray tracing, which in computer graphics is a particular technique for generating images, and 3D display walls. The early goals of the project are: developing optimized code for basic vision infrastructure, spreading this infrastructure to developers and making it portable and available for free, using a license that allows the developers to create both commercial and free applications.
 
-	The first alpha version was released to the public in 2000, followed by five beta versions between 2001 and 2005, which lead to version 1.0 in 2006. In 2008, the technology incubator Willow Garage begun supporting the project and, in the same year, version 1.1  was released.
+	The first alpha version is released to the public in 2000, followed by five beta versions between 2001 and 2005, which lead to version 1.0 in 2006. In 2008, the technology incubator Willow Garage begins supporting the project and, in the same year, version 1.1  is released.
 
-	In October 2009, \mbox{OpenCV} 2.0 was released. It includes many improvements, such as a better C++ interface, more programming patterns, new functions and an optimization for multi-core architectures. According to the current \mbox{OpenCV} release plan, a new version of the library is delivered on a six-months basis. \cite{OpenCV:ChangeLogs}.
-	
+	In October 2009, \mbox{OpenCV} 2.0 is released. It includes many improvements, such as a better C++ interface, more programming patterns, new functions and an optimization for multi-core architectures. According to the current \mbox{OpenCV} release plan, a new version of the library is delivered on a six-months basis. \cite{OpenCV:ChangeLogs}.
+
+
 	\subsection{Main Features}
 	\mbox{OpenCV} offers a wide range of possibilities. First of all, it provides an easy way to manage image and video data types. It also offers functions to load, copy, edit, convert and store images and a basic graphical user interface that allows the developers to handle keyboard and mouse and display images and videos. The library permits to manipulate images even with matrix and vector algebra routines. It supports the most common dynamic data structures and offers many different basic image processing functions: filtering, edge and corner detection, color conversion, sampling and interpolation, morphological operations, histograms and image pyramids. Beyond this, it integrates many functions for structural analysis of the image, camera calibration, motion analysis and object recognition. \cite{Agam2006}.
+
+	\todo{espandere (dopo aver scritto la parte di architettura)}
 	
 	\subsection{Architecture}
-	Since version 2.2, the OpenCV library is divided into several modules. These modules are built in library files located in the lib directory. They are:
-	 The opencv core module that contains the core functionalities of the library, in   particular, the basic data structures and arithmetic functions.
+	Since version 2.2, the \mbox{OpenCV} library is divided into several modules, built in library files. Each module serves a specific purpose and includes functions in order to accomplish it. 
+\begin{comment}	
+The modules are:
+	\begin{itemize}
+	    		\item the \emph{core module}, that contains the core functionalities of the library, i.e. the basic data structures and functions used by all the other modules. The functions 
+			\item ;
+			\item ;
+			\item .
+	\end{itemize}
+\end{comment}
 
-	The opencv imgproc module that contains the main image processing functions.
+	The \emph{core module} contains the core functionalities of the library, i.e. the basic data structures, both in C and \mbox{C++} languages, and a variety of functions used by all the other modules. Such functions have many purposes: operating on arrays and matrices, drawing shapes on the images, storing and restoring library data structures and primitive data types in \mbox{XML} and \mbox{YAML} formats and other.
+	
+	The \emph{imgproc module} contains the main image processing functions. Processing an image means \emph{"using higher-level operators that are defined on image structures in order to accomplish tasks whose meaning is naturally defined in the context of graphical, visual images"}~\cite[128]{bradski2008learning}.
+	Such functions are, for example, operations to perform various linear or non-linear filtering on 2D images, geometrical transformations of 2D images (resize, affine and perspective warping, generic table-based remapping), color space conversions, histogram analysis, feature detection and object detection.
+	
+	The \emph{highgui module} allows the library to interact with the operating system, the file system and hardware such as cameras. Its interface permits to open windows, display images, read and write graphics-related files, both images and video, and handle simple mouse, pointer, and keyboard events. It also allows to add simple user interface elements to the displayed windows.   
 
-	The opencv highgui module that contains the image and video reading and   writing functions, along with other user interface functions.
+	The \emph{features2d module} allows to use different algorithms to implement the \emph{interest points processing}. This technique relies on the idea that instead of analyzing the complete image it is better to work on a limited number of particular pixels. Such points must be distinguishable features in all the images in which they must be detected. 
+	To do this, the module offers functions for feature detection, feature description and descriptor matching.
 
-	The opencv features2d module that contains the feature point detectors and   descriptors and the feature point matching framework.
+	The \emph{calib3d module} focuses on camera calibration and stereo vision. Camera calibration permits to modify images and videos by correcting the errors derived by the use of lenses. Stereo vision allows to have benefits from all the advantages given by using two equal cameras instead of one, like for example measuring distances with high precision.
 
-	The opencv calib3d module that contains the camera calibration, two-view   geometry estimation, and stereo functions.
+	The \emph{video module} contains functions and classes for implementing motion estimation, feature tracking, and foreground extraction algorithms.
 
-	The opencv video module that contains the motion estimation, feature tracking,   and foreground extraction functions and classes.
+	 The \emph{objdetect module} allows the detection of particular categories of objects such as faces or cars. To do that, this module contains functions for training the software in recognizing a particular class of objects and recognizing if an input image contains such kind of object once the learning is terminated. 
 
-	 The opencv objdetect module containing the object detection functions such as   the face and people detectors.
-
-	The library also includes other utility modules containing machine learning functions (opencv ml), computational geometry algorithms (opencv flann), contributed code (opencv contrib), obsolete code (opencv legacy), and gpu accelerated code (opencv gpu).
+	\mbox{OpenCV} also includes other utility modules: the \emph{ml module} contains machine learning functions, the \emph{flann module} computational geometry algorithms, the \emph{contrib module} some contributed code, the \emph{legacy module} some obsolete code and the \emph{gpu module} the gpu accelerated code.
 
 
