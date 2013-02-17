@@ -172,7 +172,7 @@ The modules are:
 
 	The \emph{calib3d module} focuses on camera calibration and stereo vision. Camera calibration permits to modify images and videos by correcting the errors derived by the use of lenses. Stereo vision allows to have benefits from all the advantages given by using two equal cameras instead of one, like for example measuring distances with high precision.
 
-	The \emph{video module} contains functions and classes for implementing motion estimation, feature tracking, and foreground extraction algorithms.
+	The \emph{video module} implements some techniques for video processing, in particular \emph{motion estimation}, \emph{feature tracking}, and \emph{foreground extraction} algorithms. Motion estimation techniques define motion vectors that describe the transformation from consequent frames. Feature tracking algorithms improve the motion estimation one working only with some feature instead of sets of pixels. Foreground extraction algorithms try to recognize foreground objects of interest comparing an observed image with an estimate of the same image if it contained no objects of interest. 
 
 	 The \emph{objdetect module} allows the detection of particular categories of objects such as faces or cars. To do that, this module contains functions for training the software in recognizing a particular class of objects and recognizing if an input image contains such kind of object once the learning is terminated. 
 
