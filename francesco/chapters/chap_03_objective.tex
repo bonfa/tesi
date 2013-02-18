@@ -6,9 +6,22 @@ The objective of the work is composed by the goals the software have to reach an
 	\section{The Goals of the Software}
 	The software to be designed and developed is a visual module for the cognitive architecture ACT-R, whose aim is to improve ACT-R visual perception in order to make it more similar to the human one. 
 	
-	After a model is developed in ACT-R, it needs to be validated. Model validations usually are realized with experiments in which human beings take part. For every experiment a specific program is created in order to measure some variables as, for example, the time needed to complete a task and the accuracy of the result. The parameters obtained by the model are then compared with the ones obtained in these experiments.
+	In order to develop a model in ACT-R, the modelers need a series of parameters on which basing the performances of the model itself.
+	The collection of such data is accomplished thanks to experiments in which human beings take part. 
+	For every experiment a specific program is created in order to measure some variables as, for example, the time needed to complete a task and the accuracy of the result.
+	The parameters obtained by these experiments are then used as reference parameter for the development of ACT-R model.
+
+\begin{comment}
+After a model is developed in ACT-R, it needs to be validated . Model validations usu-
+ally are realized with experiments in which human beings take part. For every experiment
+a specific program is created in order to measure some variables as, for example, the time
+needed to complete a task and the accuracy of the result. The parameters obtained by
+the model are then compared with the ones obtained in these experiments.
+\end{comment}
+
+
  
-	Image~\ref{fig:RushHourHuman} shows a test case of an experiment in which the goal is to solve some levels of the game \emph{Rush Hour}. As shown, the grid contains some colored rectangles, each of which represents a car. The player must free the red one making it go out of the grid through the exit on the right. The cars can be moved only in the horizontal and vertical directions. The goal of the game is to free the red car in the minimum number of moves and in the shortest possible time.
+	Image~\ref{fig:RushHourHuman} shows a test case of an experiment in which the goal is to solve some levels of the game \emph{Rush Hour}. As shown, the grid contains some colored rectangles, each of which represents a car. The player must free the red one making it go out of the grid through the exit on the right. The cars can be moved only in the horizontal and vertical directions. The goal of the game is to free the red car. The lower the number of moves and the time used to find the solution, the better is such solution.
 
 	\begin{figure}[!h]
 	  \begin{center} 
@@ -18,7 +31,7 @@ The objective of the work is composed by the goals the software have to reach an
 	  \label{fig:RushHourHuman}	
   	\end{figure}
 	
-	For each test of the experiment, the ad-hoc program shows the image with the initial configuration and the person has to give the solution of the game by clicking on the rectangles in the order he thinks to be the correct one and the best one to free the red car. As the program never updates the image, the player has to remember the moves he makes. The software manages to interpret the direction of the shift by analyzing the movement of the eye, thanks to a module of \emph{eye tracking}. Moreover, it records the movements of the mouse, the clicks of the mouse, the time needed to give the solution and the correctness of the solution. 
+	For each test of the experiment, the ad-hoc program shows the image with the initial configuration and the person has to give the solution of the game by clicking on the rectangles in the order he thinks to be correct to free the red car. As the program never updates the image, the player has to imagine the solution. The software manages to interpret the direction of the shift by analyzing the movement of the eye, thanks to a module of \emph{eye tracking}. Moreover, it records the movements of the mouse, the clicks of the mouse, the time needed to give the solution and the correctness of the solution. 
 
 	The models written in ACT-R that need to process images, like the one used to solve the rush hour game, at the moment skip the image processing step and start directly from a list of objects which is written directly in the input of the model. ACT-R can not accomplish this task because its visual module does not provide functions for the image processing.
 	This fact represents a big limitation for the architecture and leads to a significant gap between the human cognitive system and the framework one. In addition, writing the objects in a model leads to other problems as, for example, the loss of time to write the object for every single test, the consequent delay of the work and the non-scalability of this approach.
