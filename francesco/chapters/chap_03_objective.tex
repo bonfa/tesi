@@ -31,10 +31,18 @@ the model are then compared with the ones obtained in these experiments.
 	  \label{fig:RushHourHuman}	
   	\end{figure}
 	
-	For each test of the experiment, the ad-hoc program shows the image with the initial configuration and the person has to give the solution of the game by clicking on the rectangles in the order he thinks to be correct to free the red car. As the program never updates the image, the player has to imagine the solution. The software manages to interpret the direction of the shift by analyzing the movement of the eye, thanks to a module of \emph{eye tracking}. Moreover, it records the movements of the mouse, the clicks of the mouse, the time needed to give the solution and the correctness of the solution. 
+	In order to conduct an experiment, the modelers prepare a set of instances of the problem and every person who is going to participate to the experiment has to try to face a fixed number of them.
+	For each each instance, the ad-hoc program shows the image with the initial configuration and the person has to give the solution of the game by clicking on the rectangles in the order he thinks to be correct to free the red car. As the program never updates the image, the player has to imagine the solution. The software manages to interpret the direction of the shift by analyzing the movement of the eye, thanks to a module of \emph{eye tracking}. Moreover, it records the movements of the mouse, the clicks of the mouse, the time needed to give the solution and the correctness of the solution. 
 
+	The model written in ACT-R in order to solve a particular instance of the problem needs to receive as input the initial configuration. At the moment, such configuration is not an image, like the one shown to people during the experiment, rather it is a list of objects written in the language of the model.
+	A desirable improvement of the model should be introducing an object recognition algorithms able to extract the rectangles in the image and generate the object list in ACT-R language. 
+	This approach would make ACT-R cognitive system more similar to humans'. Moreover, it would make more scalable the test creation process. 
+
+
+\begin{comment}
 	The models written in ACT-R that need to process images, like the one used to solve the rush hour game, at the moment skip the image processing step and start directly from a list of objects which is written directly in the input of the model. ACT-R can not accomplish this task because its visual module does not provide functions for the image processing.
 	This fact represents a big limitation for the architecture and leads to a significant gap between the human cognitive system and the framework one. In addition, writing the objects in a model leads to other problems as, for example, the loss of time to write the object for every single test, the consequent delay of the work and the non-scalability of this approach.
+\end{comment}
 	
 	The goal of the developed software is to reduce the gap between the human and ACT-R visual systems, being a starting point for a complete \todo{and general purpose??} tool for the cognitive architecture to recognize objects. To achieve this, the software analyzes the image created for the user, processes it extracting the features needed by ACT-R and stores the information in dedicated data structures. Then, when requested by the cognitive architecture, it communicates to the artificial intelligent framework all the stored information. 
 	
