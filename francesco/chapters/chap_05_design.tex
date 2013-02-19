@@ -1,5 +1,33 @@
 \chapter{Design}
+	%This chapter presents the design of the software. The first section gives an overview on the design of the whole software and the following ones describe in more detail the most important blocks
+
 	\section{Overview of the design}
+	The software is composed of four main parts, one for processing images and videos, one for containing the hierarchy of the objects recognized during such processing, one for allowing ACT-R to communicate with the software and one containing all the utility functions used by all the other parts.
+		
+	Image \ref{fig:swArchitecture} shows a class diagram which describes two of four parts that compose the software. 
+	The part dedicated to the processing of images and video is located in the left part of the image and is composed by the classes \emph{FeatureGetter}, \emph{FeatureExtractor}, \emph{Input}, \emph{MarkerDetector} and \emph{QRScanner}.
+	The object hierarchy, which is shown on the right, contains the classes \emph{Object}, \emph{BoundingBox}, \emph{Blob}, \emph{QRObject}, \emph{Circle}, \emph{Triangle}, \emph{Quadrilateral}, \emph{Button} and \emph{Marker}.
+
+	\begin{figure}[h]
+	  \begin{center} 
+	    \fbox{	
+	       \includegraphics[scale=0.55]{images/ch_05/progettazione_overview2.png}
+	    }
+	  \end{center} 
+	  \caption{\textit{Class diagram illustrating a high level overview of the design of the software }}  
+	  \label{fig:swArchitecture}
+ 	\end{figure}
+
+	The other two parts are not shown in the design class diagrams for different reasons. 
+	Regarding the part dedicated to the communication with ACT-R, the team did not fixed a specific solution but it was planned to try different solutions and choose the best one after a comparison.
+	About the utility part, although the team was aware of the necessity of it, according to the agile development it decided not to spend time in planning a fixed structure for it. Such part, in fact, is very instable and volatile and the implementation very seldom respects the design.
+% . 
+	%Such diagram contains only the names of the classes because is used only to introduce the architecture of the software. More detailed diagrams are used in the following sections. %si potrebbe mettere nell'intro del capitoloù
+	
+	
+	
+
+
 	\section{Class Hierarchy}
 	\section{Feature Extractors}
 	\section{Communication with ACT-R}
