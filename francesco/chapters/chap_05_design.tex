@@ -1,37 +1,58 @@
 \chapter{Design}
-	For reasons of clarity, the description of the design of the software follows a top-down approach. The first section gives an overview of the software and the others study in deep specific aspects of it.
+	This chapter describes the initial design of the software, that is the design thought by the team at the beginning of the development.
+	For reasons of clarity, the description of the architecture follows a top-down approach and makes use of diagrams. 		The first section gives an overview of the software and the others study in deep specific aspects of it.
 
-	To better explain the contents and the structure of the design, the description is supported by \mbox{UML} diagrams. As the following sections describe the software at different levels of detail, the diagrams reflect this approach. In the first section, for example, the diagram is used only to present the classes in the overall structure. For this reason it contains only the names of the classes. Further details are added in the diagrams in the next sections, according with the top-down approach of the chapter.
+%	\section{How to read the chapter}
+	To better explain the contents and the structure of the design, the description is supported by \mbox{UML} diagrams. The following sections describe the software at different levels of detail and the diagrams reflect this approach. In the first section, for example, they are used only to present how the classes are organized in the overall structure and for this contain only the names of the classes. Further details are added in the diagrams in the next sections, according with the top-down approach of the chapter.
+
+\begin{comment}
+	As the chosen development process is incremental and iterative as described in chapter \ref{devProcChap}, the initial design represents a reference in which are described only the well known aspects of the project. According to the agile development, the team chose to postpone the design of specific features of the software not well defined a-priori. This explains why the description does not enters into details. 
+\end{comment}
+	As described in chapter \ref{devProcChap}, the chosen development process is incremental and iterative.
+	According to this choice, the initial design represents a reference in which are described only the well known aspects of the project. The choices regarding specific features not well defined a-priori are demanded. For this reason in this chapter the description, although it deepens specific topics, does not enter into detail. 
+		
+	The reader will notice that some classes that appear in the following diagrams are not described in the chapter. The reason of this is that they do not accomplish to any functions described in the requirements section of \mbox{chapter \ref{chObjective}}. Their presence makes sense in the context of the whole software, described in \ref{futureDev}. It has been decided not to remove such classes from the diagrams because they influence the project and motivate particular design and implementation choices.
+
+\begin{comment}
+The classes \emph{MarkerDetector} and \emph{QRScanner} do not accomplish to the communication with ACT-R nor the extraction of features in the way it is defined in the requirements section of chapter \ref{chObjective}. Their presence makes sense in the context of the whole software, described in \ref{futureDev}. Both of these classes work on video streams: MarkerDetector data looks for \emph{markers}, images with pre-determined patterns, and QRScanner searches for \mbox{QR} elements and tries to decode them. Both marker and \mbox{QR} elements are considered features. This fact explains the presence of these two classes in the feature extraction process. It has been decided not to remove them from the diagrams because they influence the design of the software and represent the motivations to particular design and implementation choices.
+\end{comment}
+
 \begin{comment}
 	Moreover, as the software has been developed in team but this document focuses only on a subset of the whole work, some classes are shown in the diagrams but are not described. The team developed them in order to accomplish tasks fundamental in the whole context of the software but not of interest in this particular work. Such classes can not be removed from the diagrams because they influence the design.
 \end{comment}
+
 	\section{Overview of the design}
 	The software is composed of four main parts, one for processing images and videos, one for containing the hierarchy of the objects recognized during such processing, one for allowing ACT-R to communicate with the software and one containing all the utility functions used by all the other parts.
 
 	\begin{figure}[h]
 	  \begin{center} 
 	    \fbox{	
-	       \includegraphics[scale=0.55]{images/ch_05/progettazione_overview2.png}
+	       \includegraphics[scale=0.55]{images/ch_05/progettazione_overview.png}
 	    }
 	  \end{center} 
-	  \caption{\textit{Class diagram illustrating a high level overview of the design of the software }}  
+	  \caption{\textit{Class diagram illustrating a high level overview of the designed parts of the software}}  
 	  \label{fig:swArchitecture}
  	\end{figure}		
 
 	Image \ref{fig:swArchitecture} shows a class diagram which describes two of the parts that compose the software. 
 	The part dedicated to the processing of images and video is located on the left and is composed by the classes \emph{Proxy}, \emph{FeatureGetter}, \emph{FeatureExtractor}, \emph{Input}, \emph{MarkerDetector} and \emph{QRScanner}.
-	The object hierarchy, which is shown on the right, contains the classes \emph{Object}, \emph{BoundingBox}, \emph{Blob}, \emph{QRObject}, \emph{Circle}, \emph{Triangle}, \emph{Quadrilateral}, \emph{Button} and \emph{Marker}.
+	The object hierarchy, which is shown on the right, contains the classes \emph{Object}, \emph{BoundingBox}, \emph{Blob}, \emph{QR}, \emph{Circle}, \emph{Triangle}, \emph{Quadrilateral}, \emph{Button} and \emph{Marker}.
 
 	
 
 	The other two parts are not included in the design diagrams for different reasons. 
-	According with the non-functional requirements, the team planned to try different solutions in order to implement the communication between the software and ACT-R. As different approaches can lead to different architectures, this part has not been designed a priori.
-	Regarding the utility part, as it depends strongly by the implementations choices, it is very instable and volatile. Moreover, it is heavily influenced by the chosen communication technique, which, as just described, has not been planned.
+	According to the non-functional requirements, the team planned to try different solutions in order to implement the communication between the software and ACT-R. As different approaches can lead to different architectures, this part has not been designed a priori.
+	Regarding the utility part, it depends strongly by the future design and implementations choices and is influenced by the chosen communication technique. These factor leads it to be very instable and volatile. 
+	For these reasons and according to the agile development, the team decided not to spend time in planning a fixed structure for it at the beginning.
+
+\begin{comment}
+	Regarding the utility part, as it depends strongly by the implementations choices, it is very instable and volatile. Moreover, it is influenced by the chosen communication technique, which, as just described, has not been planned.
 	For these reasons, according to the agile development the team decided not to spend time in planning a fixed structure for it.
+\end{comment}
 	
 	
 	\section{Feature Extraction Classes}\label{featExtraction}	
-	The classes that play the role of extracting features from the images are \emph{Proxy}, \emph{FeatureGetter} and \emph{FeatureExtractor}. \emph{Input} has the role of intermediation between this part of the software and the one which manages the communication with \mbox{ACT-R}.
+	The classes that play the role of acquiring the images and extracting features from them are \emph{Input}, \emph{FeatureGetter} and \emph{FeatureExtractor}. \emph{Proxy} has the role of intermediation between this part of the software and the one which manages the communication with \mbox{ACT-R}.
 
 \begin{comment}
 	\emph{MarkerDetector} and \emph{QRScanner} classes have been developed by the team in order to make the software locate markers and finding and decoding QR object. These tasks, although are fundamental in the whole work, are not significant in the objective of this particular work, so they are not described.
@@ -42,21 +63,25 @@
 	       \includegraphics[scale=0.65]{images/ch_05/feature.png}
 	    }
 	  \end{center} 
-	  \caption{\textit{Class diagram illustrating the part that extracts the feature of the images}}  
+	  \caption{\textit{Class diagram illustrating the main roles in the feature extraction process}}  
 	  \label{fig:FeatureDesign}
  	\end{figure}
 	
 	Figure \ref{fig:FeatureDesign} contains the class diagram that designs the interface of these classes.
-	\emph{FeatureExtractor} represents the core of this part. It receives in input an image and processes it in order to extract the features that contains. For each extracted feature it creates a correspondent element in the \emph{object hierarchy}. Such hierarchy is described in section \ref{classHierarchy}. Finally the class creates a list of all such objects and delivers it to FeatureGetter. 
+	\emph{FeatureExtractor} represents the core of this part. It receives in input an image and processes it in order to extract the features that contains. For each extracted feature it creates a correspondent element in the \emph{object hierarchy}. Such hierarchy is described in section \ref{classHierarchy}. Once the objects are created, the class creates a list containing all of them and delivers it to FeatureGetter. 
+	FeatureExtractor is also responsible for accomplish other goals described in the requirements, like recognizing colors of pixels and objects, calculating the distances of two objects as well as the relative position of one object in respect with another one and making dimensional comparisons between two objects. These features have not been included in the initial design of the class even if it has been thought that this class would have accomplished all these tasks.
 
-	\emph{Input} is responsible for loading images from files or video streams from the web-cam, if present, and delivering them to FeatureGetter. 
+	\emph{Input} is responsible for interacting with the file system and the hardware of the computer. In particular its tasks are loading images from files, saving images to files and loading video streams from the web-cam. The acquired data are delivered to FeatureGetter. 
 
-	\emph{FeatureGetter} represents a level of abstraction that avoids to call directly the functions provided by FeatureExtractor and Input, providing a simpler interface. Its functions create the Input object, receive from it the input data, delivers it to FeatureExtractor for the extraction of the feature and deliver the received object list to Proxy.
+	\emph{FeatureGetter} represents a level of abstraction that avoids to call directly the functions of FeatureExtractor and Input, providing a simpler interface. Its functions create the Input object, receive from it the input data, delivers it to FeatureExtractor for the extraction of the features and delivers the received object list to Proxy.
 
-	\emph{Proxy} has been thought to be another level of abstraction between FeatureGetter and the part of the software which manages the communication with ACT-R. As all the analyzed a-priori procedures for the communication with the artificial intelligence framework need to use specific data types. This class has the main function to transform each object of the object list in the type necessary for the communication to ACT-R.
+	\emph{Proxy} represents a further level of abstraction between FeatureGetter and the part of the software which manages the communication with ACT-R. Most of the procedures for the communication with the artificial intelligence framework, in fact, need to use specific data types. This class has the main function to transform each object of the object list in the type necessary for the communication to ACT-R.
 
+	For the reason explained at the beginning of the chapter, \emph{MarkerDetector} and \emph{QRScanner} are not described in this work.
+
+\begin{comment}
 	The classes \emph{MarkerDetector} and \emph{QRScanner} do not accomplish to the communication with ACT-R nor the extraction of features in the way it is defined in the requirements section of chapter \ref{chObjective}. Their presence makes sense in the context of the whole software, described in \ref{futureDev}. Both of these classes work on video streams: MarkerDetector data looks for \emph{markers}, images with pre-determined patterns, and QRScanner searches for \mbox{QR} elements and tries to decode them. Both marker and \mbox{QR} elements are considered features. This fact explains the presence of these two classes in the feature extraction process. It has been decided not to remove them from the diagrams because they influence the design of the software and represent the motivations to particular design and implementation choices.
- 		
+\end{comment} 		
 
 \begin{comment}
 In this way it represents the only way in which the both It provides functions to load images, extract features from them and return a list of \emph{Object}, each of which represents one of the detected feature. 
@@ -65,27 +90,36 @@ The objects are elements of the object hierarchy, that is described in \ref{clas
 
 	
 	\section{Class Hierarchy}\label{classHierarchy}
-	The class hierarchy contains all the features that are recognized during the processing of the image. Each feature has a correspondent object that describes it. 
-	The figure \ref{fig:HierarchyDesign} contains a class diagrams that specifies the hierarchy. 
-	\emph{Object} class is the superclass that represents all the possible features, in this case objects, recognized in an image during the feature extraction process. The class has two attributes: a \emph{rotation} and a \emph{bounding box}, which is a shape that encloses the object. This latter element is described by \emph{BoundingBox} class. As specified in the diagram, the bounding box can be only of rectangular shape, in fact its attributes are the coordinate of a point and the horizontal and vertical dimensions.
-
+	The class hierarchy contains all the objects that are recognized during the processing of the image. Each feature has a correspondent object that describes it. 
+	
 	\begin{figure}[h]
 	  \begin{center} 
 	    \fbox{	
 	       \includegraphics[scale=0.65]{images/ch_05/hierarchy.png}
 	    }
 	  \end{center} 
-	  \caption{\textit{Class diagram illustrating the class hierarchy of the objects}}  
+	  \caption{\textit{Class diagram illustrating the class hierarchy of the recognized objects}}  
 	  \label{fig:HierarchyDesign}
  	\end{figure}
 
-	The Object type can be specified by two sub-types, \emph{Blob}, that represents a generic shape, and \emph{QR}, representing a \mbox{QR} element. As it is considered useless keeping track of the area of the \mbox{QR} element, only the class Blob has been provided of such attribute. The attribute \emph{content} of \mbox{QR}, instead, represents the information encoded in such element. 
+	Figure \ref{fig:HierarchyDesign} contains a class diagrams that specifies such hierarchy. 
+\begin{comment}
+	\emph{Object} is the superclass that represents all the possible objects recognized in an image during the feature extraction process. All the elements of this type must have a rotation value and a bounding box. The two attributes of the class \emph{rotation} and \emph{boundingBox} define such parameters. In particular, the second one has its correspondent class, called \emph{BoundingBox}. As specified in the diagram, this object can be only of rectangular shape, in fact its attributes are the coordinate of a point and horizontal and vertical dimensions.
+\end{comment}
+	\emph{Object} is the superclass that represents all the possible objects recognized in an image during the feature extraction process. Two attributes all the elements of this type must have are a \emph{rotation} value and a 
+\emph{boundingBox}. 
+	This latter parameter has a data type which is defined by the class \emph{BoundingBox}. Such element can have only rectangular shape, in fact its attributes are the coordinates of a point and horizontal and vertical dimensions.
 
-	The class \emph{Blob} is extended by the classes \emph{Circle},\emph{Triangle} and \emph{Quadrilateral}. These elements represent the simple shapes that can be recognized during the recognition process. Each item is defined starting by basic geometrical elements: the circle by center and radius, the triangle by three points, the quadrilateral by four points. The point, in particular, has its corresponding class \emph{Point}. 
 
-	The class \emph{Button} specifies Quadrilateral by adding the attribute \emph{text}, which specifies the message of such button. The fact that such class derives Quadrilateral instead of Blob reflects the requirement that the buttons can be only rectangular. 
+	The type Object can be specified by two sub-types: \emph{Blob}, that represents a generic shape, and \emph{QR}, representing a \mbox{QR} element. The presence of \mbox{QR} is not important for the shape recognition task but it justifies the presence of Blob in the hierarchy. Without \mbox{QR} class, in fact, Blob could have been incorporated in Object.
+	Blob is provided of the attributes \emph{area} and \emph{perimeter}, which, as suggested by the names, represent respectively the area and the perimeter of the shape.
 	
-	The class \emph{Marker} represents a marker, whose concept has been introduced at the end of section \ref{featExtraction}. As described there, the marker and the \mbox{qr} object are extra features. In particular, as they influence the architecture of the software they are only mentioned here. The reader will not find further descriptions about them.
+
+	The classes \emph{Circle}, \emph{Triangle} and \emph{Quadrilateral} extend \emph{Blob}. They represent the simple shapes that can be recognized during the recognition process. Each item is defined starting by basic geometrical elements: the circle by center and radius, the triangle by three points, the quadrilateral by four points. \emph{Point} class, in particular, has been introduced in this diagram for reasons of completeness. 
+
+	The class \emph{Button} specifies Quadrilateral by adding the attribute \emph{text}, which represents the message of such button. The fact that such class derives Quadrilateral instead of Blob reflects the requirement that the buttons can be only rectangular. 
+	
+	The class \emph{Marker} is not described in this document. You can find the motivation of this choice at the beginning of this chapter.
 
 		
 
