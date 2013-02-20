@@ -123,14 +123,16 @@ The objects are elements of the object hierarchy, that is described in \ref{clas
 
 
 	\section{Flexibility of the design}			
-	This section explains why the team designed at the beginning of the project a reference structure for the class hierarchy and the feature extraction. The two main motivations are: more defined requirements and high flexibility of such design. %The requirements are described in chapter \ref{chObjective}. Below it is discussed about such flexibility.
+	This section explains why the team designed at the beginning of the project a reference structure for the class hierarchy and the feature extraction. The two main motivations are: well defined requirements and high flexibility of such design. %The requirements are described in chapter \ref{chObjective}. Below it is discussed about such flexibility.
 	
-	The requirements in chapter \ref{chObjective} define precisely which are the objects and the shapes to be extracted as well as the other features to be recognized in the images.
+	The requirements in chapter \ref{chObjective} define precisely which are the objects, the shapes and the other features to be recognized in the images.
 
 	The design of the class hierarchy and the feature extraction part guarantees a flexibility that allows the developers to add transparently many kind of different objects to it and introduce new features to be recognized.
 	Adding further simple shapes to the hierarchy, for example, it is a task that can be accomplished easily by deriving a new type by Blob. This operation does not need to change the interface of no one of the existing classes.
 	In the same way, a completely new category of object can be added simply by deriving it from Object, again without changing anything in the other classes. 
-	Even the introduction of the recognition of a new feature is transparent in this architecture. It is sufficient to add a method in the FeatureExtractor class and, if such feature represents a particular object, a new type in the hierarchy, otherwise another parameter for a particular kind of object. If objects of such new kind are recognized in an image, they are added to the object list by FeatureExtractor. So nothing changes for all the other classes.
+	Even the introduction of the recognition of a new feature is transparent in this architecture. It is sufficient to add a method in the FeatureExtractor class and the correspondent object, or parameter, in the hierarchy. If objects of such new kind are recognized in an image, they are added to the object list by FeatureExtractor. So nothing changes for all the other classes.
+
+	The flexibility guaranteed by these two models allowed the developers to specify their design at the beginning of the development process.
 
 \begin{comment} 
 	
