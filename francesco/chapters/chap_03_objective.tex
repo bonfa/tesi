@@ -1,40 +1,29 @@
 \chapter{Objective}\label{chObjective}
+	In the first section the chapter introduces the purposes of the working team and motivates the choices of the objectives of the software. Then, in the second one, it presents the goals of the software and, in the third, the requirements.
+ 
 \begin{comment}
 The objective of the work is composed by the goals the software have to reach and the definition of the requirements for achieving them. These two aspects are described in the following sections.
 \end{comment}
 
 	\section{The Context}
-	The work presented in the following sections and chapters is a subset of the work of a research group, which aims to make \mbox{ACT-R} see like a human being. As this goal is very ambitious and the author of this document has been introduced in a team with specific sub-goals only for a limited amount of time, he focused on particular tasks. Such tasks are described in the next sections.
+	The work presented in the following chapters is a subset of the work of a research group, which aims to provide \mbox{ACT-R} of a visual system similar to human one. As this goal is very ambitious and the author of this document has been introduced in a team with specific sub-goals only for a limited amount of time, he focused on particular tasks. Such tasks are described in the next sections.
 
 	The final purpose of this work is to provide \mbox{ACT-R} of a complete visual system, which is as similar as possible to the human one. This fact represents a huge challenge for the research world. To reach such goal, the researchers continuously monitor the progresses in the computer vision research field in order to find useful innovative techniques to combine with consolidated solutions. 
-	Such search, anyway, it is not easy. In fact, although computer vision studies are very active and find every year many algorithms, often such solutions are developed to solve specific tasks. Much more difficult is to find a general purpose algorithm which is able to make machine vision system behave like the human one.
+	Such search, anyway, it is not easy. In fact, although computer vision studies are very active and find every year new algorithms able to solve different problems, often such algorithms introduce contextual information that makes them suitable to solve only the specific tasks for which they are designed. For this reason, it is very difficult to find a general purpose solution which is able to make machine vision system behave like the human one.
 
-	Like most of research projects, this project requires an unknown time to produce final and acceptable results.
-	The author of this work, however, has been inserted for a limited time interval in a team composed by three people, whose aim is to implement known solutions in order to solve specific tasks. 
-	For this reason the following parts of this document will describe only the features developed during this amount of time by the author, explaining them in the context of the objectives of the team. 
+	Like most of research works, this project requires an unknown time to produce final and acceptable results.
+	The author of this work, however, has been inserted for a limited time interval in a team composed by three people, whose aim is to implement particular solutions in order to solve specific tasks. 
+	For this reason the following parts of this document describe only the features developed during this amount of time by the author, explaining them in the context of the objectives of the team. 
 	
-	\section{The Goal of the Team}
-	The goal of the team is to designed and developed a visual module for \mbox{ACT-R}, whose aim is to improve its visual perception and make it as similar as possible as the human one. 
-
-	In this context, the first task is to create a general purpose software, which receives as input a video stream and performs an object recognition process. \mbox{ACT-R} uses the information obtained by this tool in combination with its intelligence to orientate a robot inside a building and drive it through the structure. The robot has a camera mounted on it that transmits the video stream to the object recognition tool. This instrument analyzes the video looking for objects and transmits all the recognized ones to the artificial intelligent framework that takes all the decisions necessary to drive the robot. 
+		\subsection{The Goal of the Team}\label{goalTeam}
+		The goal of the team is to create a general purpose software, which receives as input a video stream and performs an object recognition process. \mbox{ACT-R} uses the information obtained by this tool in combination with its intelligence to orientate a robot inside a building and drive it through the structure. The robot has a camera mounted on it that transmits the video stream to the object recognition tool. This instrument analyzes the video looking for objects and transmits all the recognized ones to the artificial intelligent framework, that takes all the decisions necessary to drive the robot. 
 	
-	The applications of such tools are various. 
-	It is enough, for example, to add the robot a particular instrument for grabbing things and the necessary intelligence to \mbox{ACT-R} for managing such tool in order to make the robot bringing objects from a place and moving them to another. With the necessary intelligence, the robot could play chess, cards or other games. 
-	
-	
-
-	Another scope in which the software will be used is the robot navigation. 
-	The shapes identified by the software will be used like a starting point for an object recognition process. 
-	The information about these objects, then, will be used by ACT-R in order to take intelligent decisions during the robot navigation inside a building, without any other knowledge of the environment. 
-	The object recognition module has not been developed yet nor the requirements for achieving this second goal are defined. 	
-
-	Moreover, in order to scale with other kinds of experiments an \emph{optical character recognition} tool will be added and other simple shapes will be recognized.
-	
+		As a starting point for such software, the team has to implement a tool for recognizing geometrical shapes in the input images. Such software has to accomplish two goals: the first one is to extract a subset of all the features in the image, in order to simplify the object recognition process; the second one is to make easier the definition of models for the modelers. This tool, which represents the main topic of this work, is described better in the next sections. 
 
 	\section{The Goals of the Software}
 	The software to be designed and developed is a visual module for the cognitive architecture ACT-R, whose aim is to improve ACT-R visual perception in order to make it more similar to the human one. 
 	
-	In order to develop a model in ACT-R, the modelers need a series of parameters on which basing the assumptions for the model itself and its performances.
+	In order to develop a model in ACT-R, the modelers need a series of parameters on which basing their assumptions about the model itself and its performances.
 	The collection of such data is accomplished thanks to experiments in which human beings take part. 
 	For every experiment a specific program is created in order to measure some variables as, for example, the time needed to complete a task and the accuracy of the result.
 	The parameters obtained by these experiments are then used as a reference for the development of ACT-R model.
@@ -49,7 +38,8 @@ the model are then compared with the ones obtained in these experiments.
 
 
  
-	Image~\ref{fig:RushHourHuman} shows a test case of an experiment in which the goal is to solve some levels of the game \emph{Rush Hour}. As shown, the grid contains some colored rectangles, each of which represents a car. The player must free the red one making it go out of the grid through the exit on the right. The cars can be moved only in the horizontal and vertical directions. The goal of the game is to free the red car. The lower the number of moves and the time used to find the solution, the better is such solution.
+	Image~\ref{fig:RushHourHuman} shows a test case of an experiment in which the goal is to solve some levels of the game \emph{Rush Hour}. As shown, the grid contains some colored rectangles, each of which represents a car. The player must free the red one making it go out of the grid through the exit on the right. The cars can be moved only in the horizontal and vertical directions. %The goal of the game is to free the red car. 
+	The lower the number of moves and the time used to find the solution, the better is such solution.
 
 	\begin{figure}[!h]
 	  \begin{center} 
@@ -63,8 +53,8 @@ the model are then compared with the ones obtained in these experiments.
 	For each instance, the ad-hoc program shows the image with the initial configuration and the person has to give the solution of the game by clicking on the rectangles in the order he thinks to be correct to free the red car. As the program never updates the image, the player has to imagine the solution. The software manages to interpret the direction of the shift by analyzing the movement of the eye, thanks to a module of \emph{eye tracking}. Moreover, it records the movements of the mouse, the clicks of the mouse, the time needed to give the solution and the correctness of the solution. 
 
 	The model written in ACT-R in order to solve a particular instance of Rush Hour problem needs to receive as input the initial configuration. At the moment, such configuration is not an image, like the one shown to people during the experiment; rather it is a list of objects written in the language of the model.
-	A desirable improvement of the model should be introducing an object recognition algorithm able to extract the rectangles in the image and generate the object list in ACT-R language. 
-	This approach would make ACT-R cognitive system more similar to humans'. Moreover, it would make more scalable the test creation process. 
+	A desirable improvement of the model should be introducing an object recognition algorithm able to detect the rectangles in the image and generate the correspondent object list in ACT-R language. 
+	This approach would make ACT-R cognitive system more similar to humans'. Moreover, it would make more scalable the process of creating instances for the experiments. 
 
 
 \begin{comment}
@@ -72,7 +62,9 @@ the model are then compared with the ones obtained in these experiments.
 	This fact represents a big limitation for the architecture and leads to a significant gap between the human cognitive system and the framework one. In addition, writing the objects in a model leads to other problems as, for example, the loss of time to write the object for every single test, the consequent delay of the work and the non-scalability of this approach.
 \end{comment}
 	
-	The goal of the developed software is to reduce the gap between the human and ACT-R visual systems, being a starting point for a complete \todo{and general purpose??} tool for the cognitive architecture to recognize objects. To achieve this, the software analyzes the image created for the user, processes it extracting the features needed by ACT-R and stores the information in dedicated data structures. Then, when requested by the cognitive architecture, it communicates to the artificial intelligent framework all the stored information. 
+	%The goal of the developed software is to reduce the gap between the human and ACT-R visual systems, being a starting point for a complete and general purpose tool for the cognitive architecture to recognize objects. 
+	The purposes described above represent the goals of the tool.
+	To achieve them, the software analyzes the image created for the user, processes it extracting the features needed by ACT-R and stores the information in dedicated data structures. Then, when requested by the cognitive architecture, it communicates all the stored data to the artificial intelligent framework. 
 	
 
 \begin{comment}
@@ -159,20 +151,58 @@ the model are then compared with the ones obtained in these experiments.
 		In particular, ACT-R must signal to it which is the image to process and ask for the features to be extracted. The module must return all the information extracted by ACT-R.
 
 		\subsection{Non-Functional Requirements}
+
+			\subsubsection{Product Requirements}
+			The software module must:
+			\begin{itemize}
+				\item be multi-purpose;
+				\item be portable;
+			    	\item work in background;			
+				\item communicate with \mbox{ACT-R}.			
+			\end{itemize}
+			
+
+				\paragraph{Multi-Purpose}
+
+				The software should be easily adapted to work with all the experiments that will be put in place in the future. Moreover, there should be the possibility to adapt the software in order to use it as a shape recognition tool in the navigation with robots. For this topic, see~\ref{goalTeam}. 				
+			
+				\paragraph{Portability} 
+
+				The software has to work on more operative systems.
+			
+				\paragraph{Communication with ACT-R} 			
+				The team must try more than one solution and find the simpler way to integrate the software developed with the remaining architecture.
+			
+			\subsubsection{Organizational Requirements}
+			\begin{itemize}
+				\item The language of the implementation of the software must be C++;
+				\item the computer vision library to be used must be OpenCV;
+			    	\item a strict monitoring of the work is required.					
+			\end{itemize}
+		
+
+\begin{comment}
+		\subsection{Non-Functional Requirements}
 		The non-functional requirements described in the following subsections are respectively the requirements on the product and the organizational ones.
 
 			\subsubsection{Product Requirements}
-			The software module must be multi-purpose, portable and must work in background.
-			As multi-purpose is intended that, if possible, it should be easily adapted to be able to work with all the experiments that will be put in place in the future. Moreover, there should be the possibility to adapt the software in order to use it as a shape recognition tool in the navigation with robots. For this topic, see~\ref{futureDev}. 
+			The software module must be multi-purpose, portable, must work in background and communicate with \mbox{ACT-R}.
+
+			
+
 			As portability is intended that it has to work on more operative systems.
+
+			
 	
 			\subsubsection{Organizational Requirements}
-			The language of the implementation of the software must be C++. 
-			The computer vision library to be used must be OpenCV.
-			The adopted version control system must be Git.
-			A strict monitoring of the work is required.
+			 
+			
+			%The adopted version control system must be Git.
+			
+\end{comment}
 
-	\section{Future Development}\label{futureDev}
+
+%	\section{Future Development}\label{futureDev}
 \begin{comment}
 		Another scope in which the software will be used is the robot navigation. 
 		The shapes identified by the software will be used like a starting point for an object recognition process. 
@@ -181,6 +211,20 @@ the model are then compared with the ones obtained in these experiments.
 
 		Moreover, in order to scale with other kinds of experiments an \emph{optical character recognition} tool will be added and other simple shapes will be recognized.
 \end{comment}
+\begin{comment}
+		The applications of such tools are various. 
+	It is enough, for example, to add the robot a particular instrument for grabbing things and the necessary intelligence to \mbox{ACT-R} for managing such tool in order to make the robot bringing objects from a place and moving them to another. With the necessary intelligence, the robot could play chess, cards or other games. 
+	
+	
+
+	Another scope in which the software will be used is the robot navigation. 
+	The shapes identified by the software will be used like a starting point for an object recognition process. 
+	The information about these objects, then, will be used by ACT-R in order to take intelligent decisions during the robot navigation inside a building, without any other knowledge of the environment. 
+	The object recognition module has not been developed yet nor the requirements for achieving this second goal are defined. 	
+
+	Moreover, in order to scale with other kinds of experiments an \emph{optical character recognition} tool will be added and other simple shapes will be recognized.
+\end{comment}	
+
 
 
 \begin{comment}
