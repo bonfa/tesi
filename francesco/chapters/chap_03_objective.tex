@@ -3,13 +3,34 @@
 The objective of the work is composed by the goals the software have to reach and the definition of the requirements for achieving them. These two aspects are described in the following sections.
 \end{comment}
 
+	\section{The Context}
+	The work presented in the following sections and chapters is a subset of a research team, whose work aims to make \mbox{ACT-R} see like a human being. As this goal is very ambitious and the author of this document has been introduced in a team with specific sub-goals only for a limited amount of time, he focused on particular tasks. Such tasks are described in the next sections.
+
+	The final purpose of this work is to provide \mbox{ACT-R} of a complete visual system, which is as similar as possible to the human one. This fact represents a huge challenge for the research world. To reach such goal, the researchers continuously monitor the progresses in the computer vision research field in order to find useful innovative techniques to combine with consolidated solutions. 
+	Such search, anyway, it is not easy. In fact, although computer vision studies are very active and find every year many algorithms, often such solutions are developed to solve specific tasks. Much more difficult is to find a general purpose algorithm which is able to make machine vision system behave like the human one.
+
+	The 
+
+	Like most of research projects, this requires an unknown time to produce final results. However, the author of this work has been inserted in this team only for a limited time interval and for this he 
+
+this document describes only the feature developed during this amount of time. The choices made in the 
+	
+	The team is composed by three people and its aim is to implement known solutions in order to solve specific tasks 
+
+
+has been developed 
+
+ developed in order to series of tasks that accomplish to specific purposes. Even if this purpose is 
+	The work has been developed by a team of three people 
+
+
 	\section{The Goals of the Software}
 	The software to be designed and developed is a visual module for the cognitive architecture ACT-R, whose aim is to improve ACT-R visual perception in order to make it more similar to the human one. 
 	
-	In order to develop a model in ACT-R, the modelers need a series of parameters on which basing the performances of the model itself.
+	In order to develop a model in ACT-R, the modelers need a series of parameters on which basing the assumptions for the model itself and its performances.
 	The collection of such data is accomplished thanks to experiments in which human beings take part. 
 	For every experiment a specific program is created in order to measure some variables as, for example, the time needed to complete a task and the accuracy of the result.
-	The parameters obtained by these experiments are then used as reference parameter for the development of ACT-R model.
+	The parameters obtained by these experiments are then used as a reference for the development of ACT-R model.
 
 \begin{comment}
 After a model is developed in ACT-R, it needs to be validated . Model validations usu-
@@ -32,10 +53,10 @@ the model are then compared with the ones obtained in these experiments.
   	\end{figure}
 	
 	In order to conduct an experiment, the modelers prepare a set of instances of the problem and every person who is going to participate to the experiment has to try to face a fixed number of them.
-	For each each instance, the ad-hoc program shows the image with the initial configuration and the person has to give the solution of the game by clicking on the rectangles in the order he thinks to be correct to free the red car. As the program never updates the image, the player has to imagine the solution. The software manages to interpret the direction of the shift by analyzing the movement of the eye, thanks to a module of \emph{eye tracking}. Moreover, it records the movements of the mouse, the clicks of the mouse, the time needed to give the solution and the correctness of the solution. 
+	For each instance, the ad-hoc program shows the image with the initial configuration and the person has to give the solution of the game by clicking on the rectangles in the order he thinks to be correct to free the red car. As the program never updates the image, the player has to imagine the solution. The software manages to interpret the direction of the shift by analyzing the movement of the eye, thanks to a module of \emph{eye tracking}. Moreover, it records the movements of the mouse, the clicks of the mouse, the time needed to give the solution and the correctness of the solution. 
 
-	The model written in ACT-R in order to solve a particular instance of the problem needs to receive as input the initial configuration. At the moment, such configuration is not an image, like the one shown to people during the experiment, rather it is a list of objects written in the language of the model.
-	A desirable improvement of the model should be introducing an object recognition algorithms able to extract the rectangles in the image and generate the object list in ACT-R language. 
+	The model written in ACT-R in order to solve a particular instance of Rush Hour problem needs to receive as input the initial configuration. At the moment, such configuration is not an image, like the one shown to people during the experiment; rather it is a list of objects written in the language of the model.
+	A desirable improvement of the model should be introducing an object recognition algorithm able to extract the rectangles in the image and generate the object list in ACT-R language. 
 	This approach would make ACT-R cognitive system more similar to humans'. Moreover, it would make more scalable the test creation process. 
 
 
@@ -128,7 +149,7 @@ the model are then compared with the ones obtained in these experiments.
 \end{comment}
 
 		The software must be able to communicate with ACT-R. 
-		In particular, ACT-R must signal to it which is the image to process and ask for a the features to be extracted. The module must return all the information extracted by ACT-R.
+		In particular, ACT-R must signal to it which is the image to process and ask for the features to be extracted. The module must return all the information extracted by ACT-R.
 
 		\subsection{Non-Functional Requirements}
 		The non-functional requirements described in the following subsections are respectively the requirements on the product and the organizational ones.
