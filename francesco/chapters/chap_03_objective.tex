@@ -14,7 +14,7 @@ The objective of the work is composed by the goals the software have to reach an
 	%The final purpose of this work is to provide \mbox{ACT-R} of a complete visual system, which is as similar as possible to the human one. 
 	%This fact represents a huge challenge for the research world. 
 	To reach such goal, the researchers continuously monitor the progresses in the computer vision research field in order to find useful innovative techniques to combine with consolidated solutions. 
-	Such search, anyway, it is not easy. In fact, although computer vision studies are very active and find every year new algorithms able to solve different problems, often such algorithms introduce contextual information that makes them tasks specific: they are suitable to solve only the specific tasks for which they are designed. 
+	Such search, anyway, it is not easy. In fact, although computer vision studies are very active and find every year new algorithms able to solve different problems, often such algorithms introduce contextual information that makes them tasks specific: they are suitable to solve only the tasks for which they are designed. 
 	For this reason, it is very difficult to find a general purpose solution which is able to make machine vision system behave like the human one.
 
 
@@ -24,7 +24,7 @@ The objective of the work is composed by the goals the software have to reach an
 	For this reason the following parts of this document describe only the features developed during this amount of time by the author, explaining them in the context of the objectives of the team. 
 	
 		\subsection{The Goal of the Team}\label{goalTeam}
-		The goal of the team is to create a general purpose software, which receives as input a video stream or an image and performs an object recognition process.
+		The goal of the team is to create a general purpose software, which receives as input a video stream or an image and performs an object recognition process on them.
 		\mbox{ACT-R} uses the information obtained by this tool to orientate inside a building.
 % by distinguishing different categories of rooms thanks to the objects they contain.
 		In particular, the software analyzes a video looking for objects and transmits all the recognized items to a model developed in \mbox{ACT-R}. The model has to distinguish different categories of rooms basing on the information about the objects they contain.
@@ -44,7 +44,7 @@ The objective of the work is composed by the goals the software have to reach an
 	\section{The Goals of the Software}\label{TeamGoal}
 	The software to be designed and developed is a visual module for the cognitive architecture ACT-R, whose aim is to improve ACT-R visual perception in order to make it more similar to the human one. 
 	
-	In order to develop a model in ACT-R, the modelers need a series of parameters on which basing their assumptions about the model itself and its performances.
+	For developing a model in ACT-R, the modelers need a series of parameters on which basing their assumptions about the model itself and its performances.
 	The collection of such data is accomplished thanks to experiments in which human beings take part. 
 	For every experiment a specific program is created in order to measure some variables as, for example, the time needed to complete a task and the accuracy of the result.
 	The parameters obtained by these experiments are then used as a reference for the development of ACT-R model.
@@ -73,7 +73,7 @@ the model are then comparemd with the ones obtained in these experiments.
 	In order to conduct an experiment, the modelers prepare a set of instances of the problem and every person who is going to participate to the experiment has to face a fixed number of them.
 	For each instance, the ad-hoc program shows the image with the initial configuration (figure \ref{fig:RushHourHuman}) and the person has to give the solution of the game by clicking on the rectangles in the order he thinks to be correct. As the program never updates the image, the player has to imagine the solution. The software manages to interpret the direction of the shift by analyzing the movement of the eye, thanks to a module of \emph{eye tracking}. Moreover, it records the movements of the mouse, the clicks of the mouse, the time needed to give the solution and the correctness of the solution. 
 
-	The model written in ACT-R in order to solve a particular instance of Rush Hour problem needs to receive as input the initial configuration. At the moment, such configuration is not an image, like the one shown to people during the experiment; rather it is a list of objects written in the language of the model.
+	The model written in ACT-R, in order to solve a particular instance of Rush Hour problem, needs to receive as input the initial configuration. At the moment, such configuration is not an image, like the one shown to people during the experiment; rather it is a list of objects written in the language of the model.
 	A desirable improvement of the model should be introducing an object recognition algorithm able to detect the rectangles in the image and generate the correspondent object list in ACT-R language. 
 	This approach would make ACT-R visual system more similar to humans'. Moreover, it would make more scalable the process of creating instances for the experiments. 
 
@@ -185,7 +185,7 @@ the model are then comparemd with the ones obtained in these experiments.
 
 				\paragraph{Multi-Purpose}
 
-				The software should be easily adapted to work with all the experiments that will be put in place in the future. Moreover, there should be the possibility to adapt the software in order to use it as a shape recognition tool in the navigation with robots. For this topic, see~\ref{goalTeam}. 				
+				The software should be easily adapted to work with all the experiments that will be put in place in the future. Moreover, there should be the possibility to adapt the software in order to use it as a shape recognition tool in the orientation inside a building. For this topic, see~\ref{goalTeam}. 				
 			
 				\paragraph{Portability} 
 				The software has to work on several operating systems.
