@@ -1,23 +1,68 @@
 \chapter{Implementation And Testing}
 
-	\section{The actual implementation of the software}
-	%%TODO pensare se c'è da aggiungere qualcosa
+	\section{The architecture the software}
+	As in chapter \ref{chDesign}, in this chapter class diagrams are used in order to clarify the description. Again, such description follows a top-down approach: the first diagram gives an overview of the classes and in the following sections more detail is added.
 
-	The image \ref{} shows the class diagram of the implementation of the software. 
-	According to the design specifications defined in chapter \ref{chDesign}, the software is organized in four main parts, each of them has its own role.
-	Both the feature extractor and the class hierarchy components are made up by the same classes defined in chapter \ref{chDesign}. 
-	The parts containing the utility functions and the features for the communication with \mbox{ACT-R} have been extended and completed in order to reach the goal for which they have been introduced.
-	The following sections describe the implementation for this two latter parts.
+	Figure \ref{fig:implementationOnlyNames} shows the class diagram of the whole software. 
+	According to the design specifications defined in chapter \ref{chDesign}, the software is organized in four main parts, each of which has its own role.
+
+	\begin{figure}[h]
+	  \begin{center} 
+	    \fbox{	
+	       \includegraphics[width=\textwidth*\real{0.9}]{images/ch_06/implementazione_solo_nomi.jpg}
+	    }
+	  \end{center} 
+	  \caption{\textit{Class diagram which illustrates the whole architecture of the software}}  
+	  \label{fig:implementationOnlyNames}
+ 	\end{figure}
+ 
+	Classes \emph{Server} and \emph{Session} manage the communication with \mbox{ACT-R}.
+	Classes \emph{Proxy}, \emph{FeatureGetter}, \emph{Input}, \emph{FeatureExtractor}, \emph{MarkerDetector} and \emph{QRScanner} have the role of extracting the feature from the input data.
+	\emph{Object}, \emph{BoundingBox}, \emph{Blob}, \emph{QR}, \emph{Circle}, \emph{Triangle}, \emph{Quadrilateral}, \emph{Marker} and \emph{Button} represent the object hierarchy.
+	\emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException}, \emph{CoincidentLinesException}, \emph{FourPointsSorter}, \emph{StraightLine}, \emph{Segment} and \emph{Point} create the utility classes.
+	
+	As shown in the diagram, both the feature extractor and the class hierarchy parts are composed by the same classes defined in chapter \ref{chDesign}. 
+	The ones containing the utility functions and the features for the communication with \mbox{ACT-R} have been properly developed, accordingly to the design choices.
+	The following sections presents the implementation of the whole classes, focusing mainly on these two latter parts of the software. 
+
+	\subsection{Feature Extraction}
+	
+		\begin{figure}[h]
+		  \begin{center} 
+		    \fbox{	
+		       \includegraphics[scale=0.75]{images/ch_06/cs_fe.jpg}
+		    }
+		  \end{center} 
+		  \caption{\textit{}}  
+		  \label{fig:extraction and client server}
+	 	\end{figure}	
+
+
+	%\clearpage
+ 	%\includegraphics[angle=90,height=\textheight]{images/ch_06/implementation.jpg}\thispagestyle{empty}
+\begin{comment}
+	\pagestyle{empty}
+	\begin{center} 	
+	\fbox{	
+		\includegraphics[angle=90,height=26cm]{images/ch_06/implementation.jpg}%\thispagestyle{empty}
+	}
+	%\caption{\textit{Class diagram illustrating a high level overview of the implementation}} 
+	\label{fig:impl}
+	\end{center}
+\end{comment}
 	
 	\subsection{Utility Part}
-	The utility part is composed by the classes \emph{InputException},\emph{NotOverlappedSegmentException},\emph{ParallelLinesException},\emph{VerticalLineException},\emph{CoincidentLinesException}, \emph{FourPointsSorter}, \emph{StraightLine},\emph{Segment}, \emph{Point}, and another module containing functions. The latter, as it is not a class, is not included in the diagram in figure \ref{}. 
+	The utility part is composed by the classes \emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException}, \emph{CoincidentLinesException}, \emph{FourPointsSorter}, \emph{StraightLine}, \emph{Segment}, \emph{Point} and another module containing functions. The latter, as it is not a class, is not included in the diagram in figure \ref{}. 
 
-	\emph{InputException},\emph{NotOverlappedSegmentException},\emph{ParallelLinesException},\emph{VerticalLineException},\emph{CoincidentLinesException} are exceptions classes, used to handle all the anomalous or exceptional events occurring during the execution of the software. 
+	\emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException} and \emph{CoincidentLinesException} are exceptions classes, used to handle all the anomalous or exceptional events occurring during the execution of the software. 
 
-	\emph{StraightLine},\emph{Segment} and \emph{Point} represent geometrical entities. Such elements are fundamental structures for creating the objects in the hierarchy and making evaluations, both qualitative and quantitative, between couples of objects, as, for example, the distances between two centers or the relative positions.
+	\emph{StraightLine}, \emph{Segment} and \emph{Point} represent geometrical entities. Such elements are fundamental structures for creating the objects in the hierarchy and making evaluations between couples of objects.
+	Such evaluations can be both qualitative and quantitative, as, for example, the distances between the centers of tow objects or the relative positions of one object in respect with another.
 
-	\emph{FourPointsSorter} and the module containing contain the basic methods which are fundamental for all the operations executed by all the other classes of the software.
+	\emph{FourPointsSorter} and the function module contain the basic methods which are fundamental for all the operations executed by all the other classes of the software.
 
+
+	\subsection{Communication with ACT-R}
 	The part responsible for the communication with the cognitive architecture is composed by the classes \emph{Server} and \emph{Session}. 
 	
 
@@ -55,5 +100,5 @@ The communication with  and
 	
 \end{comment}
 
-	\section{COmmunication with ACT-R}
-	ciao
+	%\section{COmmunication with ACT-R}
+	%ciao
