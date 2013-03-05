@@ -1,0 +1,34 @@
+\appendix
+\chapter{Appendix A}\label{appA}
+
+	\section{Prototypes of the utility functions}
+	This section contains the prototypes of the functions that are not contained in classes and thus are not inserted in chapter \ref{impl_test}
+	
+	\subsection*{Prototypes of the src contained in extractorUtils.h}
+	\todo{formattare decentemente sta roba}
+	\begin{lstlisting}
+	double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 );
+	double getDistance(cv::Point a, cv::Point b);
+	bool similar(cv::vector<cv::Point> a, cv::vector<cv::Point> b);
+	bool tooClose(cv::Point a, cv::Point b);
+	bool isFalse(cv::vector<cv::Point> square);
+	bool isTriangle(cv::vector<cv::Point> terna);
+	cv::vector<cv::vector<cv::Point> > deleteOverlapped(cv::vector<cv::vector<cv::Point> > oldList);
+	cv::vector<cv::vector<cv::Point> > squaresSort(cv::vector<cv::vector<cv::Point> > squareList);
+	cv::vector<cv::vector<cv::Point> > deleteFalseSquares(cv::vector<cv::vector<cv::Point> > oldList);
+	cv::vector<cv::Point> sort4PointsClockwise(cv::vector<cv::Point> points);
+	cv::vector<cv::vector<cv::Point> > deleteFalseTriangles(cv::vector<cv::vector<cv::Point> > oldList);
+	\end{lstlisting}
+
+	\subsection*{Prototypes of the src contained in utils.h}
+	\begin{lstlisting}
+	int getMinMax(const std::vector<Point>& coords, int type);
+	std::vector<Point> sort4PointsClockwise(std::vector<Point> points);
+	double erone(Point a, Point b, Point c);
+	bool inLinePoints(int ax, int ay, int bx, int by, int cx, int cy );
+	double getDistance(Point a, Point b);
+	bool areSame(double a, double b);
+	double getMin(const std::vector<double>& values);
+	bool fileExists(char * path);
+	string intToString(int a);
+	\end{lstlisting}

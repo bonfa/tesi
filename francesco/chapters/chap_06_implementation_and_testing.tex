@@ -1,4 +1,4 @@
-\chapter{Implementation And Testing}
+\chapter{Implementation And Testing}\label{impl_test}
 
 	\section{The architecture the software}
 	As in chapter \ref{chDesign}, in this section class diagrams are used in order to clarify the description. Again, such description follows a top-down approach: section \ref{impl_arch} gives an overview of the architecture and for this reason the diagram in figure \ref{fig:implementation_names} contains only the names of the classes. The following sections study in deep specific aspects of the software and, consequently, contain more detailed diagrams.
@@ -66,7 +66,35 @@
 	
 
 		\subsection{Utility Part}
-		The utility part is composed by the classes \emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException}, \emph{CoincidentLinesException}, \emph{FourPointsSorter}, \emph{StraightLine}, \emph{Segment}, \emph{Point} and another module containing functions. The latter, as it is not a class, is not included in the diagram in figure \ref{}. 
+		The classes which form the utility parts of the software are divided in two categories: the exception classes and the ones representing all the other utilities. 
+		To these, two modules containing functions are added. 
+		Figure \ref{fig:impl_utility} shows a class diagram containing all the classes that constitute this part of the software. 
+		The modules, as not classes, can not be shown in the diagram.
+
+		\begin{figure}[h]
+		  \begin{center} 
+		    \fbox{	
+		       \includegraphics[width=\textwidth*\real{0.9}]{images/ch_06/utility.jpg}
+		    }
+		  \end{center} 
+		  \caption{\textit{Class diagram showing the utility part of the software}}  
+		  \label{fig:impl_utility}
+	 	\end{figure}
+
+		Classes \emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException} and \emph{CoincidentLinesException} are the exceptions classes. 
+		As such, they are used to handle all the anomalous or exceptional events occurring during the execution of the software.	
+	
+		\emph{StraightLine}, \emph{Segment} and \emph{Point} represent geometrical entities. These elements serve as basic structures for creating the objects in the hierarchy and making evaluations between couples of objects.
+		Such evaluations can be both qualitative and quantitative, as, for example, the distances between the centers of two objects or the relative positions of one object in respect with another.
+		
+		\emph{FourPointsSorter} and the function modules contain the basic methods which are fundamental for all the operations executed by all the other classes of the software.
+		For reasons of completeness the prototypes of the functions are listed in appendix \ref{appA}.
+
+		
+
+
+\begin{comment}
+		The utility part is composed by the classes \emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException}, \emph{CoincidentLinesException}, \emph{FourPointsSorter}, \emph{StraightLine}, \emph{Segment}, \emph{Point} and another module containing functions. The latter, as it is not a class, is not included in the diagram in figure \ref{fig:impl_utility}. 
 
 		\emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException} and \emph{CoincidentLinesException} are exceptions classes, used to handle all the anomalous or exceptional events occurring during the execution of the software. 
 
@@ -74,6 +102,11 @@
 		Such evaluations can be both qualitative and quantitative, as, for example, the distances between the centers of two objects or the relative positions of one object in respect with another.
 
 		\emph{FourPointsSorter} and the function module contain the basic methods which are fundamental for all the operations executed by all the other classes of the software.
+
+\end{comment}
+		
+
+		
 
 	
 
