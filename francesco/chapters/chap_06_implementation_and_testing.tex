@@ -1,8 +1,9 @@
 \chapter{Implementation And Testing}
 
 	\section{The architecture the software}
-	As in chapter \ref{chDesign}, in this chapter class diagrams are used in order to clarify the description. Again, such description follows a top-down approach: the first diagram gives an overview of the classes and in the following sections more detail is added.
+	As in chapter \ref{chDesign}, in this section class diagrams are used in order to clarify the description. Again, such description follows a top-down approach: section \ref{impl_arch} gives an overview of the architecture and for this reason the diagram in figure \ref{fig:implementationOnlyNames} contains only the names of the classes. The following sections study in deep specific aspects of the software, thus they contain more detailed diagrams.
 
+	\subsection{Overview}\label{impl_arch}
 	Figure \ref{fig:implementationOnlyNames} shows the class diagram of the whole software. 
 	According to the design specifications defined in chapter \ref{chDesign}, the software is organized in four main parts, each of which has its own role.
 
@@ -16,14 +17,13 @@
 	  \label{fig:implementationOnlyNames}
  	\end{figure}
  
-	Classes \emph{Server} and \emph{Session} manage the communication with \mbox{ACT-R}.
+	Classes \emph{Server} and \emph{Session} manage the communication with \mbox{ACT-R}, implemented by a client server approach.
 	Classes \emph{Proxy}, \emph{FeatureGetter}, \emph{Input}, \emph{FeatureExtractor}, \emph{MarkerDetector} and \emph{QRScanner} have the role of extracting the feature from the input data.
 	\emph{Object}, \emph{BoundingBox}, \emph{Blob}, \emph{QR}, \emph{Circle}, \emph{Triangle}, \emph{Quadrilateral}, \emph{Marker} and \emph{Button} represent the object hierarchy.
 	\emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException}, \emph{CoincidentLinesException}, \emph{FourPointsSorter}, \emph{StraightLine}, \emph{Segment} and \emph{Point} create the utility classes.
 	
-	As shown in the diagram, both the feature extractor and the class hierarchy parts are composed by the same classes defined in chapter \ref{chDesign}. 
-	The ones containing the utility functions and the features for the communication with \mbox{ACT-R} have been properly developed, accordingly to the design choices.
-	The following sections presents the implementation of the whole classes, focusing mainly on these two latter parts of the software. 
+	Comparing the classes shown in figure \ref{fig:implementationOnlyNames} with the design choices defined in chapter \ref{chDesign}, the reader can notice two facts: both the feature extractor and the class hierarchy parts are composed by the same classes defined in the design and the classes containing the utility functions and the features for the communication with \mbox{ACT-R} have been properly developed, accordingly to the design choices.
+	%The following sections presents the implementation of the whole classes, focusing mainly on these two latter parts of the software. 
 
 	\subsection{Feature Extraction}
 	
