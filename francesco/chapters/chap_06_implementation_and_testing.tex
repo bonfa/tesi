@@ -1,10 +1,10 @@
 \chapter{Implementation And Testing}
 
 	\section{The architecture the software}
-	As in chapter \ref{chDesign}, in this section class diagrams are used in order to clarify the description. Again, such description follows a top-down approach: section \ref{impl_arch} gives an overview of the architecture and for this reason the diagram in figure \ref{fig:implementationOnlyNames} contains only the names of the classes. The following sections study in deep specific aspects of the software and, consequently, contain more detailed diagrams.
+	As in chapter \ref{chDesign}, in this section class diagrams are used in order to clarify the description. Again, such description follows a top-down approach: section \ref{impl_arch} gives an overview of the architecture and for this reason the diagram in figure \ref{fig:implementation_names} contains only the names of the classes. The following sections study in deep specific aspects of the software and, consequently, contain more detailed diagrams.
 
 	\subsection{Overview}\label{impl_arch}
-	Figure \ref{fig:implementationOnlyNames} shows the class diagram of the whole software. 
+	Figure \ref{fig:implementation_names} shows the class diagram of the whole software. 
 	According to the design specifications defined in chapter \ref{chDesign}, the software is organized in four main parts, each of which has its own role.
 
 	\begin{figure}[h]
@@ -14,7 +14,7 @@
 	    }
 	  \end{center} 
 	  \caption{\textit{Class diagram which illustrates the whole architecture of the software}}  
-	  \label{fig:implementationOnlyNames}
+	  \label{fig:implementation_names}
  	\end{figure}
  
 	Classes \emph{Server} and \emph{Session} manage the communication with \mbox{ACT-R}, implemented by a client server approach.
@@ -22,8 +22,23 @@
 	\emph{Object}, \emph{BoundingBox}, \emph{Blob}, \emph{QR}, \emph{Circle}, \emph{Triangle}, \emph{Quadrilateral}, \emph{Marker} and \emph{Button} form the object hierarchy.
 	\emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException}, \emph{CoincidentLinesException}, \emph{FourPointsSorter}, \emph{StraightLine}, \emph{Segment} and \emph{Point} represent the utility classes.
 	
-	Comparing the classes shown in figure \ref{fig:implementationOnlyNames} with the design choices defined in chapter \ref{chDesign}, the reader can notice two facts: both the feature extractor and the class hierarchy parts strictly adhere to the project and, accordingly to the design choices, the classes containing the utility functions and the features for the communication with \mbox{ACT-R} have been properly developed.
+	Comparing the classes shown in figure \ref{fig:implementation_names} with the design choices defined in chapter \ref{chDesign}, the reader can notice two facts: both the feature extractor and the class hierarchy parts strictly adhere to the project and, accordingly to the design choices, the classes containing the utility functions and the features for the communication with \mbox{ACT-R} have been properly developed.
 	%The following sections presents the implementation of the whole classes, focusing mainly on these two latter parts of the software. 
+
+	\subsection{Object Hierarchy}
+	As it can be noticed comparing the diagram in figure \ref{fig:impl_hierarchy} with the diagram of the design at page \pageref{fig:HierarchyDesign}, the differences between the implementation and the project are minimal. 
+	In fact, further classes have not been introduced; rather, the existing ones have been provided with additional parameters and methods, as for example, the attributes \emph{color} and \emph{center}.
+	According to the iterative development process, different parameters have been added at different moments of the development.
+
+	\begin{figure}[h]
+	  \begin{center} 
+	    \fbox{	
+	       \includegraphics[width=\textwidth*\real{0.9}]{images/ch_06/hierarchy.jpg}
+	    }
+	  \end{center} 
+	  \caption{\textit{Class diagram that shows the implementation of the object hierarchy}}  
+	  \label{fig:impl_hierarchy}
+ 	\end{figure}
 
 	\subsection{Feature Extraction}
 	
