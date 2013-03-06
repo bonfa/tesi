@@ -28,18 +28,30 @@
 
 	
 		\subsection{Communication with ACT-R}
-		\mbox{ACT-R} and the developed module use a \emph{client-server} communication mechanism based on \mbox{TCP} in order to exchange information between each other. 		
+		In order to exchange information between each other, \mbox{ACT-R} and the developed module use a synchronous \emph{client-server} communication mechanism based on \mbox{TCP}. 
+		\mbox{ACT-R} models represent the clients, the developed software the server. 
+		The format used for the messages is \mbox{JSON}.  		
 
-		The client-server approach has been chosen because it is standardized and supported by \mbox{Lisp} interpreters that run \mbox{ACT-R}. 
-		Moreover the possibility of using shared resources and the transparency offered by the mechanism ensure very high flexibility and scalability.
-		TCP has been preferred to \mbox{UDP} mainly because of the reliability guaranteed. Secondly, the communication to be implemented is bi-directional and the small quantity of data exchanged in the communication make it more suitable for the purpose.
+		The client-server approach has been chosen because it is standardized and is supported by the interpreters that run \mbox{ACT-R}. 
+		In addition, the possibility of using shared resources and the transparency offered by the mechanism ensure very high flexibility and scalability.
 
-		When an ACT-R model is run in a LISP interpreter, a second process is also launched. 
+		TCP has been preferred to \mbox{UDP} mainly because of the reliability guaranteed by that protocol. 
+		Secondly, the bi-directionality of the communication and the small quantity of data exchanged make it more suitable for the purpose.
 
-In this process all the computation related to the video and image processing is performed. When ACT-R needs to acquire information from the real world, it asks the required data. The LISP interpreter needs to communicate with the second process. The interpreter initiates a connection with the server, acting as client. Since the process of the server is running, a connection is established and the exchange of data can begin. At this stage the interpreter can encode and send a request, which will be delivered to the other process. Then the server receives the request, decodes it and requests an extraction of features.
-		When the server receives a request, a feature extraction procedure starts. The position of the markers, if any, is retrieved and a video frame is analysed in order to get further informations, when needed. The exchange of information between client and server is done in a synchronous way, this means that the LISP interpreter will wait until a response is received.
-		After that the response will be translated in chunks and delivered to ACT-R. After that the model will be able to continue its cognitive reasoning. All the information sent by the two parties is encoded in JSON. In the next paragraph will be described more in detail how the data are encoded.
+		The communication is synchronous. 
+		The client, once having sent the request, stays pending until it receives the response. 
+		This choice is coherent with the application domain. 
+		As the software module acts like a vision system for the cognitive architecture, it makes sense that the model does not continue the reasoning until the available visual information is received.
 
+		The \mbox{Lisp} interpreter which runs \mbox{ACT-R} models is the client, while the developed software is the server.  	
+		When a model needs to acquire information about an image, it connects to the server. 
+		Once connected, it can encode and send a request to the server. 
+		After the server has received and decoded successfully the request, it processes the input data. When the visual information are ready to be sent, the server encodes them and send them back to the client. 
+		After this, the information contained in the message is translated in chunks and then delivered to the model, that uses it for the cognitive reasoning.
+
+		All the messages exchanged between client and server are encoded in \mbox{JSON}. 
+		In \ref{} an example of the message is shown.
+%		In the next paragraph will be described more in detail how the data are encoded.
 
 
 		The part responsible for the communication with the cognitive architecture is composed by the classes \emph{Server} and \emph{Session}. 
