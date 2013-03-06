@@ -19,7 +19,7 @@
 	 	\end{figure}
  
 		Classes \emph{Server} and \emph{Session} manage the communication with \mbox{ACT-R}, implemented by a client server approach.
-		Classes \emph{Proxy}, \emph{FeatureGetter}, \emph{Input}, \emph{FeatureExtractor}, \emph{MarkerDetector} and \emph{QRScanner} have the role of extracting the feature from the input data and preparing the messages to be sent to the cognitive architecture.
+		Classes \emph{Proxy}, \emph{FeatureGetter}, \emph{Input}, \emph{FeatureExtractor}, \emph{MarkerDetector} and \emph{QRScanner} have the role of extracting features from the input data and preparing the messages to be sent to the cognitive architecture.
 		\emph{Object}, \emph{BoundingBox}, \emph{Blob}, \emph{QR}, \emph{Circle}, \emph{Triangle}, \emph{Quadrilateral}, \emph{Marker} and \emph{Button} form the object hierarchy.
 		\emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException}, \emph{CoincidentLinesException}, \emph{FourPointsSorter}, \emph{StraightLine}, \emph{Segment} and \emph{Point} represent the utility classes.
 	
@@ -28,7 +28,32 @@
 
 	
 		\subsection{Communication with ACT-R}
-		The part responsible for the communication with the cognitive architecture is composed by the classes \emph{Server} and \emph{Session}. \todo{}
+		\mbox{ACT-R} and the developed module use a \emph{client-server} communication mechanism based on \mbox{TCP} in order to exchange information between each other. 		
+
+		The client-server approach has been chosen because it is standardized and supported by \mbox{Lisp} interpreters that run \mbox{ACT-R}. 
+		Moreover the possibility of using shared resources and the transparency offered by the mechanism ensure very high flexibility and scalability.
+		TCP has been preferred to \mbox{UDP} mainly because of the reliability guaranteed. Secondly, the communication to be implemented is bi-directional and the small quantity of data exchanged in the communication make it more suitable for the purpose.
+
+		When an ACT-R model is run in a LISP interpreter, a second process is also launched. 
+
+In this process all the computation related to the video and image processing is performed. When ACT-R needs to acquire information from the real world, it asks the required data. The LISP interpreter needs to communicate with the second process. The interpreter initiates a connection with the server, acting as client. Since the process of the server is running, a connection is established and the exchange of data can begin. At this stage the interpreter can encode and send a request, which will be delivered to the other process. Then the server receives the request, decodes it and requests an extraction of features.
+		When the server receives a request, a feature extraction procedure starts. The position of the markers, if any, is retrieved and a video frame is analysed in order to get further informations, when needed. The exchange of information between client and server is done in a synchronous way, this means that the LISP interpreter will wait until a response is received.
+		After that the response will be translated in chunks and delivered to ACT-R. After that the model will be able to continue its cognitive reasoning. All the information sent by the two parties is encoded in JSON. In the next paragraph will be described more in detail how the data are encoded.
+
+
+
+		The part responsible for the communication with the cognitive architecture is composed by the classes \emph{Server} and \emph{Session}. 
+
+		\begin{figure}[h]
+		  \begin{center} 
+		    \fbox{	
+		       \includegraphics[width=\textwidth*\real{0.9}]{images/ch_06/communication.jpg}
+		    }
+		  \end{center} 
+		  \caption{\textit{Class diagram describing the implementation part of the software dedicated to communication}}  
+		  \label{fig:impl_feat_extraction}
+	 	\end{figure}	
+
 
 \newpage
 		\subsection{Feature Extraction}
@@ -82,7 +107,7 @@
 	 	\end{figure}
 
 		Classes \emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException} and \emph{CoincidentLinesException} are the exceptions classes. 
-		As such, they are used to handle all the anomalous or exceptional events occurring during the execution of the software.	
+		As such, they are used to handle all the anomalous or exceptional events occurring at run-time.	
 	
 		\emph{StraightLine}, \emph{Segment} and \emph{Point} represent geometrical entities. These elements serve as basic structures for creating the objects in the hierarchy and making evaluations between couples of objects.
 		Such evaluations can be both qualitative and quantitative, as, for example, the distances between the centers of two objects or the relative positions of one object in respect with another.
