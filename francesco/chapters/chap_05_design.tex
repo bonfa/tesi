@@ -121,10 +121,59 @@
 	The third part is not included in the section because it contains only utility classes and functions. 
 	The reader can find a description of that part in appendix \ref{appB}. 
 
-\begin{comment}
-	The other part is not included in the design diagrams for different reasons. 
-	According to the non-functional requirements, the team planned to try different solutions in order to implement the communication between the software and ACT-R. As different approaches can lead to different architectures, this part has not been designed a priori.
-	Regarding the utility part, it depends strongly by the future design and implementation choices and is influenced by the chosen communication technique. These factors make it very instable and volatile. 
-	For these reasons and according to the agile development, the team decided not to spend time in planning a fixed structure for it at the beginning.
-\end{comment}
+		\subsection{Feature Extraction Classes}\label{featExtraction}	
+		The classes that play the role of acquiring the images and extracting features from them are \emph{Input}, \emph{FeatureGetter} and \emph{FeatureExtractor}. \emph{Proxy} has the role of intermediation between this part of the software and the one which manages the communication with \mbox{ACT-R}.
+
+		\begin{figure}[h]
+		  \begin{center} 
+		    \fbox{	
+		       \includegraphics[scale=0.65]{images/ch_05/feature.png}
+		    }
+		  \end{center} 
+		  \caption{\textit{Class diagram illustrating the main roles in the feature extraction process}}  
+		  \label{fig:FeatureDesign}
+	 	\end{figure}
+	
+		Figure \ref{fig:FeatureDesign} contains the class diagram that designs the interface of these classes.
+		\emph{FeatureExtractor} represents the core of this part. It receives in input an image and processes it in order to extract the features that contains. For each extracted feature it creates a correspondent element in the \emph{object hierarchy}. Such hierarchy is described in section \ref{classHierarchy}. Once the objects are generated, the class creates a list containing them and delivers it to FeatureGetter. 
+		FeatureExtractor is also responsible for accomplishing other goals described in the requirements, like recognizing colors of pixels and objects, calculating the distances of two objects as well as the relative position of one object in respect with another one and making dimensional comparisons between two objects. These features have not been included in the initial design of the class. %even if it has been thought that this class would have accomplished all these tasks.
+
+		\emph{Input} is responsible for interacting with the file system and the hardware of the computer. In particular its tasks are loading images from files, saving images to files and loading video streams from the web-cam. The acquired data are delivered to FeatureGetter. 
+
+		\emph{FeatureGetter} represents a level of abstraction that avoids to call directly the functions of FeatureExtractor and Input, providing a simpler interface. Its functions create the Input object, receive from it the input data, delivers it to FeatureExtractor for the extraction of the features and delivers the received object list to Proxy.
+
+		\emph{Proxy} represents a further level of abstraction between FeatureGetter and the part of the software which manages the communication with ACT-R. Most of the procedures for the communication with the cognitive architecture, in fact, need to use specific data types. The main function of this class is to transform each object of the object list in the type necessary for the communication to ACT-R.
+
+		As the classes \emph{MarkerDetector} and \emph{QRScanner} do not accomplish to any functions described in the requirements section of chapter \ref{chObjective}, they are not described in this work.
+
+		
+
+		\section{Class Hierarchy}\label{classHierarchy}
+		The class hierarchy contains all the objects that are recognized during the processing of the image. Each feature has a correspondent object that describes it. 
+	
+		\begin{figure}[h]
+		  \begin{center} 
+		    \fbox{	
+		       \includegraphics[scale=0.65]{images/ch_05/hierarchy.png}
+		    }
+		  \end{center} 
+		  \caption{\textit{Class diagram illustrating the class hierarchy of the recognized objects}}  
+		  \label{fig:HierarchyDesign}
+	 	\end{figure}
+
+		Figure \ref{fig:HierarchyDesign} contains a class diagrams that specifies such hierarchy. 
+		\emph{Object} is the superclass that represents all the possible objects recognized in an image during the feature extraction process. 
+		All the elements of this type must have two attributes: a \emph{rotation} value and a \emph{boundingBox}. 
+		The latter is defined by the class \emph{BoundingBox}. Such element can have only rectangular shape, in fact its attributes are the coordinates of a point and horizontal and vertical dimensions.
+
+
+		The type Object can be specified by two sub-types: \emph{Blob}, that represents a generic shape, and \emph{QR}, representing a \mbox{QR} element. The presence of \mbox{QR} is not important for the shape recognition task but it justifies the presence of Blob in the hierarchy. Without \mbox{QR} class, in fact, Blob could have been incorporated in Object.
+		Blob is provided of the attributes \emph{area} and \emph{perimeter}, which, as suggested by the names, represent respectively the area and the perimeter of the shape.
+	
+
+		The classes \emph{Circle}, \emph{Triangle} and \emph{Quadrilateral} extend \emph{Blob}. They represent the simple shapes that can be recognized during the recognition process. Each item is defined starting by basic geometrical elements: the circle by center and radius, the triangle by three points, the quadrilateral by four points. \emph{Point} class, in particular, has been introduced in this diagram for reasons of completeness. 
+
+		The class \emph{Button} specifies Quadrilateral by adding the attribute \emph{text}, which represents the message of such button. The fact that such class derives Quadrilateral instead of Blob reflects the requirement that the buttons can be only rectangular. 
+	
+		The class \emph{Marker} is not described in this document. 
 	
