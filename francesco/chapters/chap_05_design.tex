@@ -94,29 +94,37 @@
 %		In the next paragraph will be described more in detail how the data are encoded.
 
 
-	\section{Visual Module}
+	\section{Vision Operation Module}
+	The vision operation module is composed of three main parts, one for processing images and videos, one for containing the hierarchy of the objects recognized during such processing and one containing the exception classes and the utility functions used by all the other components.
+
+\begin{comment}
 	The vision module is composed of four main parts, one for processing images and videos, one for containing the hierarchy of the objects recognized during such processing, one for the communication with the model and one containing all the utility functions used by all the other components.
-	
-	\todo{change picture}
+\end{comment}	
+
+	%\todo{change picture}
 	\begin{figure}[h]
 	  \begin{center} 
 	    \fbox{	
 	       \includegraphics[scale=0.55]{images/ch_05/progettazione_overview.png}
 	    }
 	  \end{center} 
-	  \caption{\textit{Class diagram illustrating a high level overview of the designed parts of the software}}  
+	  \caption{\textit{Class diagram illustrating a high level overview of the vision operation module}}  
 	  \label{fig:classOverview}
  	\end{figure}
 
-	\todo{change this part}
+	%\todo{change this part}
 	Image \ref{fig:classOverview} shows a class diagram which describes two of the parts that compose the software. 
-	The part dedicated to the processing of images and video is located on the left and is composed by the classes \emph{Proxy}, \emph{FeatureGetter}, \emph{FeatureExtractor}, \emph{Input}, \emph{MarkerDetector} and \emph{QRScanner}.
+	The part dedicated to the processing of images and videos is located on the left and is composed by the classes \emph{Proxy}, \emph{FeatureGetter}, \emph{FeatureExtractor}, \emph{Input}, \emph{MarkerDetector} and \emph{QRScanner}.
 	The object hierarchy, which is shown on the right, contains the classes \emph{Object}, \emph{BoundingBox}, \emph{Blob}, \emph{QR}, \emph{Circle}, \emph{Triangle}, \emph{Quadrilateral}, \emph{Button} and \emph{Marker}.
 
-	\todo{change this part}
-	The other two parts are not included in the design diagrams for different reasons. 
+	%\todo{change this part}
+	The third part is not included in the section because it contains only utility classes and functions. 
+	The reader can find a description of that part in appendix \ref{appB}. 
+
+\begin{comment}
+	The other part is not included in the design diagrams for different reasons. 
 	According to the non-functional requirements, the team planned to try different solutions in order to implement the communication between the software and ACT-R. As different approaches can lead to different architectures, this part has not been designed a priori.
 	Regarding the utility part, it depends strongly by the future design and implementation choices and is influenced by the chosen communication technique. These factors make it very instable and volatile. 
 	For these reasons and according to the agile development, the team decided not to spend time in planning a fixed structure for it at the beginning.
-
+\end{comment}
 	

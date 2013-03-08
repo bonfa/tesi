@@ -125,7 +125,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -520,7 +520,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -685,7 +685,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -819,7 +819,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -976,7 +976,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -1286,7 +1286,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -1489,7 +1489,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -1692,7 +1692,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -1812,16 +1812,16 @@
     </dia:object>
     <dia:object type="UML - Generalization" version="1" id="O8">
       <dia:attribute name="obj_pos">
-        <dia:point val="97.1078,11.8055"/>
+        <dia:point val="97.1078,11.7055"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="86.4455,11.7555;97.9578,24.0133"/>
+        <dia:rectangle val="86.4455,11.6555;97.9578,24.0133"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="97.1078,11.8055"/>
+        <dia:point val="97.1078,11.7055"/>
         <dia:point val="97.1078,22.5035"/>
         <dia:point val="86.4955,22.5035"/>
         <dia:point val="86.4955,23.9633"/>
@@ -1853,19 +1853,19 @@
     </dia:object>
     <dia:object type="UML - Generalization" version="1" id="O9">
       <dia:attribute name="obj_pos">
-        <dia:point val="122.55,45.6659"/>
+        <dia:point val="122.65,45.6659"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="115.006,45.6159;123.4,52.6285"/>
+        <dia:rectangle val="115.106,45.6159;123.5,52.6285"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="122.55,45.6659"/>
-        <dia:point val="122.55,51.3382"/>
-        <dia:point val="115.056,51.3382"/>
-        <dia:point val="115.056,52.5785"/>
+        <dia:point val="122.65,45.6659"/>
+        <dia:point val="122.65,51.3382"/>
+        <dia:point val="115.156,51.3382"/>
+        <dia:point val="115.156,52.5785"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="1"/>
@@ -2146,7 +2146,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -2251,16 +2251,16 @@
     </dia:object>
     <dia:object type="UML - Generalization" version="1" id="O15">
       <dia:attribute name="obj_pos">
-        <dia:point val="97.1078,11.6805"/>
+        <dia:point val="97.1078,11.7055"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="96.2578,11.6305;108.422,23.9554"/>
+        <dia:rectangle val="96.2578,11.6555;108.422,23.9554"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="97.1078,11.6805"/>
+        <dia:point val="97.1078,11.7055"/>
         <dia:point val="97.1078,22.5035"/>
         <dia:point val="108.372,22.5035"/>
         <dia:point val="108.372,23.9054"/>
@@ -2352,7 +2352,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -2535,7 +2535,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -2848,7 +2848,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -3133,7 +3133,7 @@
         <dia:point val="122.538,45.7284"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="121.688,45.6784;130.023,52.6455"/>
+        <dia:rectangle val="121.688,45.6784;130.123,52.6455"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3141,8 +3141,8 @@
       <dia:attribute name="orth_points">
         <dia:point val="122.538,45.7284"/>
         <dia:point val="122.538,51.3436"/>
-        <dia:point val="129.973,51.3436"/>
-        <dia:point val="129.973,52.5955"/>
+        <dia:point val="130.073,51.3436"/>
+        <dia:point val="130.073,52.5955"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="1"/>
@@ -3230,7 +3230,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -3713,7 +3713,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
@@ -4216,16 +4216,16 @@
         <dia:boolean val="false"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="110.565,25.6054"/>
+        <dia:point val="110.566,25.6054"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="110.515,24.8054;137.171,55.0955"/>
+        <dia:rectangle val="110.516,24.8054;137.171,55.0955"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="110.565,25.6054"/>
+        <dia:point val="110.566,25.6054"/>
         <dia:point val="137.071,25.6054"/>
         <dia:point val="137.071,54.2955"/>
         <dia:point val="135.088,54.2955"/>
@@ -4311,7 +4311,7 @@
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="fill_color">
-        <dia:color val="#e6e6fa"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="text_color">
         <dia:color val="#000000"/>
