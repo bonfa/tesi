@@ -2,7 +2,7 @@
 	This chapter describes the design of the software, focusing on its main important aspects.
 	The first section describes the architecture from a high-level point of view.
 	The second one shows the organization of processes and threads.
-	The third one explains the communication choice and the last one clarify the architecture of the visual module. 
+	The third one explains the choices about the communication mechanism and the last one illustrates the architecture of the visual module. 
 	
 	\section{The Architecture}
 	This section gives a high level overview of the architecture of the software by introducing its main building blocks and the main modules they interact with. 
@@ -30,7 +30,7 @@
 
 	\section{Processes}
 	Figure \ref{fig:processes} represents a scheme of processes and threads that compose the architecture.
-	As shown in the picture, the \mbox{Lisp} interpreter and the visual module run on two separated processes. 
+	As shown in the picture, the \mbox{Lisp} interpreter and the Visual Module run on two separated processes. 
 	The processes are independent and their management is left to the operative system.
 
 	The design on the communication protocol is such that the two processes can be run only on the same computer. 
@@ -50,7 +50,7 @@
 	
 	The Vision Module is composed by two threads: one for the server and the other for the visual processing. 
 	The server thread runs in background while the visual operation one is the main thread.
-	The problems regarding \mbox{race conditions} are dealt with \emph{semaphores}; all the other issues are automatically managed by the \emph{Boost} library.
+	The problems regarding \mbox{race conditions} are dealt with \emph{semaphores}; all the other issues related to threads management are automatically handled by the \emph{Boost} library.
 	The thread organization of \mbox{ACT-R} is not discussed in this work.	
 
 
@@ -78,7 +78,7 @@
 	This method, though, is not maintainable. 
 	In fact, every \mbox{Lisp} interpreter has a different method of calling foreign functions~\cite{SWIGDoc}. 
 	As consequence of this, every time the interpreter is changed, the interface of the visual module must be re-written.
- 	At design time it has been decided to prefer maintainability to an irrelevant improvement of the performances, thus the client-server has been preferred to this solution.
+ 	At design time it has been decided to prefer maintainability to an irrelevant improvement of the performances, thus the client-server has been chosen.
 
 	TCP has been preferred to \mbox{UDP} mainly because of the reliability guaranteed by that protocol. 
 	Secondly, the bi-directionality of the communication and the small quantity of data exchanged make it more suitable for the purpose.
@@ -90,7 +90,8 @@
 	The \mbox{Lisp} interpreter which runs \mbox{ACT-R} models is the client, while the developed software is the server.  	
 	When a model needs to acquire information about an image, it connects to the server. 
 	Once connected, it can encode and send a request to the server. 
-	After the server has received and decoded successfully the request, it processes the input data. When the visual information are ready to be sent, the server encodes them and send them back to the client. 
+	After the server has received and decoded successfully the request, it processes the input data. 
+	When the visual information is ready to be sent, the server encodes it and send it back to the client. 
 	After this, the message is decoded and its content is translated in chunks and then delivered to the model, that uses it for the cognitive reasoning.
 
 	All the messages exchanged between client and server are encoded in \mbox{JSON}. 
@@ -99,31 +100,47 @@
 
 
 	\section{Vision Operation Module}
-	The vision operation module is composed of three main parts, one for processing images and videos, one for containing the hierarchy of the objects recognized during such processing and one containing the exception classes and the utility functions used by all the other components.
+	This section describes the design of the Vision Operation Module.
+	For reasons of clarity, the description of the architecture follows a top-down approach and makes use of diagrams. 		The first subsection gives an overview of the module and the following ones study in deep specific aspects of it.
 
-\begin{comment}
-	The vision module is composed of four main parts, one for processing images and videos, one for containing the hierarchy of the objects recognized during such processing, one for the communication with the model and one containing all the utility functions used by all the other components.
-\end{comment}	
+	To better explain the contents and the structure of the design, the description is supported by \mbox{UML} diagrams. 
+	The following sections describe the module at different levels of detail and the diagrams reflect this approach.
+	In subsection \ref{visOpModArch}, for example, they are used only to present how the classes are organized in the overall structure and that is why they contain only the names of the classes. 
+	Further details are added in the diagrams in the next subsections, according with the top-down approach of the chapter.
+	
+	The reader will notice that some classes that appear in the following diagrams are not described in the chapter. The reason of this is that they do not accomplish to any functions described in the requirements section of \mbox{chapter \ref{chObjective}}. Their presence makes sense in the context of the whole software, described in \ref{TeamGoal}. It has been decided not to remove such classes from the diagrams because they influence the architecture and motivate particular design and implementation choices.
 
-	%\todo{change picture}
-	\begin{figure}[h]
-	  \begin{center} 
-	    \fbox{	
-	       \includegraphics[scale=0.55]{images/ch_05/progettazione_overview.png}
-	    }
-	  \end{center} 
-	  \caption{\textit{Class diagram illustrating a high level overview of the vision operation module}}  
-	  \label{fig:classOverview}
- 	\end{figure}
+	This section explains only the most important architectural aspects of the software. 
+	Not particularly interesting classes, like, for example, the utility ones are not described here.
+	For a more detailed description about all the aspects of the architecture, see appendix \ref{appA}.
 
-	%\todo{change this part}
-	Image \ref{fig:classOverview} shows a class diagram which describes two of the parts that compose the software. 
-	The part dedicated to the processing of images and videos is located on the left and is composed by the classes \emph{Proxy}, \emph{FeatureGetter}, \emph{FeatureExtractor}, \emph{Input}, \emph{MarkerDetector} and \emph{QRScanner}.
-	The object hierarchy, which is shown on the right, contains the classes \emph{Object}, \emph{BoundingBox}, \emph{Blob}, \emph{QR}, \emph{Circle}, \emph{Triangle}, \emph{Quadrilateral}, \emph{Button} and \emph{Marker}.
+		\subsection{Architecture}\label{visOpModArch}
+		The vision operation module is composed of three main parts, one for processing images and videos, one for containing the hierarchy of the objects recognized during such processing and one containing the exception classes and the utility functions used by all the other components.
 
-	%\todo{change this part}
-	The third part is not included in the section because it contains only utility classes and functions. 
-	The reader can find a description of that part in appendix \ref{appB}. 
+	\begin{comment}
+		The vision module is composed of four main parts, one for processing images and videos, one for containing the hierarchy of the objects recognized during such processing, one for the communication with the model and one containing all the utility functions used by all the other components.
+	\end{comment}	
+
+		%\todo{change picture}
+		\begin{figure}[h]
+		  \begin{center} 
+		    \fbox{	
+		       \includegraphics[scale=0.55]{images/ch_05/progettazione_overview.png}
+		    }
+		  \end{center} 
+		  \caption{\textit{Class diagram illustrating a high level overview of the vision operation module}}  
+		  \label{fig:classOverview}
+	 	\end{figure}
+
+		%\todo{change this part}
+		Image \ref{fig:classOverview} shows a class diagram which describes two of the parts that compose the software. 
+		The part dedicated to the processing of images and videos is located on the left and is composed by the classes \emph{Proxy}, \emph{FeatureGetter}, \emph{FeatureExtractor}, \emph{Input}, \emph{MarkerDetector} and \emph{QRScanner}.
+		The object hierarchy, which is shown on the right, contains the classes \emph{Object}, \emph{BoundingBox}, \emph{Blob}, \emph{QR}, \emph{Circle}, \emph{Triangle}, \emph{Quadrilateral}, \emph{Button} and \emph{Marker}.
+
+		%\todo{change this part}
+		The third part is not included in the section because it contains only utility classes and functions. 
+		The reader can find a description of that part in appendix \ref{appA}. 
+
 
 		\subsection{Feature Extraction Classes}\label{featExtraction}	
 		The classes that play the role of acquiring the images and extracting features from them are \emph{Input}, \emph{FeatureGetter} and \emph{FeatureExtractor}. \emph{Proxy} has the role of intermediation between this part of the software and the one which manages the communication with \mbox{ACT-R}.
@@ -177,7 +194,6 @@
 
 		The classes \emph{Circle}, \emph{Triangle} and \emph{Quadrilateral} extend \emph{Blob}. They represent the simple shapes that can be recognized during the recognition process. Each item is defined starting by basic geometrical elements: the circle by center and radius, the triangle by three points, the quadrilateral by four points. \emph{Point} class, in particular, has been introduced in this diagram for reasons of completeness. 
 
-		The class \emph{Button} specifies Quadrilateral by adding the attribute \emph{text}, which represents the message of such button. The fact that such class derives Quadrilateral instead of Blob reflects the requirement that the buttons can be only rectangular. 
-	
+		The class \emph{Button} specifies Quadrilateral by adding the attribute \emph{text}, which represents the message of such button. %The fact that such class derives Quadrilateral instead of Blob reflects the requirement that the buttons can be only rectangular. 
 		The class \emph{Marker} is not described in this document. 
 	
