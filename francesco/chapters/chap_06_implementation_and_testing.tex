@@ -1,44 +1,53 @@
 \chapter{Implementation And Testing}\label{impl_test}
+	
+	\section{Implementation}
+	
+		\subsection{Rectangles and Triangles Detection Algorithm}
+		The algorithm used in order to detect triangles and quadrilaterals in the images is based on a procedure of corner detection. 
+		In order to capture all the shapes, such procedure is executed three times for each color level of the image, with different thresholds.
 
+		As the procedure introduces some \emph{false corners}, the algorithm needs functions for detecting and removing them. 
+		In addition to this, this technique can detect many times the same shape; thus  the algorithm requires procedures that remove the different copies of the same shape.
 		
+		Listing \todo{} contains the pseudo code of the algorithm.
+		The first operation is an algorithm for the suppression of the noise.
+		Then the corner detection procedure is realized with three different thresholds for each level of the colored image, red, green and blue.
+		This guarantees that all the shapes in the image are recognized.
+		
+		After the corner detection algorithm, a selection based on the number of the detected vertexes is applied in order to select only the quadrilateral and the triangles.
+		In order to recognize a n-sides shape, the sets containing less than n vertexes are discarded. The remaining sets are added to a list for further processing.
+		For the recognition of quadrilaterals, for example, all the sets of points with more than 3 points are added to that list.
+		
+		The fact that not only the sets with n sides are included in the list is a consequence of the corner detection algorithm. 
+		If often happens, in fact, that a straight line is divided in two or more lines with very similar slope. Every couple of lines defines a corner which is detected. As consequence of this, even a set of points containing more than n points can define a n-vertex shapes. 
+		
+		In order to delete these \emph{false points}, an algorithm analyzes every set of corners removing all the points that are on the straight lines obtained by each couple of vertexes, except the points that generate the straight line. 
+		
+		After this, another selection based on the number of vertexes is applied. This time all the the sets that not contain n vertexes are removed from the list.
+		
+		 
+		%This technique has some weakness. For example, due to the different values of the threshold it can happen that a straight line is 
+				
+		
+		Another problem of the algorithm is that, due to the different thresholds applied to three different levels, most of the shapes are recognized more than once.
+		In particular, the corners that limit the same shape detected with different parameters can be significantly different.  
+		The gap in some cases can be even greater than 15 pixels. 
+		For example, the same triangle can be specified by two different sets, like {(0;0),(200;0),(100;200)} and {(2;2),(199;0),(101;197)}. 
+		In order to detect and remove these copies, a function  has been introduced that checks all the possible couples of sets. 
+		It controls the similarity of the two sets by analyzing the positions of the pixels, comparing the two areas, \todo{end}.
+		
+		Once removed the copies, the algorithm returns the list containing the remaining sets of points.
 
-
-	\section{Rectangles and Triangles Extraction Algorithm} 	
+\begin{comment}		
+		various parameters like the positions of pixels, the areas and the positions of each couple of 
+	
+		Then, the corners of each shape are "uniti" thanks to an algorithm of fi
+		
+		In order to detect the douls
+\end{comment}
 	
 
-	%\section{} 	
+	
 
 	\section{Testing}
-\begin{comment}
 
-	As it can be seen in the picture, the software is logically divided in the four main components introduced in the design chapter (see \ref{chDesign}).
-%, respecting the in the design specifics described in chapter \ref{chDesign}. 
-	Both the feature extraction part and the class hierarchy respect the design specifications, described in such chapter. The classes responsible for the communication with \mbox{ACT-R} and the utility part.
-The communication with  and
-
-
-	\newpage
-	
-	\begin{sidewaysfigure}[hbtp]
-	   \thispagestyle{empty}	
- 	   \centering
-	   \includegraphics[height=\textheight]{images/ch_06/implementation.jpg}
-	   
-	  \caption{\textit{Class diagram illustrating the class hierarchy of the recognized objects}}  
-	  \label{fig:HierarchyDesign}
- 	\end{sidewaysfigure}
-
-\newpage
-
-\relax
-	\AddToShipoutPicture*{ \\ \relax
-	  \setlength{\unitlength}{1mm} 
-	  \put(<10>, <10>){  
-	    \makebox(0,0){\includegraphics{images/ch_05/feature.png}}}} 
-	ciao
-
-	
-\end{comment}
-
-	%\section{COmmunication with ACT-R}
-	%ciao
