@@ -16,7 +16,46 @@
 		The latter is applied with three different thresholds for each level of the colored image, red, green and blue.
 		This guarantees that all the shapes in the image are recognized.
 		
+		\begin{lstlisting}
 
+		constant thresholds[3];	
+
+		function detect_polygon(image, sides_number){
+
+			noise_reduction(image);
+			
+			image_levels[3] = split_in_level(image);
+			
+			corners = [];
+		
+			for each level of image_levels do{
+				
+				for each threshold of thresholds do{
+
+					detected_corners = corner_detection(level,threshold);
+
+					corners.add(detected_corners);
+				}
+			}	
+
+			
+			for each corner_set of corners do{
+				if (corner_set.size() < sides_number)
+					corners.remove(corner_set);
+			}			
+
+			for each corner_set of corners do{
+				remove_in_line_points(corner_set);
+			}
+
+			for each corner_set of corners do{
+				if (corner_set.size() != sides_number)
+					corners.remove(corner_set);
+			}	
+			
+		}
+		\end{lstlisting}
+	
 
 		After the corner detection procedure, an operation of selection is applied, based on the number of detected vertexes.
 		In order to recognize a n-sides shape, the sets containing more than n-1 vertexes are kept, the other are discarded.
@@ -38,9 +77,7 @@
 		
 		After this, another selection based on the number of vertexes is applied. This time all the sets not containing n vertexes are discarded.
 		
-		 
-		%This technique has some weakness. For example, due to the different values of the threshold it can happen that a straight line is 
-				
+		
 		
 		Another problem of the algorithm is that, due to different thresholds applied to different levels of the image, a shape is often defined by more sets of points.
 		In particular, two points representing the same vertex of the same shape belonging to two different sets, do not have the same coordinates.
@@ -55,13 +92,7 @@
 		
 		Once removed the copies, the algorithm returns a list containing the remaining sets of points.
 
-\begin{comment}		
-		various parameters like the positions of pixels, the areas and the positions of each couple of 
-	
-		Then, the corners of each shape are "uniti" thanks to an algorithm of fi
 		
-		In order to detect the douls
-\end{comment}
 	
 
 	
