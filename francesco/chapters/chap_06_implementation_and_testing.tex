@@ -17,8 +17,8 @@
 		This guarantees that all the shapes in the image are recognized.
 		
 		After the corner detection procedure, an operation of selection is applied, based on the number of detected vertexes.
-		In order to recognize a n-sides shape, the sets containing more than n-1 vertexes are kept, the other are discarded.
-		For the recognition of quadrilaterals, for example, all the sets with less than 4 elements are discarded.
+		In order to recognize a n-sides shape, only the sets containing more than n-1 vertexes are kept, the other are discarded.
+		For the recognition of quadrilaterals, for example, all the sets with less than four elements are discarded.
 		
 
 
@@ -29,7 +29,7 @@
 
 
 		In order to delete the false corners, an algorithm analyzes every point set and calculates the slopes of the straight lines obtained by each couple of adjacent vertexes. 
-		If the slopes of two consecutive segments are very close one to each other, the vertex common to both the segments is a false corner and is removed.
+		If the slopes of two consecutive segments are very close one to each other, the vertex common to both the segments is a false corner and therefore is removed.
 		
 
 		
@@ -84,14 +84,14 @@
 		
 		
 		Another problem of the algorithm is that, due to different thresholds applied to different levels of the image, a shape is often defined by more sets of points.
-		In particular, two points representing the same vertex of the same shape belonging to two different sets, do not have the same coordinates.
+		In particular, two points representing the same vertex of the same shape belonging to different sets, most of the times do not have the same coordinates.
 		The gap in some cases can be even greater than 15 pixels. 
-		For example, the same triangle can be specified by {(0;0),(200;0),(100;200)} and {(2;2),(199;0),(101;197)}. 
+		For example, the same triangle can be specified by \{(0;0),(200;0),(100;200)\} and \{(2;2),(199;0),(101;197)\}. 
 		
 		
 
 		In order to detect and remove these copies, a function has been introduced that checks all the possible couples of sets. 
-		It controls the similarity of two elements by analyzing the positions of the pixels and making comparison about the areas and the perimeter of both the shapes. 
+		It controls the similarity of two elements by analyzing the positions of the pixels and making comparisons about the areas and the perimeter of both the shapes. 
 		When two sets specify the same object, the second one is discarded. 
 		
 		Once removed the copies, the algorithm returns a list containing the remaining sets of points.
