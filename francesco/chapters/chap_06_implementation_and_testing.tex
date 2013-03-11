@@ -11,52 +11,11 @@
 
 
 		
-		Listing \todo{} contains the pseudo code of the algorithm.
+		Listing \ref{lst:pseudoCodeShapeExtraction} contains the pseudo code of the algorithm.
 		The first operation is a technique for reducing the noise in the image, followed by the corner detection procedure.
 		The latter is applied with three different thresholds for each level of the colored image, red, green and blue.
 		This guarantees that all the shapes in the image are recognized.
 		
-		\begin{lstlisting}
-
-		constant thresholds[3];	
-
-		function detect_polygon(image, sides_number){
-
-			noise_reduction(image);
-			
-			image_levels[3] = split_in_level(image);
-			
-			corners = [];
-		
-			for each level of image_levels do{
-				
-				for each threshold of thresholds do{
-
-					detected_corners = corner_detection(level,threshold);
-
-					corners.add(detected_corners);
-				}
-			}	
-
-			
-			for each corner_set of corners do{
-				if (corner_set.size() < sides_number)
-					corners.remove(corner_set);
-			}			
-
-			for each corner_set of corners do{
-				remove_in_line_points(corner_set);
-			}
-
-			for each corner_set of corners do{
-				if (corner_set.size() != sides_number)
-					corners.remove(corner_set);
-			}	
-			
-		}
-		\end{lstlisting}
-	
-
 		After the corner detection procedure, an operation of selection is applied, based on the number of detected vertexes.
 		In order to recognize a n-sides shape, the sets containing more than n-1 vertexes are kept, the other are discarded.
 		For the recognition of quadrilaterals, for example, all the sets with less than 4 elements are discarded.
@@ -67,7 +26,6 @@
 		It often happens, in fact, that, due to noise in the image or imperfection of the corner detection procedure, a single segment is detected as a set of two or more shorter segments. 
 		Each couple of such elements defines a \emph{false corner}. 
 		For this reason, even a set of points containing more than n points can define a n-vertex shapes. 
-		
 
 
 		In order to delete the false corners, an algorithm analyzes every point set and calculates the slopes of the straight lines obtained by each couple of adjacent vertexes. 
@@ -76,6 +34,52 @@
 
 		
 		After this, another selection based on the number of vertexes is applied. This time all the sets not containing n vertexes are discarded.
+
+		\lstset{frame=single, breaklines=true, basicstyle=\footnotesize, columns=fullflexible,  keepspaces=true,stepnumber=2, caption=Pseudo code of the n-sides shape detection algorithm, label=lst:pseudoCodeShapeExtraction, captionpos=b, morekeywords={function,foreach,of,do,if,return}}
+	    	\begin{lstlisting}constant thresholds[3];	
+
+		function detect_polygon(image, sides_number){
+
+			noise_reduction(image);
+		
+			image_levels[3] = split_in_level(image);
+		
+			corners = [];
+	
+			foreach level of image_levels do{
+
+				foreach threshold of thresholds do{
+					detected_corners[] = corner_detection(level,threshold);
+					corners.add(detected_corners);
+				}
+			}	
+		
+			foreach corner_set of corners do{
+				if (corner_set.size() < sides_number)
+					corners.remove(corner_set);
+			}			
+
+			foreach corner_set of corners do{
+				remove_in_line_points(corner_set);
+			}
+
+			foreach corner_set of corners do{
+				if (corner_set.size() != sides_number)
+					corners.remove(corner_set);
+			}
+
+			remove_duplicates(corners);	
+		
+			return corners;
+			}
+			\end{lstlisting}
+		
+
+		
+		
+
+
+		
 		
 		
 		
