@@ -96,10 +96,26 @@
 		
 		Once removed the copies, the algorithm returns a list containing the remaining sets of points.
 
-		
-	
-
 	
 
 	\section{Testing}
+	% it focuses on correctness and reliability
+	The testing activity mainly on depends strictly on the class creation.
+	In particular, a class creation is always followed by the creation of its correspondent test module, which contains all the procedures required for checking the correctness of constructors, destructors and methods of the class to be tested.
+	
+	Differently from the \emph{test driven development} approach, in this case the test cases are not written before the definition of single methods; rather they are developed when the creation of the whole class is completed.
+	As consequence of this, a test case does not necessarily fail the first time it is run. 
+	
+	Every method is tested ensuring that all the possible flows of the execution are followed.
+	According to the \emph{equivalent partitioning} technique, input data are grouped in different categories by following the taxonomy valid not-valid and a test case with as input representative value for each partition is created that. 
+	%According to the \emph{equivalent partitioning} technique, for each function a test case with a valid input data for each category has been created as well as one for each group of invalid data.
+	Differently from the specification of this technique, more than one value per category is used for the test cases instead of one.
+
+	Moreover, conforming to the \emph{boundary value testing} technique, input values on the boundaries of such categories are introduced in the test cases in order to make the test cover as wide as possible. 
+
+	The test cases are organized in test suites. All the suites specific of a class are included in the same test module. All the test operation are automatically realized thanks to the CUTE software.
+
+
+
+
 
