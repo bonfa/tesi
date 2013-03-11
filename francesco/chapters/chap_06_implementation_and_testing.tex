@@ -29,22 +29,31 @@
 		Each couple of such elements defines a \emph{false corner}. 
 		For this reason, even a set of points containing more than n points can define a n-vertex shapes. 
 		
-		In order to delete the false corners, an algorithm analyzes every point set removing all the elements that belong to one of the straight lines obtained by each couple of adiacent vertexes, except the points that generate the straight line. 
+
+
+		In order to delete the false corners, an algorithm analyzes every point set and calculates the slopes of the straight lines obtained by each couple of adjacent vertexes. 
+		If the slopes of two consecutive segments are very close one to each other, the vertex common to both the segments is a false corner and is removed.
 		
-		After this, another selection based on the number of vertexes is applied. This time all the the sets that not contain n vertexes are removed from the list.
+
+		
+		After this, another selection based on the number of vertexes is applied. This time all the sets not containing n vertexes are discarded.
 		
 		 
 		%This technique has some weakness. For example, due to the different values of the threshold it can happen that a straight line is 
 				
 		
-		Another problem of the algorithm is that, due to the different thresholds applied to three different levels, most of the shapes are recognized more than once.
-		In particular, the corners that limit the same shape detected with different parameters can be significantly different.  
+		Another problem of the algorithm is that, due to different thresholds applied to different levels of the image, a shape is often defined by more sets of points.
+		In particular, two points representing the same vertex of the same shape belonging to two different sets, do not have the same coordinates.
 		The gap in some cases can be even greater than 15 pixels. 
-		For example, the same triangle can be specified by two different sets, like {(0;0),(200;0),(100;200)} and {(2;2),(199;0),(101;197)}. 
-		In order to detect and remove these copies, a function  has been introduced that checks all the possible couples of sets. 
-		It controls the similarity of the two sets by analyzing the positions of the pixels, comparing the two areas, \todo{end}.
+		For example, the same triangle can be specified by {(0;0),(200;0),(100;200)} and {(2;2),(199;0),(101;197)}. 
 		
-		Once removed the copies, the algorithm returns the list containing the remaining sets of points.
+		
+
+		In order to detect and remove these copies, a function has been introduced that checks all the possible couples of sets. 
+		It controls the similarity of two elements by analyzing the positions of the pixels and making comparison about the areas and the perimeter of both the shapes. 
+		When two sets specify the same object, the second one is discarded. 
+		
+		Once removed the copies, the algorithm returns a list containing the remaining sets of points.
 
 \begin{comment}		
 		various parameters like the positions of pixels, the areas and the positions of each couple of 
