@@ -2,26 +2,34 @@
 	
 	\section{Implementation}
 	
-		\subsection{Rectangles and Triangles Detection Algorithm}
-		The algorithm used in order to detect triangles and quadrilaterals in the images is based on a procedure of corner detection. 
-		In order to capture all the shapes, such procedure is executed three times for each color level of the image, with different thresholds.
+		\subsection{N-sides Shape Detection Algorithm}
+		The algorithm used in order to detect n-sides shapes in the images is based on a procedure of corner detection. 
+		In order to capture all such objects, the procedure is executed three times for each color level of the image, every time with different parameters.
+		As the corner detection algorithm identifies \emph{false corners}, it requires functions for detecting and removing them. 
+		In addition, the repetition of the procedure leads to the detection of many sets which describe the same shape.	
+		Consequently the algorithm requires procedures that remove the different copies of the same object.
 
-		As the procedure introduces some \emph{false corners}, the algorithm needs functions for detecting and removing them. 
-		In addition to this, this technique can detect many times the same shape; thus  the algorithm requires procedures that remove the different copies of the same shape.
+
 		
 		Listing \todo{} contains the pseudo code of the algorithm.
-		The first operation is an algorithm for the suppression of the noise.
-		Then the corner detection procedure is realized with three different thresholds for each level of the colored image, red, green and blue.
+		The first operation is a technique for reducing the noise in the image, followed by the corner detection procedure.
+		The latter is applied with three different thresholds for each level of the colored image, red, green and blue.
 		This guarantees that all the shapes in the image are recognized.
 		
-		After the corner detection algorithm, a selection based on the number of the detected vertexes is applied in order to select only the quadrilateral and the triangles.
-		In order to recognize a n-sides shape, the sets containing less than n vertexes are discarded. The remaining sets are added to a list for further processing.
-		For the recognition of quadrilaterals, for example, all the sets of points with more than 3 points are added to that list.
+
+
+		After the corner detection procedure, an operation of selection is applied, based on the number of detected vertexes.
+		In order to recognize a n-sides shape, the sets containing more than n-1 vertexes are kept, the other are discarded.
+		For the recognition of quadrilaterals, for example, all the sets with less than 4 elements are discarded.
 		
+
+
 		The fact that not only the sets with n sides are included in the list is a consequence of the corner detection algorithm. 
-		If often happens, in fact, that a straight line is divided in two or more lines with very similar slope. Every couple of lines defines a corner which is detected. As consequence of this, even a set of points containing more than n points can define a n-vertex shapes. 
+		It often happens, in fact, that, due to noise in the image or imperfection of the corner detection procedure, a single segment is detected as a set of two or more shorter segments. 
+		Each couple of such elements defines a \emph{false corner}. 
+		For this reason, even a set of points containing more than n points can define a n-vertex shapes. 
 		
-		In order to delete these \emph{false points}, an algorithm analyzes every set of corners removing all the points that are on the straight lines obtained by each couple of vertexes, except the points that generate the straight line. 
+		In order to delete the false corners, an algorithm analyzes every point set removing all the elements that belong to one of the straight lines obtained by each couple of adiacent vertexes, except the points that generate the straight line. 
 		
 		After this, another selection based on the number of vertexes is applied. This time all the the sets that not contain n vertexes are removed from the list.
 		
