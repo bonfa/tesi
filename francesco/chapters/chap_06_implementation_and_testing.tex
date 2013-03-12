@@ -4,9 +4,9 @@
 	
 	\section{Implementation}
 		As regarding the detection of shapes in images, two different algorithms are implemented, one for circles and one for shapes of n sides.
-		In particular, the solution for circles makes use mainly of a function provided by the \mbox{OpenCV} library therefore is not described here.
-		The algorithm for detecting n-sides shapes, instead, is more complicated and detailed. 
-		Below the reader can find the description of such method.
+		In particular, the solution for recognizing circles makes use mainly of a function provided by the \mbox{OpenCV} library, therefore is not described here.
+		The algorithm for detecting n-sides shapes, instead, is more complicated and not directly implemented in the vision library. 
+		Below, the reader can find the description of such method.
 	
 		\subsection{N-sides Shape Detection Algorithm}
 		The algorithm used in order to detect n-sides shapes in the images is based on a procedure of corner detection. 
@@ -18,14 +18,14 @@
 
 		
 		Listing \ref{lst:pseudoCodeShapeExtraction} contains the pseudo code of the algorithm.
-		The first operation is a technique for reducing the noise in the image, followed by two procedures, one for splitting the image in its three channels and the other one for detecting corners.
+		The first operation is a technique for reducing the noise in the image and is followed by two procedures, one for splitting the image in its three channels and the other one for detecting corners.
 		The latter is applied with three different thresholds for each level of the colored image, red, green and blue.
 		This guarantees that all the shapes in the image are recognized.
-		Both of these functions are offered by \mbox{OpenCV} library.
+		These three functions are offered by \mbox{OpenCV} library.
 
 		
 		After the corner detection procedure, an operation of selection is applied, based on the number of detected vertexes.
-		In order to recognize a n-sides shape, only the sets containing more than n-1 vertexes are kept, the other are discarded.
+		In order to recognize a n-sides shape, only the sets containing n or more vertexes are kept, the other are discarded.
 		For the recognition of quadrilaterals, for example, all the sets with less than four elements are discarded.
 		
 \lstset{frame=single, breaklines=true, basicstyle=\footnotesize, columns=fullflexible,  keepspaces=true,stepnumber=2, caption=Pseudo code of the n-sides shape detection algorithm, label=lst:pseudoCodeShapeExtraction, captionpos=b, morekeywords={function,foreach,of,do,if,return}}
@@ -91,24 +91,24 @@
 		
 		
 		Another problem of the algorithm is that, due to different thresholds applied to different levels of the image, a shape is often defined by more sets of points.
-		In particular, two points representing the same vertex of the same shape belonging to different sets, most of the times do not have the same coordinates.
+		Two points representing the same vertex of the same shape but belonging to different sets in general do not have the same coordinates.
 		The gap in some cases can be even greater than 15 pixels. 
 		For example, the same triangle can be specified by \{(0;0),(200;0),(100;200)\} and \{(2;2),(199;0),(101;197)\}. 
 		
 		
 
 		In order to detect and remove these copies, a function has been introduced that checks all the possible couples of sets. 
-		It controls the similarity of two elements by analyzing the positions of the pixels and making comparisons about area and perimeter of both the shapes. 
+		It controls the similarity of two elements by analyzing the positions of the pixels and making comparisons between the areas and the perimeters of the two shapes. 
 		When two sets specify the same object, the second one is discarded. 
 		
 		Once removed the copies, the algorithm returns a list containing the remaining sets of points, each of which represents a shape of the desired number of sides.
 
 		At the moment this algorithm has been implemented and tested only for quadrilaterals and triangles. 
-		Anyway, it can be adapted in order to recognize shapes with more than four sides.
+		Anyway, it can be adapted for recognizing shapes with more than four sides.
 		In fact, for each new category of shape, only an additional function is required, that is the filter for removing copies. 
-		A refactoring operation, anyway, can make this function work with general n-sides shapes and remove the need of adapting it for every new shape.
+		A refactoring operation, anyway, can make this function work with general n-sides shapes and remove the need of adapting it for every new object category.
 		To maintain the coherence with the architecture, each new shape requires its own object in the class hierarchy, described in \ref{classHierarchy}. 
-		The latter represents the only addition really necessary when introducing a new n-sides shape.
+		The latter represents the only addition really necessary for the detection of a new n-sides shape.
 		
 
 
@@ -122,14 +122,14 @@
 	Every method is tested ensuring that all the possible flows of the execution are followed.
 	According to the \emph{equivalent partitioning} technique, input data are grouped in different categories by following the taxonomy valid/not-valid and a test case with as input a representative value for each partition is created. 
 	%According to the \emph{equivalent partitioning} technique, for each function a test case with a valid input data for each category has been created as well as one for each group of invalid data.
-	Differently from the specification of this technique, more than one value per category is used for the test cases instead of one.
+	Differently from the specification of this methodology, more than one value per category is used for the test cases instead of one.
 
 	Moreover, conforming to the \emph{boundary value testing} technique, input values on the boundaries of data categories are introduced in the test cases in order to make the test cover as wide as possible. 
 
 	The test cases are organized in test suites. All the suites specific of a class are included in the same test module. 
 	All the test operations are automatically realized thanks to the CUTE software.
 
-	The objective of the testing operation are to evaluate correctness and reliability of the system.
+	The objective of the testing operation is to evaluate correctness and reliability of the system.
 
 
 
