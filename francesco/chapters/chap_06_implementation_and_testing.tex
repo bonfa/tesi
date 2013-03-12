@@ -1,6 +1,12 @@
 \chapter{Implementation And Testing}\label{impl_test}
+	This chapter describes the solutions implemented for recognizing shapes, and presents how the testing operation have been conducted.
+	
 	
 	\section{Implementation}
+		As regarding the detection of shapes in images, two different algorithms are implemented, one for circles and one for shapes of n sides.
+		In particular, the solution for circles makes use mainly of a function provided by the \mbox{OpenCV} library therefore is not described here.
+		The algorithm for detecting n-sides shapes, instead, is more complicated and detailed. 
+		Below the reader can find the description of such method.
 	
 		\subsection{N-sides Shape Detection Algorithm}
 		The algorithm used in order to detect n-sides shapes in the images is based on a procedure of corner detection. 
@@ -98,7 +104,12 @@
 		
 		Once removed the copies, the algorithm returns a list containing the remaining sets of points.
 
-	
+		At the moment this algorithm has been implemented and tested only for quadrilaterals and triangles. 
+		Anyway, it can be adapted in order to recognize shapes with more than four sides.
+		In fact, for each new category of shape, only two additional functions are required: a filter for removing copies and a constructor that creates the new shape. 
+		To maintain coherence with other shapes, an object in the class hierarchy that implements such constructor and the other methods is required.  
+		
+
 
 	\section{Testing}
 	The testing activity depends strictly on the class creation.
