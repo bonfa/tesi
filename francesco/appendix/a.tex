@@ -42,28 +42,28 @@
 	 	\end{figure}	
 
 		An instance of the class Server is running in background and listening for new tcp connections. 
-		When a client ask for a connection, the \emph{boost::asio::io service} calls the Server callback, which creates a new instance of Session.
+		When a client asks for a connection, the \emph{boost::asio::io service} calls the Server callback, which creates a new instance of Session.
 		The Boost library is responsible for managing either the Server and the Session.
 		The two classes have been developed following the Boost library specifications.
 		When the Session object receives a message requesting the extraction of the features, it creates an instance of Proxy and calls the proper methods of this object in order to complete its task.
 
 		\newpage
+
 		\subsection{Utility Part}
 		The classes which form the utility parts of the software are divided in two categories: the exception classes and the ones representing all the other utilities. 
 		To these, two modules containing functions are added. 
 		Figure \ref{fig:impl_utility} shows a class diagram containing all the classes that constitute this part of the software. 
-		The modules, as not classes, can not be shown in the diagram.
-
+		The modules, as not classes, can not be shown in the diagram but the prototypes of the functions they contain are listed below.
 		\begin{figure}[h]
 		  \begin{center} 
-		    \fbox{	
-		       \includegraphics[width=\textwidth]{images/appendix/utility.png}
-		    }
+		    	
+		       \includegraphics[width=\textwidth*\real{0.81}]{images/appendix/utility.png}
+		    
 		  \end{center} 
-		  \caption{\textit{Class diagram showing the utility part of the software}}  
+		  \caption{\textit{Class diagram showing the utility part of the Vision Module}}  
 		  \label{fig:impl_utility}
 	 	\end{figure}
-
+		
 		Classes \emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException} and \emph{CoincidentLinesException} are the exceptions classes. 
 		As such, they are used to handle all the anomalous or exceptional events occurring at run-time.	
 	
@@ -71,5 +71,37 @@
 		Such evaluations can be both qualitative and quantitative, as, for example, the distances between the centers of two objects or the relative positions of one object in respect with another.
 		
 		\emph{FourPointsSorter} and the function modules contain the basic methods which are fundamental for all the operations executed by all the other classes of the software.
-		For reasons of completeness the prototypes of the functions are listed in appendix \ref{appA}.
+		For reasons of completeness the prototypes of the functions are listed in the following paragraphs.
 
+			\subsubsection{Functions prototypes in extractorUtils.h}
+			\todo{formattare decentemente sta roba}
+			\lstset{caption="", label=lst:prototypesA}
+			\begin{lstlisting}
+			double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 );
+			double getDistance(cv::Point a, cv::Point b);
+			bool similar(cv::vector<cv::Point> a, cv::vector<cv::Point> b);
+			bool tooClose(cv::Point a, cv::Point b);
+			bool isFalse(cv::vector<cv::Point> square);
+			bool isTriangle(cv::vector<cv::Point> terna);
+			cv::vector<cv::vector<cv::Point> > deleteOverlapped(cv::vector<cv::vector<cv::Point> > oldList);
+			cv::vector<cv::vector<cv::Point> > squaresSort(cv::vector<cv::vector<cv::Point> > squareList);
+			cv::vector<cv::vector<cv::Point> > deleteFalseSquares(cv::vector<cv::vector<cv::Point> > oldList);
+			cv::vector<cv::Point> sort4PointsClockwise(cv::vector<cv::Point> points);
+			cv::vector<cv::vector<cv::Point> > deleteFalseTriangles(cv::vector<cv::vector<cv::Point> > oldList);
+			\end{lstlisting}
+
+			\subsection*{Functions prototypes in utils.h}
+			\lstset{caption="", label=lst:prototypesB}
+			\begin{lstlisting}
+			int getMinMax(const std::vector<Point>& coords, int type);
+			std::vector<Point> sort4PointsClockwise(std::vector<Point> points);
+			double erone(Point a, Point b, Point c);
+			bool inLinePoints(int ax, int ay, int bx, int by, int cx, int cy );
+			double getDistance(Point a, Point b);
+			bool areSame(double a, double b);
+			double getMin(const std::vector<double>& values);
+			bool fileExists(char * path);
+			string intToString(int a);
+			\end{lstlisting}
+
+			
