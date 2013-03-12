@@ -1,7 +1,17 @@
 \appendix
-\chapter{Appendix A}\label{appA}
-	
-	\section{Actual implementation of the software}
+\chapter{Appendix A}
+	The appendix contains further details about the implementation.
+	The first section adds information about the architecture of the software, while the second defines the format of the messages exchanged between client and server.	
+			
+
+	\section{Details About The Architecture} \label{appA}
+		This section describes details about the design of the architecture which have been omitted in chapter \ref{chDesign}.
+		In particular, it deepens the architecture of the Visual Module.
+		At first it gives an overview of the whole classes that compose the software and, then, it focuses on the aspects not described in the design chapter: the architecture of the Server Module and of the Utility Part of Visual Module.
+		
+		
+		Again the description is helped by class diagrams. 
+		This time, such diagrams are obtained from the source code thanks to a tool of reverse engineering.
 	
 		\subsection{Overview}\label{impl_arch}
 		Figure \ref{fig:implementation_names} shows the class diagram of the Vision Module. 
@@ -28,7 +38,7 @@
 	
 		
 		\subsection{Server Module}
-		The sub-module server, responsible for the communication with the \mbox{Lisp} interpreter, is composed by the classes \emph{Server} and \emph{Session}. 
+		The sub-module Server, responsible for the communication with the \mbox{Lisp} interpreter, is composed by the classes \emph{Server} and \emph{Session}. 
 		Figure \ref{fig:impl_feat_extraction} contains the classes that implement this service.
 
 		\begin{figure}[h]
@@ -71,10 +81,9 @@
 		Such evaluations can be both qualitative and quantitative, as, for example, the distances between the centers of two objects or the relative positions of one object in respect with another.
 		
 		\emph{FourPointsSorter} and the function modules contain the basic methods which are fundamental for all the operations executed by all the other classes of the software.
-		For reasons of completeness the prototypes of the functions are listed in the following paragraphs.
+		For reasons of completeness the prototypes of the functions are listed in listing \ref{lst:proto}.
 
-			\subsubsection{Functions prototypes in extractorUtils.h}
-			\todo{formattare decentemente sta roba}
+			%\subsubsection{Functions prototypes in extractorUtils.h and utils.h}
 			\lstset{frame=single, 
 				breaklines=true, 
 				%basicstyle=\small,
@@ -83,8 +92,9 @@
 				%columns=fullflexible,  
 				%keepspaces=true,
 				stepnumber=2, 
-				caption=\textit{Prototypes of the functions included in extractorUtils.h},
-				morekeywords={Point,vector,cv,std}
+				caption=\textit{Prototypes of the functions included in extractorUtils.h and utils.h},
+				morekeywords={Point,vector,cv,std},
+				label=lst:proto
 			}
 			\begin{lstlisting}
 			cv::vector<cv::vector<cv::Point> > deleteOverlapped(cv::vector<cv::vector<cv::Point> > oldList);
@@ -97,14 +107,8 @@
 			bool similar(cv::vector<cv::Point> a, cv::vector<cv::Point> b);
 			bool tooClose(cv::Point a, cv::Point b);
 			bool isFalse(cv::vector<cv::Point> square);
-			bool isTriangle(cv::vector<cv::Point> terna);
+			bool isTriangle(cv::vector<cv::Point> terna);	
 			
-			\end{lstlisting}
-
-			\newpage
-			\subsubsection{Functions prototypes in utils.h}
-			\lstset{caption=\textit{Prototypes of the functions included in utils.h}}
-			\begin{lstlisting}
 			int getMinMax(const std::vector<Point>& coords, int type);
 			std::vector<Point> sort4PointsClockwise(std::vector<Point> points);
 			double erone(Point a, Point b, Point c);
@@ -113,7 +117,6 @@
 			bool areSame(double a, double b);
 			double getMin(const std::vector<double>& values);
 			bool fileExists(char * path);
-			string intToString(int a);
-			\end{lstlisting}
-
+			string intToString(int a);\end{lstlisting}
+		
 			
