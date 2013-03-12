@@ -1,5 +1,5 @@
 \chapter{Implementation And Testing}\label{impl_test}
-	This chapter describes the solutions implemented for recognizing shapes, and presents how the testing operations have been conducted.
+	This chapter describes the solutions implemented for recognizing shapes, and presents the way in which the testing operations have been conducted.
 	
 	
 	\section{Implementation}
@@ -69,11 +69,11 @@
 		The fact that not only the sets with n sides are included in the list is a consequence of the corner detection algorithm. 
 		It often happens, in fact, that, due to noise in the image or imperfection of the corner detection procedure, a single segment is detected as a set of two or more shorter ones. 
 		Each couple of such elements defines a \emph{false corner}. 
-		For this reason, even a set of points containing more than n points can define an n-vertex shape. 
+		For this reason, even a set of points containing more than n items can define an n-vertex shape. 
 
 
 		In order to delete the false corners, an algorithm analyzes every point set and calculates the slopes of the straight lines obtained by each couple of adjacent vertexes. 
-		If the slopes of two consecutive segments are very close one to each other, the vertex common to both the segments is a false corner and therefore is removed.
+		If the slopes of two consecutive segments are very close one to each other, the vertex which is common to both the segments is a false corner and therefore is removed.
 		
 
 		
@@ -105,10 +105,12 @@
 
 		At the moment this algorithm has been implemented and tested only for quadrilaterals and triangles. 
 		Anyway, it can be adapted for recognizing shapes with more than four sides.
-		In fact, for each new category of shape, only an additional function is required, that is the filter for removing copies. 
-		A refactoring operation, anyway, can make this function work with general n-sides shapes and remove the need of adapting it for every new object category.
-		To maintain the coherence with the architecture, each new shape requires its own object in the class hierarchy, described in \ref{classHierarchy}. 
-		The latter represents the only addition really necessary for the detection of a new n-sides shape.
+		In fact, for each new category of shape, the only function to be modified is the filter for removing copies. 
+		A refactoring operation, anyway, can make this function work with general n-sides shapes and remove the need of adapting it for every new category of object.
+		To maintain the coherence with the architecture, each new shape requires its own object in the class hierarchy, described in \ref{classHierarchy}.
+		The creation of a new class represents the only necessary implementation detail to be added in order to make the algorithm detect a new n-sides shape.
+		%The creation of a new class represents the only insertion necessary during the implementation for adding the detection of a new n-sides shape.
+		%The latter represents the only addition really necessary for the detection of a new n-sides shape.
 		
 
 
