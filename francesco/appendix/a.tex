@@ -1,13 +1,13 @@
-\appendix
+%\appendix
 \chapter{Appendix A}
 	The appendix contains further details about the implementation.
-	The first section adds information about the architecture of the software, while the second defines the format of the messages exchanged between client and server.	
+	The first section adds information about the architecture of the software, while the second one defines the format of the messages exchanged between client and server.	
 			
 
 	\section{Details About The Architecture} \label{appA}
-		This section describes details about the design of the architecture which have been omitted in chapter \ref{chDesign}.
+		This section describes aspects about the design of the architecture which have been omitted in chapter \ref{chDesign}.
 		In particular, it deepens the architecture of the Visual Module.
-		At first it gives an overview of the whole classes that compose the software and, then, it focuses on the aspects not described in the design chapter: the architecture of the Server Module and of the Utility Part of Visual Module.
+		At first it gives an overview of the whole classes that compose such module and, then, it focuses on the aspects not described in the design chapter: the architecture of the Server Module and of the Utility Part of Visual Module.
 		
 		
 		Again the description is helped by class diagrams. 
@@ -21,7 +21,7 @@
 		\begin{figure}[h]
 		  \begin{center} 
 		    \fbox{	
-		       \includegraphics[width=\textwidth*\real{0.9}]{images/ch_06/implementazione_solo_nomi.jpg}
+		       \includegraphics[width=\textwidth*\real{0.8}]{images/ch_06/implementazione_solo_nomi.jpg}
 		    }
 		  \end{center} 
 		  \caption{\textit{Class diagram which illustrates the whole architecture of the Vision Module}}  
@@ -44,7 +44,7 @@
 		\begin{figure}[h]
 		  \begin{center} 
 		    \fbox{	
-		       \includegraphics[width=\textwidth*\real{0.9}]{images/ch_06/communication.jpg}
+		       \includegraphics[width=\textwidth*\real{0.75}]{images/ch_06/communication.jpg}
 		    }
 		  \end{center} 
 		  \caption{\textit{Class diagram describing the implementation part of the software dedicated to the communication}}  
@@ -53,40 +53,22 @@
 
 		An instance of the class Server is running in background and listening for new tcp connections. 
 		When a client asks for a connection, the \emph{boost::asio::io service} calls the Server callback, which creates a new instance of Session.
-		The Boost library is responsible for managing either the Server and the Session.
+		The Boost library is responsible for managing either Server and Session.
 		The two classes have been developed following the Boost library specifications.
 		When the Session object receives a message requesting the extraction of the features, it creates an instance of Proxy and calls the proper methods of this object in order to complete its task.
 
-		\newpage
+		%\newpage
 
 		\subsection{Utility Part}
 		The classes which form the utility parts of the software are divided in two categories: the exception classes and the ones representing all the other utilities. 
 		To these, two modules containing functions are added. 
 		Figure \ref{fig:impl_utility} shows a class diagram containing all the classes that constitute this part of the software. 
 		The modules, as not classes, can not be shown in the diagram but the prototypes of the functions they contain are listed below.
-		\begin{figure}[h]
-		  \begin{center} 
-		    	
-		       \includegraphics[width=\textwidth*\real{0.81}]{images/appendix/utility.png}
-		    
-		  \end{center} 
-		  \caption{\textit{Class diagram showing the utility part of the Vision Module}}  
-		  \label{fig:impl_utility}
-	 	\end{figure}
 		
-		Classes \emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException} and \emph{CoincidentLinesException} are the exceptions classes. 
-		As such, they are used to handle all the anomalous or exceptional events occurring at run-time.	
-	
-		\emph{StraightLine}, \emph{Segment} and \emph{Point} represent geometrical entities. These elements serve as basic structures for creating the objects in the hierarchy and making evaluations between couples of objects.
-		Such evaluations can be both qualitative and quantitative, as, for example, the distances between the centers of two objects or the relative positions of one object in respect with another.
-		
-		\emph{FourPointsSorter} and the function modules contain the basic methods which are fundamental for all the operations executed by all the other classes of the software.
-		For reasons of completeness the prototypes of the functions are listed in listing \ref{lst:proto}.
-
-			%\subsubsection{Functions prototypes in extractorUtils.h and utils.h}
+		%\subsubsection{Functions prototypes in extractorUtils.h and utils.h}
 			\lstset{frame=single, 
 				breaklines=true, 
-				%basicstyle=\small,
+				basicstyle=\scriptsize,
 				language=c++, 
 				framexleftmargin=0pt, 
 				%columns=fullflexible,  
@@ -119,4 +101,25 @@
 			bool fileExists(char * path);
 			string intToString(int a);\end{lstlisting}
 		
+		Classes \emph{InputException}, \emph{NotOverlappedSegmentException}, \emph{ParallelLinesException}, \emph{VerticalLineException} and \emph{CoincidentLinesException} are the exceptions classes. 
+		As such, they are used to handle all the anomalous or exceptional events occurring at run-time.	
+	
+		\emph{StraightLine}, \emph{Segment} and \emph{Point} represent geometrical entities. These elements serve as basic structures for creating the objects in the hierarchy and making evaluations between couples of objects.
+		Such evaluations can be both qualitative and quantitative, as, for example, the distances between the centers of two objects or the relative positions of one object in respect with another.
+		
+		\emph{FourPointsSorter} and the function modules contain the basic methods which are fundamental for all the operations executed by all the other classes of the software.
+		For reasons of completeness the prototypes of the functions are listed in listing \ref{lst:proto}.
+	
+
+		
 			
+		
+		\begin{figure}[h]
+		  \begin{center} 
+		    	
+		       \includegraphics[width=\textwidth*\real{0.81}]{images/appendix/utility.png}
+		    
+		  \end{center} 
+		  \caption{\textit{Class diagram showing the utility part of the Vision Module}}  
+		  \label{fig:impl_utility}
+	 	\end{figure}	
