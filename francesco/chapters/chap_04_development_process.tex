@@ -1,4 +1,4 @@
-\chapter{Development Process}\label{devProcChap}
+\chapter{Development Process and Tools}\label{devProcChap}
 This chapter, after having introduced the agile development framework \emph{Scrum}, describes the development process adopted by the team in order to complete the work.
 
 	%TODO: qui i corsivi sono usati quando il termine è usato per la prima volta senza essere stato definito (non è una convenzione)
@@ -175,8 +175,17 @@ This chapter, after having introduced the agile development framework \emph{Scru
 		The possibility to check the work at every Sprint increases the compliance between the system and the requirements. During the Sprint Reviews, the new increment of the software is shown. In this meetings, the clients give the Scrum Team a feedback about what they want and if the feature developed satisfy their need. So if there have been some misunderstandings in the comprehension of the requirements, they can be fixed in the next Sprints. This continuous product revision leads to a strict adherence between the system and the requirements.
 
 		The adopted development process allows the Product Owner and the Scrum Master to evaluate the performance of the team. As the features to be added and the estimates are decided during the Spring Planning Meeting, the Product Owner and all the members of the team have the plan of the whole Sprint. During the Sprint Review, the members can monitor how the actual work has been done in comparison with the plan. On a shorter period, the Daily Scrum is used to monitor the activity of the days, while the Product Backlog contains the history of all the modifications done on the software since it was born. For all there reasons, with Scrum, the performances of the team are constantly measured.
-		
-			
+
+		In order to facilitate the Scrum method, the team decided to adopt \mbox{\emph{Git}} as \emph{Version Control System}. 
+		The features of this instrument allow the team to focus on the design and implementation activities, relieving it from additional "overhead" tasks.
+		This word refers to all the tasks which are different from design and implementation, as for example, the management of concurrent accesses, the administration of different versions, the direction of backup and recovery operations.
+		%Moreover, the possibilities of analyzing the differences between distinct versions of the code and switching easily between previous and sequent versions bring to a series of advantages for the developer.
+		Moreover, the possibility of switching easily between different versions of code and analyzing the differences between them brings to a series of advantages for the developer.
+		For example, it makes easier locate bugs in the code and allows the programmers to try different solutions and instantly revert the not working ones, all without interfering with the working code. 
+		Finally, it allows to monitor the amount of work and who does it.
+
+ 
+			 ,
 		\begin{comment}
 		%Cose che voglio dire:
 		1) Processo di sviluppo incementale e iterativo
@@ -187,20 +196,34 @@ This chapter, after having introduced the agile development framework \emph{Scru
 			-) non c'era un committente ma c'era il project manager
 			-) 1 team
 		\end{comment}
-
 \begin{comment}
-	
+	\section{Tools for Agile Programming}
+		This section explains which of the tools used by the team facilitate the agile programming and how they reach this goal.
+		In particular, the next paragraph describes the pros of using a \emph{Version Control System} (\mbox{CVS}).
+		A list of all the tools the team used in order to complete the work can be found in appendix \ref{appC}.		
+		\subsection{The Adopted CVS}
+			The team decided to adopt \mbox{Git} like Version Control System as tool for supporting the programmers during the development. 
+			This software results to be of fundamental importance for increasing the productivity of the team and the quality of developed code.
+			
+			First of all, its functionalities of managing the concurrent accesses to files relieve the team of from this task allowing its members to focus on their activities.
+			When more developers work on the same project, in fact, it can happen that two or more people access the same file. Without a \mbox{CVS}, someone has to assume the role of merging the modifications of the two developers, checking that after this operation everything is still working, and, in case of failures, finding bugs and correct them.
+			As the modifications can be 
+doing this activity, moreover, be there should be problems for merging the changes and probably 
 
-	\section{Working Instruments}
-	In addition to ACT-R and OpenCV, many other tools have been used. Here follows a list of the most important ones.
-		\begin{itemize}
-		\item \textbf{Eclipse IDE for C/C++ Developers} as \textit{integrated development environment} \footnote{More informations at \url{www.eclipse.org}};
-		\item \textbf{Cute} as \textit{unit testing framework} \footnote{More informations at \url{http://cute-test.com}};
-		\item \textbf{Mylyn} as \textit{task and application lifecycle management} \footnote{More informations at \url{www.eclipse.org/mylyn}};
-		\item \textbf{Trac} as \textit{bug tracking system} \footnote{More informations at \url{trac.edgewall.org}};
-		\item \textbf{Git} as \textit{version control system} \footnote{More informations at \url{git-scm.com}}; 
-		\item \textbf{Dia} and \textbf{cpp2dia} to create UML diagrams \footnote{More informations at \url{dia-installer.de} and at \url{cpp2dia.sourceforge.net}};
-		\item \textbf{ZBar} to read QR codes \footnote{More informations at \url{zbar.sourceforge.net}}.
-		%%It can be useful for drawing a large variety of diagrams, in particular UML diagrams, network maps and flowcharts. 
-		\end{itemize}
-\end{comment}
+
+
+
+		
+
+
+
+
+ 
+
+instrument like this is fundamental 
+		
+\end{comment}		 
+
+
+
+
