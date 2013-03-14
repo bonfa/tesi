@@ -1,0 +1,122 @@
+
+%\chapter{Appendix B}\label{appB}
+\lstset{breaklines=true, basicstyle=\small\ttfamily, columns=fullflexible, keepspaces=true,stepnumber=2}
+
+
+	
+	\section{Message Structure}\label{appB}
+	During the communication between the \mbox{Lisp} interpreter and the Vision Module, two types of message are used:
+	\begin{itemize}
+		\item the requests, sent from the client to the server;
+		\item the responses, sent from the server to the client.
+	\end{itemize}
+	 
+	\subsection{Request Format}
+		The request message consists of two parts, one fixed and one variable.
+		The fixed part is the attribute \lstinline!cmd!. 
+		The variable part is the value. 
+		The only meaningful value for this work is \lstinline!getFeature!.
+		This command tells the server to extract all the possible features from the input image.
+		Listing \ref{lst:mexReq} shows the message for this request:
+	
+		\lstset{frame=single, breaklines=true, basicstyle=\small\ttfamily, columns=fullflexible, keepspaces=true,stepnumber=2, caption=\textit{Request Message}, label=lst:mexReq, captionpos=b}
+		\begin{lstlisting}
+		 {"cmd":"getFeature"}		\end{lstlisting}
+	
+
+	\subsection{Response Format}
+		The response message contains a list of all the shapes recognized in the input image.
+		Each item of the list is represented by a list of attributes:
+		\begin{itemize}
+			\item \lstinline!Bbox!: a rectangular bounding box, defined by two points;
+			\item \lstinline!Color!: the color of the shape;
+			\item \lstinline!Type!: the type of the shape;
+			\item \lstinline!Vertices!: the vertixes of the shape, if present.
+		\end{itemize}
+		Listing \ref{lst:mexResp} shows an example of response, in which a rectangle and a triangle are detected:
+
+		\lstset{frame=single, breaklines=true, basicstyle=\small\ttfamily, columns=fullflexible,  keepspaces=true,stepnumber=2, caption=\textit{Example of Response Message},label=lst:mexResp,captionpos=b}
+		\begin{lstlisting}
+		[
+		 {
+		   "Bbox":[
+			     {
+			        "x":30,
+			        "y":7
+			     },
+			     {
+			        "x":44,
+			        "y":22
+			     }
+			  ],
+		   "Color":"green",
+		   "Type":"Quadrilateral",
+		   "Vertices":[
+			         {
+				    "x":30,
+				    "y":7
+				 },
+				 {
+				    "x":30,
+				    "y":21
+   				 },
+				 {
+				    "x":44,
+				    "y":22
+				 },
+				 {
+				    "x":44,
+				    "y":7
+				 }
+			      ]
+		 },
+		 {
+		   "Bbox":[
+			     {
+			        "x":4,
+                                "y":7
+			     },
+			     {
+				"x":21,
+				"y":21
+			     }
+			  ],
+		   "Color":"red",
+		   "Type":"Triangle",
+		   "Vertices":[
+				 {
+				    "x":12,
+				    "y":7
+				 },
+				 {
+				    "x":4,
+				    "y":21
+ 				 },
+				 {
+				    "x":21,
+				    "y":21
+				 }
+			      ]
+		 }
+		]	
+		\end{lstlisting}\label{lst:mexResp}
+	
+
+\section{Tools Used in The Development}\label{appC}	
+	The tools used for the development are: 
+	\begin{itemize}
+	    	\item \textbf{Eclipse CDT} as IDE for writing C and C++ code;
+	    	\item \textbf{CUTE} as testing tool;
+		\item \textbf{Git} as distributed version control system;
+		\item \textbf{Trac} as web-based project management and bug tracking system;
+		\item \textbf{Make} as build automation tool;
+		\item \textbf{Boost library} for managing all the issues related to multithreading;
+		\item \textbf{OpenCV library} as computer vision operations;
+		\item \textbf{Dia} as tool for creating and reading UML diagrams;
+		\item \textbf{cpp2dia} as tool for creating authomatically UML diagrams from source code;
+	\end{itemize}	
+
+
+
+
+
