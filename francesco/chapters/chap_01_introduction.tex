@@ -1,4 +1,25 @@
 \chapter{Introduction}
-  %Qui ci vanno la descrizione di ciascun capitolo e in paticolare dell'obiettivo della tesi
-	\section{Organization of the document}
-	\section{The Objective}
+	% objective of the thesis
+	This document describes the development of a software module which implements simple visual operations and communicates their results to the cognitive architecture \mbox{ACT-R}.
+	In particular, the software has to analyze images and process them by recognizing the objects they contain, their colors, their dimensions and their positions.
+	The ultimate objective of such module is to make \mbox{ACT-R} perception more similar to human one.
+	
+	% motivations of the choice
+	One of the main limitations of the cognitive architecture is that it works in a virtual environment, too easy for representing the reality. 
+	The new software represents a starting point for allowing \mbox{ACT-R} to process objects directly in the real world, overcoming this limit.
+	
+	% How to face the problem
+	Stated the impossibility of processing the visual data directly inside the cognitive architecture itself, the module has been created externally as an independent software.
+	This fact brings two main consequences: the use of OpenCV library for implementing the visual operations and the introduction of a client server architecture in order to implement the communication between \mbox{ACT-R} and the software.
+
+	% Topic of each chapter
+	Chapter \ref{ch:state_of_the_art} presents the main instruments that compose the software, \mbox{ACT-R}, the cognitive architecture and \mbox{OpenCV}, the computer vision library.
+	Chapter \ref{chObjective} explains in detail the objective of the work and the requirements.
+	Chapter \ref{devProcChap} describes the Scrum method, which is the adopted development method, and justifies why such framework has been chosen.
+	Chapter \ref{chDesign} presents the most important aspects of the design of the software.
+	Chapter \ref{impl_test} discusses some aspects of testing and implementation, 
+
+
+	% unifreiburg
+ 	
+	
