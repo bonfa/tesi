@@ -1,6 +1,40 @@
 \chapter{Conclusions}
+	The objective of this work is to develop a software module which receives images as input and analyzes them by extracting particular information like the shapes they contain, their colors and their positions and communicates them to \mbox{ACT-R} when the cognitive architecture requests it. 
+	The ultimate purpose of this is to create a vision module for the cognitive architecture in order to make its visual perception as similar as possible to human one.
+	
 
-	\section{Sviluppi futuri}	
+	The developed software uses \mbox{OpenCV} library to implement the visual operations and communicates the information to \mbox{ACT-R} thanks to a client-server communication method. 
+	This solution is simple, fast and allows to use a library which provides ready and tested functions for computer vision.  
+
+
+	The software at the moment recognizes quadrilaterals, circles and rectangles and makes qualitative and quantitative evaluations about colors and relative positions and dimensions of the objects. 
+	In particular, the tool is used in the Rush Hour experiment for analyzing the input image, extracting the list of objects it contains and communicating it to \mbox{ACT-R}. 
+	In this way the cognitive architecture does not start working from a list of objects but it processes an image, even if indirectly.
+	This fact approaches the \mbox{ACT-R} perception to human one. 	
+		
+
+	The restricted number of features offered by the visual module at the moment represent the biggest limit of this solution.
+	However, it is enough to add new functions to this tool in order to extend more and more the scope of this module and use it increasingly together with \mbox{ACT-R}.
+
+
+	In order to adapt the system to be able to work with other experiments, the first improvements that can be done are adding the recognition of new kinds of shape, for example ellipses, and a tool for \emph{{Optical Character Recognition\footnote{An Optical Character Recognition, also known as OCR, is a software which recognizes and decodes text in images.}}}.
+	In fact, at the moment, images used in the experiments conducted with the cognitive architecture, in general are quite simple.
+	They normally contain only simple shapes and may include some text.
+	The introduction of methods for recognizing new shapes and texts make the system more scalable with the definition  of new experiments that need to process images.
+
+
+	Adding new functions for object recognition can provide \mbox{ACT-R} with the ability of processing images directly in the real world. 
+	This can lead to interesting applications in many research fields, including the spatial reasoning. 
+	For example, the team developed a system for robots navigation with landmarks inside buildings. 
+	The robot, together with the vision module, is able to identify a landmark, move close to it, decode the information it stores and send it to \mbox{ACT-R}, which can then communicate the robot how to behave.
+
+
+ 
+
+
+
+
+\begin{comment}	
 	aggiungere:
 		riconoscimento ellissi
 		riconoscimento testo
@@ -8,4 +42,4 @@
 		introdurre il flusso video --> predisposto
 	
 		migliorare le performance dell'algoritmo in modo tale che la shape detection sia utilizzata in tempo reale pnell'ambito della navigazione con robot.
-	%\todo{	}
+\end{comment}	
