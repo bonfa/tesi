@@ -42,34 +42,35 @@
 			\addcontentsline{toc}{subsection}{ACT-R}
 				\mbox{ACT-R} è un'\emph{architettura cognitiva}, cioè l'implementazione di una teoria riguardante il sistema cognitivo umano. Come tale, esso modella struttura e comportamento del cervello umano cercando di spiegare come le diverse componenti collaborano tra loro e formano la mente umana.
 				
-				La teoria di \mbox{ACT-R} si basa sulla \emph{teoria unificata della cognizione} (Unified theory about cognition), sviluppata da John Robert Anderson, docente presso la Carnegie Mellon University. Il concetto fondamentale di tale teoria è che la mente umana, che è separata in diversi moduli indipendenti, ognuno dotato delle proprie funzioni, nel momento di effettuare un comportamento, agisca come un sistema integrato in cui ciascun componente svolge una precisa funzione e può comunicare con gli altri grazie a specifiche connessioni.
+				La teoria di \mbox{ACT-R} si basa sulla \emph{teoria unificata della cognizione} (Unified theory about cognition), sviluppata da John Robert Anderson, docente presso la Carnegie Mellon University. Il concetto fondamentale di tale teoria è che la mente umana, che è separata in diversi moduli indipendenti, ognuno dotato delle proprie funzioni, nel momento di effettuare un comportamento, agisca come un sistema integrato in cui ciascun componente svolge una precisa funzione e può comunicare con gli altri grazie a specifiche connessioni~\cite{Anderson04anintegrated}.
 
-				Un altro pilastro fondamentale su cui si basa la teoria di \mbox{ACT-R} è la distinzione tra \emph{memoria dichiarativa} e \emph{memoria procedurale}. La prima rappresenta fatti e nozioni che l'essere umano sa ed è conscio di sapere. Per richiamare questo tipo di conoscenza, l'essere umano deve effettuare un processo consapevole. La seconda, invece, si riferisce a tutte quelle abilità e capacità che l'essere umano sa ma che ha imparato in maniera implicita. Esempi di questo tipo di conoscenza sono la lettura e la scrittura. 
+				Un altro pilastro fondamentale su cui si basa la teoria di \mbox{ACT-R} è la distinzione tra \emph{memoria dichiarativa} e \emph{memoria procedurale}. La prima rappresenta fatti e nozioni che l'essere umano sa ed è conscio di sapere. Per richiamare questo tipo di conoscenza, l'essere umano deve effettuare un processo consapevole. La seconda, invece, si riferisce a tutte quelle abilità e capacità che l'essere umano sa ma che ha imparato in maniera implicita. Esempi di questo tipo di conoscenza sono la lettura e la scrittura~\cite{anderson1976language}. 
 
 				Gli elementi di base dell'architettura di \mbox{ACT-R} sono \emph{chunk} e \emph{produzioni}.
 				I chunk rappresentano la memoria dichiarativa e sono delle strutture dati caratterizzate da un tipo, chiamato \emph{type}, e da una lista di coppie, ognuna delle quali è costituita da un attributo, chiamato \emph{slot}, e da un valore, chiamato \emph{value}.
 				Le produzioni possono essere paragonate a funzioni e definiscono la sequenza di azioni che possono essere effettuate.
-				Ogni produzione presenta un insieme di precondizioni che determinano le condizioni che devono essere verificate affinchè la funzione possa essere eseguita.
+				Ogni produzione presenta un insieme di precondizioni che determinano le condizioni che devono essere verificate affinchè la funzione possa essere eseguita ~\cite{actr6refman}.
 
 				Dal punto di vista dell'architettura, \mbox{ACT-R} è organizzato in \emph{moduli}.
 				Ciascun modulo è costituito da chunk e da produzioni e svolge un insieme determinato di funzioni cognitive. 
 				Essi sono l'analogo dei gruppi di neuroni che si attivano nel cervello nel momento in cui viene effettuata una determinata azione da parte dell'essere umano.
 				I moduli sono indipendenti ma possono comunicare tra loro tramite dei \emph{buffer}. 
-				La comunicazione, che essenzialmente è uno scambio di chunk, avviene necessariamente in maniera seriale, mentre le operazioni dei diversi moduli possono avvenire in parallelo.
+				La comunicazione, che essenzialmente è uno scambio di chunk, avviene necessariamente in maniera seriale, mentre le operazioni dei diversi moduli possono avvenire in parallelo ~\cite{actr6refman}.
 				
 				\mbox{ACT-R} è in grado di effettuare infiniti ragionamenti, indipendentemente dal compito da eseguire. 
 				Per essere in grado di eseguire una singola attività, tuttavia, necessita di uno specifico \emph{modello}.
 				Ciascun modello contiene le assunzioni di chi scrive il modello riguardo al determinato compito da eseguire.
-				Tali assunzioni sono espresse sottoforma di produzioni e interagiscono con i moduli durante l'esecuzione, atto che produce una serie di operazioni atomiche cognitive che passo dopo passo portano alla soluzione del compito. 
+				Tali assunzioni sono espresse sottoforma di produzioni e interagiscono con i moduli durante l'esecuzione, atto che produce una serie di operazioni atomiche cognitive che passo dopo passo portano alla soluzione del compito~\cite{Sears2012}. 
 				
 				Le operazioni presentano delle misure qualitative e quantitative sulla qualità dell'azione stessa, come la correttezza della soluzione trovata e il tempo necessario per completare l'operazione. 
 				Ciò conferisce ai modelli la possibilità di predire la sequenza delle azioni cognitive prodotte dagli esseri umani quando provano a risolvere lo stesso compito. 
-				Effettuare dei confronti con le prestazioni degli esseri umani permette di misurare la qualità del modello.
+				Effettuare dei confronti con le prestazioni degli esseri umani permette di misurare la qualità del modello~\cite{Sears2012}.
 
 				Dal punto di vista informatico, \mbox{ACT-R} è scritto in lisp e fornisce una sintassi specifica, simile al lisp, per scrivere i modelli.
 
 			\subsection*{OpenCV}
 			\addcontentsline{toc}{subsection}{OpenCV}
+				
 
 	\section*{Gli obiettivi}
 	\addcontentsline{toc}{section}{Gli obiettivi}
