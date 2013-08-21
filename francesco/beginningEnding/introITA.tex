@@ -36,7 +36,7 @@
 
 	\section*{Lo stato dell'arte}
 	\addcontentsline{toc}{section}{Lo stato dell'arte}
-	Di seguito si descrivono i due principali strumenti utilizzati per questo progetto: la libreria di computer vision \emph{OpenCV} e l'architettura cognitiva \mbox{\emph{ACT-R}}.
+	Di seguito si descrivono i due principali strumenti utilizzati per questo progetto: la libreria di computer vision \emph{\mbox{OpenCV}} e l'architettura cognitiva \mbox{\emph{ACT-R}}.
 		
 			\subsection*{ACT-R}
 			\addcontentsline{toc}{subsection}{ACT-R}
@@ -79,44 +79,44 @@
 				% computer vision
 				La computer vision è essenzialmente la trasformazione di un'immagine o di un video in una nuova rappresentazione che può essere anche di natura completamente differente rispetto al dato iniziale. 
 				L'obiettivo potrebbe essere, ad esempio, una versione in scala di grigi dell'immagine originale, oppure si potrebbe desiderare che il calcolatore sia in grado di prendere una decisione a partire dalle informazioni estratte dall'immagine in ingresso.
-				In entrambi i casi si sta parlando di computer vision.
+				In entrambi i casi si sta parlando di computer vision~\cite{bradski2008learning}.
 		
 				In generale, la complessità di operazioni di questo tipo risulta essere molto elevata. 
 				Ciò che per un essere umano viene percepito come un'attività molto semplice, infatti, può risultare un'operazione molto complessa per un calcolatore.
 				Quest'ultimo rappresenta l'immagine tramite matrice di numeri. 
 				Tale rappresentazione rende complesse molte delle operazioni di visione, comprese quelle più semplici come, per esempio, il riconoscimento di un semplice oggetto.
-				Purtroppo al momento questa modalità di descrizione è la migliore alternativa tra le possibilità esistenti.
+				Purtroppo al momento questa modalità di descrizione è la migliore alternativa tra le possibilità esistenti~\cite{bradski2008learning}.
 
 				Oltre alla rappresentazione matriciale, uno dei motivi che rendono così complicata la computer vision è la necessità molto frequente di ricostruire un mondo tridimensionale a partire da un'immagine bidimensionale. 
 				Questo è un problema mal posto. 
 				Diretta conseguenza di ciò è l'esistenza di infinite soluzioni, cioè infinite ricostruzioni tridimensionali del mondo a partire dall'immagine bidimensionale.
-				In particolare, la soluzione dipende dall'angolo con cui si analizza l'immagine.
+				In particolare, la soluzione dipende dall'angolo con cui si analizza l'immagine~\cite{bradski2008learning}.
 
 				Un fattore che aumenta ulteriormente la complessità dei compiti è la presenza del rumore, che raggruppa tutte le possibili cause di variabilità presenti nel mondo: tempo atmosferico, luminosità, riflessi, movimenti, deformazioni dovute alle lenti o ai sensori e altri fenomeni.
 				Il rumore può essere classificato in noto a priori, quindi prevedibile, e non noto a priori, quindi non prevedibile. 
 				Il primo, essendo conosciuto, può essere corretto a tal punto da essere completamente eliminato.
 				È questo, ad esempio, il caso della deformazione delle lenti delle videocamere.
 				Il secondo, invece, essendo casuale, non può essere del tutto eliminato ma può essere solamente ridotto.
-				Tipicamente si utilizzano metodi statistici per gestire questo secondo tipo di rumore. 
+				Tipicamente si utilizzano metodi statistici per gestire questo secondo tipo di rumore~\cite{bradski2008learning}. 
 			 
 				Un metodo per facilitare le operazioni di computer vision è introdurre dell'informazione contestuale. 
 				In particolare, più il problema è vincolato, più è facile utilizzare i vincoli per semplificare il problema, più la soluzione ottenuta è affidabile.
 				In questo modo ovviamente la soluzione perde di generalità e diventa specifica per il problema.
-				Le tecniche di machine learning, che estraggono automaticamente l'informazione contestuale e la utilizzano per risolvere i problemi, possono essere sfruttate nelle operazioni di computer vision.
+				Le tecniche di machine learning, che estraggono automaticamente l'informazione contestuale e la utilizzano per risolvere i problemi, possono essere sfruttate nelle operazioni di computer vision~\cite{bradski2008learning}.
 				
 				Storicamente, il progetto OpenCV viene avviato nel 1999 da Intel Research, divisione del gruppo Intel dedicata alla ricerca. 
 				L'iniziativa è finalizzata a migliorare le applicazioni che richiedono un alto carico di lavoro della CPU, in particolare quelle legate alla visione artificiale. 
 				Le intenzioni iniziali comprendono la creazione di codice ottimizzato per un'infrastruttura standard di base per la visione, la diffusione di essa tra gli sviluppatori, la portabilità e la possibilità di creare sia applicazioni di natura commerciale che gratuite. 
-				Nel 2000 viene rilasciata la prima versione alpha, seguita da cinque versioni beta tra il 2001 e il 2005 che portano nel 2006 a OpenCV 1.0.	
+				Nel 2000 viene rilasciata la prima versione alpha, seguita da cinque versioni beta tra il 2001 e il 2005 che portano nel 2006 a \mbox{OpenCV} 1.0.	
 				Nel 2008 l'incubatore tecnologico Willow Garage comincia a supportare il progetto e nel 2009 viene rilasciata la versione 2.0. 
-				Come stabilito dal nel piano di rilascio, ogni sei mesi viene resa pubblica una nuova versione di OpenCV.
+				Come stabilito dal nel piano di rilascio, ogni sei mesi viene resa pubblica una nuova versione di \mbox{OpenCV}~\cite{OpenCV:ChangeLogs}.
 
 				La libreria offre numerose funzioni che coprono diversi rami della computer vision.
 				In particolare offre strutture dati per la gestione di immagini e video; funzioni per la visualizzazione e per la gestione degli eventi da parte di tastiera e mouse; procedure per l'interazione con il filesystem; possibilità di manipolare le immagini sia tramite matrici che tramite funzioni di algebra vettoriale; supporto alle strutture dati più comuni e funzioni per tutte le operazioni di base di computer vision: filtraggio, riconoscimento di contorni e di angoli, conversione dei colori, campionamento e interpolazione, operazioni morfologiche e istogrammi.
-				Inoltre integra molte funzioni per l'analisi strutturale dell'immagine, la calibrazione di telecamere, analisi del movimento, riconoscimento di oggetti e machine learning.
+				Inoltre integra molte funzioni per l'analisi strutturale dell'immagine, la calibrazione di telecamere, analisi del movimento, riconoscimento di oggetti e machine learning~\cite{Agam2006}.
 				
 				Dal punto di vista informatico, la libreria è scritta in C e C++ e presenta interfacce per i linguaggi Python, Java, Ruby e Matlab.
-				Dalla versione 2.4 l'architettura è organizzata in moduli, ognuno dei quali svolge specifiche funzioni. 
+				Dalla versione 2.4 l'architettura è organizzata in moduli, ognuno dei quali svolge specifiche funzioni~\cite{OpenCVDoc}. 
 				
 
 
