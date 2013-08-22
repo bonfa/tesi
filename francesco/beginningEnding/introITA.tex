@@ -120,7 +120,7 @@
 				
 
 
-	\section*{Gli obiettivi}
+	\section*{Gli obiettivi}\label{obiettivi}
 	\addcontentsline{toc}{section}{Gli obiettivi}
 		%il contesto		
 		L'obiettivo ultimo del progetto che comprende questo lavoro è di dotare \mbox{ACT-R} di un sistema visivo che sia il più simile possibile a quello umano.
@@ -161,18 +161,72 @@
 
 		Il modello scritto in \mbox{ACT-R} richiede in ingresso la configurazione iniziale di ciascuna delle istanze del problema che si vuole risolvere.
 		Al momento, ogni istanza da risolvere, che in \mbox{ACT-R} viene definita tramite una lista di oggetti, deve essere creata manualmente prima della risoluzione. 
-		In questo modo, il meccanismo di \mbox{ACT-R} risulta essere distante da quello umano, il quale riconosce gli oggetti direttamente dall'immagine. 
+		In questo modo, il meccanismo di riconoscimento di \mbox{ACT-R} risulta essere distante da quello umano, il quale riconosce gli oggetti direttamente dall'immagine. 
 		Inoltre, dal momento che sia la conferma di un'ipotesi che la stima di determinati parametri richiedono un numero molto alto di istanze, il processo di scrittura manuale comporta una notevole perdita di tempo per i ricercatori.
 		Un sistema di riconoscimento automatico, invece, porterebbe una forte innovazione, avvicinando il sistema visuale dell'architettura cognitiva a quello umano, e renderebbe scalabile la creazione di istanze per molti casi di test.
 		
+		Per ottenere tali obiettivi lo strumento software da sviluppare deve analizzare le immagini che riceve in input; effettuare l'elaborazione, estraendo l'informazione necessaria alla soluzione dei compiti; salvare l'informazione in una struttura dati dedicata e comunicare tutta l'informazione all'architettura cognitiva.
 		
 
-		
+	\section*{I Requisiti}
+	\addcontentsline{toc}{section}{I Requisiti}	
+		Di seguito vengono riportati prima i requisiti funzionali e, successivamente, quelli non funzionali.
 			
-		
-			
-		
+		\subsection*{Requisiti Funzionali}
+		\addcontentsline{toc}{subsection}{Requisiti Funzionali}
+			L'obiettivo del lavoro è di progettare e implementare un modulo software indipendente che riceva in input un'immagine e la analizzi estraendo una serie di caratteristiche da essa.
+			L'immagine in ingresso è un'immagine a colori che contiene diverse forme geometriche non sovrapposte. 
 
+			Il software deve riconoscere forme semplici, come:
+			\begin{itemize}
+	    		\item triangoli;
+				\item rettangoli;
+				\item quadrilateri;
+				\item cerchi.
+			\end{itemize}
+
+			Per ciascuna forma, deve calcolare:
+			\begin{itemize}
+				\item area;
+				\item perimetro;
+				\item dimensioni;
+				\item angolo di rotazione;
+				\item una cornice rettangolare (bounding box);
+				\item centro;
+			\end{itemize}	
+		
+			Inoltre, il software deve poter:
+			\begin{itemize}
+				\item riconoscere il colore di un singolo pixel;
+				\item riconoscere il colore di una forma;
+				\item calcolare la distanza tra gli oggetti;			
+				\item effettuare paragoni dimensionali tra gli oggetti;
+				\item calcolare la posizione relativa di un oggetto rispetto a un altro.
+			\end{itemize}
+
+			Il software deve essere in grado di comunicare con \mbox{ACT-R}, in particolare \mbox{ACT-R} deve segnalargli quale deve essere l'immagine da analizzare e richiedere di estrarre le caratteristiche.
+			Il modulo, da parte sua, deve ritornare tutta l'informazione estratta ad \mbox{ACT-R}.
+		
+		\subsection*{Requisiti Non Funzionali}
+		\addcontentsline{toc}{subsection}{Requisiti Non Funzionali}
+			Per quanto riguarda i \emph{requisiti di prodotto}, il software deve:
+			\begin{itemize}
+				\item essere multi-purpose;
+				\item essere portabile;
+			   \item lavorare in background;			
+				\item comunicare con \mbox{ACT-R}.			
+			\end{itemize}
+			
+		Per multi-purpose si intende che il software deve essere facilmente adattato per lavorare con gli esperimenti che verranno realizzati in futuro.
+		Inoltre, dovrà essere possibile adattare il modulo software al fine di usarlo come riconoscitore di forme per l'orientamento all'interno di un edificio (si veda pagina~\pageref{obiettivi}).
+		Al fine di realizzare la comunicazione con \mbox{ACT-R}, i dati devono essere trasmessi in maniera standardizzata.
+
+		Per quanto riguarda i requisiti organizzativi:
+		\begin{itemize}
+				\item il linguaggio dell'implementazione deve essere C++;
+				\item la libreria di computer vision utilizzata deve essere \mbox{OpenCV};
+			   \item si richiede uno stretto monitoraggio del lavoro.					
+			\end{itemize}	
 
 	\section*{Il processo di sviluppo}
 	\addcontentsline{toc}{section}{Il processo di sviluppo}
