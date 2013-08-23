@@ -325,6 +325,28 @@
 	\section*{Il design del software}
 	\addcontentsline{toc}{section}{Il design del software}
 
+		% Architettura e processi	
+		Dal punto di vista architetturale e dei processi, il sistema è costituito da due moduli indipendenti, l'interprete Lisp che esegue \mbox{ACT-R} e il \emph{Visual Module}, che si occupa di realizzare tutte le funzionalità enunciate nei requisiti.
+		I due moduli sono eseguiti da processi diversi, che comunicano tramite il protocollo \mbox{TCP/IP}.
+		In particolare, il Visual Module è costituito da due thread, il \emph{Vision Module} e il \emph{Server}.
+		Le race condition sono gestite tramite semafori, la libreria \emph{Boost\footnote{Boost è un insieme di librerie per il linguaggio C++ che supportano molte funzionalità, tra cui il multi-threading. Per ulteriori informazioni, vedere il sito ufficiale \url{www.boost.org}}} si occupa di tutte le altre questioni legate al multi-threading.
+		
+		% Comunicazione
+		Il meccanismo di comunicazione utilizzato è sincrono e basato sul protocollo \mbox{TCP/IP}.
+		Si è scelto di utilizzare questo protocollo dal momento che è standardizzato, è supportato dagli interpreti Lisp e garantisce flessibilità e scalabilità.
+		L'opzione di compilare il software come libreria statica e invocarne le funzioni direttamente, evitando l'introduzione di un protocollo di comunicazione, avrebbe comportato una maggiore efficienza.
+		Il problema di questa soluzione è dovuto al fatto che ogni interprete Lisp presenta metodi diversi per gestire le librerie statiche e ciò rende il software non portabile.
+
+		TCP è stato preferito a UDP per le sue caratteristiche di affidabilità e bidirezionalità.
+		Inoltre la ridotta quantità di dati ha reso possibile il suo utilizzo.
+		La comunicazione è sincrona, cioè, una volta effettuata la richiesta, \mbox{ACT-R}, il client, rimane in attesa della risposta del Visual Module, il server. 
+		Ciò è coerente con la natura del compito: infatti l'architettura cognitiva non può prendere decisioni riguardanti i dati dell'esterno se prima non elabora tali dati.
+
+
+
+	
+		
+
 
 	\section*{Implementazione e testing}
 	\addcontentsline{toc}{section}{Implementazione e testing}
