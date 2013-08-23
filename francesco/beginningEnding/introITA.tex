@@ -342,10 +342,38 @@
 		La comunicazione è sincrona, cioè, una volta effettuata la richiesta, \mbox{ACT-R}, il client, rimane in attesa della risposta del Visual Module, il server. 
 		Ciò è coerente con la natura del compito: infatti l'architettura cognitiva non può prendere decisioni riguardanti i dati dell'esterno se prima non elabora tali dati.
 
-
-
+		Il Modulo Vision Operation è diviso logicamente in tre gruppi di classi: quella che si dedica all'elaborazione di immagini e video, quella che rappresenta le forme riconosciute nelle immagini e quella che gestisce le funzioni di utilità e le eccezioni.
+		In figura \ref{fig:classOverviewITA}, si può vedere un diagramma delle classi, realizzato nel linguaggio UML, che descrive ad alto livello i primi due gruppi di classi del Vision Module.
 	
+		\begin{figure}[h]
+		  \begin{center} 
+		    \fbox{	
+		       \includegraphics[scale=0.45]{images/ch_05/progettazione_overview.png}
+		    }
+		  \end{center} 
+		  \caption{\textit{Diagramma delle classi che illustra il Vision Module}}  
+		  \label{fig:classOverviewITA}
+	 	\end{figure}	
 		
+		Nel diagramma, sulla sinistra si può vedere l'insieme di classi che elaborano le immagini.
+		In particolare, la classe \emph{Feature Extractor} è la classe fondamentale di questo insieme, in quanto è quella che effettua tutte le elaborazioni sull'immagine, estraendo le forme contenute in essa e creando la corrispondente gerarchia di forme. 
+		Oltre a tali operazioni, essa riconosce i colori, calcola le distanze tra oggetti, stabilisce le loro posizioni reciproche e li confronta sulla base della dimensione.
+		La classe \emph{Input} si occupa di interagire con il filesystem e l'hardware del calcolatore; in particolare, acquisisce immagini e video.
+		\emph{Feature Getter} rappresenta un livello di astrazione e offre un'interfaccia semplice a \emph{Proxy}, classe incaricata di preparare i dati in un formato standard per la comunicazione con \mbox{ACT-R}.
+		Le classi \emph{MarkerDetector} e \emph{QRScanner} svolgono funzioni non presentate nel documento dei requisiti di questo documento. Esse acquistano senso se si analizzano gli obiettivi globali del software.
+		Le classi sono comunque presenti nel diagramma perchè influenzano l'architettura del sistema.
+
+		Sulla destra nel diagramma è presentata la gerarchia degli oggetti.
+		\emph{Object} è la superclasse e rappresenta qualsiasi oggetto che può essere riconosciuto dal sistema.
+		Esso viene specificato dalle due sotto-classi \emph{Blob} e \emph{QR}.
+		Blob rappresenta tutte le possibili forme geometriche e la sua presenza ha senso per distinguerle da oggetti di altra natura, come QR o altri che verranno in futuro introdotti.
+		QR e \emph{Marker}, esattamente come MarkerDetector e QRScanner, sono oggetti non descritti in questo lavoro ma essenziali per le funzionalità dell'intero sistema.
+		Blob viene specializzato dalle classi \emph{Circle}, \emph{Triangle} e \emph{Quadrilateral}, che rappresentano rispettivamente cerchi, triangoli e quadrilateri.
+		\emph{Button} rappresenta un bottone e specializza il quadrilatero.
+
+
+
+
 
 
 	\section*{Implementazione e testing}
