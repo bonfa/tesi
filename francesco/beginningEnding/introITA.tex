@@ -401,12 +401,49 @@
 		Per garantire una buona copertura dei casi di test, sono state applicate le tecniche del \emph{boundary value} e dell'\emph{equivalent partitioning}, utilizzando le due partizioni \emph{valori validi} e \emph{valori non validi}.
 		Il software utilizzato per la creazione e l'organizzazione di test case e test suite è \emph{CUTE\footnote{Si possono trovare ulteriori informazioni sul software all'indirizzo \url{http://cute-test.com/}}}.
 		
-		
-	
-		
-
-	
 
 	\section*{Conclusioni}
 	\addcontentsline{toc}{section}{Conclusioni}
+		In questo documento sono descritti i passi principali che hanno portato alla realizzazione di un modulo software in grado di analizzare immagini, estrarre particolari informazioni contenute all'interno di esse e di comunicare tali informazioni all'architettura cognitiva \mbox{ACT-R}, su richiesta di quest'ultima.
+		In particolare, le principali informazioni da riconoscere sono	forme geometriche, i loro colori, le loro dimensioni e le loro posizioni.
+		Lo scopo ultimo del lavoro è sviluppare un modulo software per \mbox{ACT-R} finalizzato a rendere la percezione visuale dell'architettura cognitiva più simile a quella umana.
+
+		Il software sviluppato utilizza la libreria \mbox{OpenCV} per implementare le operazioni visuali e un metodo di comunicazione basto sul paradigma client-server per lo scambio di messaggi tra il modulo sviluppato e l'architettura cognitiva. 
+		Questa soluzione è semplice, veloce e permette di utilizzare una libreria che offre funzioni sviluppate appositamente per la computer vision.
+
+		Lo strumento implementato al momento riconosce triangoli, quadrilateri e cerchi ed effettua valutazioni qualitative e quantitative riguardo ai colori delle forme, alle loro dimensioni e alle loro posizioni.
+		In particolare, esso è utilizzato nell'esperimento Rush Hour per analizzare l'immagine che corrisponde a un'istanza reale di esperimento, creare la lista di oggetti contenuti in essa e comunicarla ad \mbox{ACT-R}.
+		In tal modo, l'architettura cognitiva non è obbligata a lavorare su una lista di oggetti, precedentemente creata ad hoc per risolvere la specifica istanza, ma è in grado di elaborare direttamente l'immagine. 
+		Questa soluzione conferisce ad \mbox{ACT-R} la possibilità di elaborare oggetti direttamente nel mondo reale.
+		%Questa soluzione rende la percezione di \mbox{ACT-R} più simile a quella umana.
+
+		Il numero limitato di funzionalità offerte dal modulo visuale rappresenta il più grande limite dello strumento sviluppato. 
+		È sufficiente, tuttavia, aggiungere nuove funzionalità al software per estendere sempre di più l'applicabilità di questa soluzione e usarla in un numero sempre maggiore di casi in congiunzione con \mbox{ACT-R}.
+
+		Al fine di adattare il sistema a lavorare con altri esperimenti, tra le prime funzionalità da introdurre ci sono il riconoscimento di nuovi tipi di forme geometriche, ellissi in particolare, e l'integrazione di uno strumento di \emph{Optical Character Recognition\footnote{Uno strumento di Optical Character Recognition, anche noto come OCR, è un software che riconosce e decodifica lettere e testi nelle immagini.}.}
+		Le immagini utilizzate negli esperimenti effettuati dal Centro di Scienze Cognitive, infatti, sono piuttosto semplici: esse contengono forme geometriche semplici e, in alcuni casi, del testo.
+		L'introduzione di metodi per il riconoscimento di nuove forme e testi renderebbe il sistema più scalabile con la definizione di nuovi esperimenti che richiedono l'elaborazione dell'immagine da parte di \mbox{ACT-R}.
+
+		%L'introduzione di nuove funzionalità, inoltre, potrebbe portare all'applicazione di questo approccio in molti ambiti della ricerca scientifica, incluso nel ragionamento spaziale.
+		L'introduzione di nuove funzionalità, inoltre, potrebbe portare grandi miglioramenti nell'ambito della ricerca scientifica, in particolare nelle scienze cognitive.
+		Una prima applicazione nell'ambito del ragionamento spaziale arriva direttamente dal Centro di Scienze Cognitive dell'università di Friburgo: il gruppo di lavoro in cui l'autore di questo documento è stato inserito, infatti, ha sviluppato un sistema di navigazione spaziale in ambiente chiuso, basato sull'utilizzo di landmark.
+		%Un esempio in questo particolare campo di ricerca viene direttamente dal Centro di Scienze Cognitive dell'università di Friburgo: il gruppo di lavoro in cui l'autore di questo documento è stato inserito, infatti, ha sviluppato un sistema di navigazione spaziale in ambiente chiuso basato sull'utilizzo di landmark.
+		Il robot, grazie al modulo di visione sviluppato, infatti, è capace di identificare un landmark, avvicinarvisi, decodificare l'informazione contenuta in esso e inviarla all'architettura cognitiva, la quale, successivamente, comunica al robot come comportarsi sulla base dell'informazione ricevuta.
+		Aggiungere, perciò, ulteriori funzioni per il riconoscimento di oggetti aumenterebbe l'applicabilità della soluzione sviluppata.	
+		Questo fatto permetterebbe ad \mbox{ACT-R} di svolgere compiti sempre più vari e complessi e ciò potrebbe portare a un numero molto alto di scoperte nell'ambito delle scienze cognitive.
+
+
+		L'innovazione di questo software consiste nell'aver fornito ad \mbox{ACT-R} la possibilità di elaborare immagini direttamente nel mondo reale.
+		Ciò consente di superare uno dei più grandi limiti dell'architettura stessa: lavorare in un ambiente virtuale.
+		Spostare la maggior parte dei compiti di visione da \mbox{ACT-R} al modulo di visione porta l'immediato vantaggio di poter utilizzare soluzioni pronte e facili da usare che consentono di svolgere molti compiti di visione artificiale.
+		Inoltre, dal momento che la ricerca in questo campo è molto attiva e produce sempre nuove soluzioni, sarà sempre possibile sperimentare i nuovi algoritmi in nuovi esperimenti.
+		Per tutte queste ragioni lo sviluppo di questo modulo apre un ampio campo di possibilità per la ricerca nel campo delle scienze cognitive.
+	
+
+ 
+		
+
+
+
+
 
