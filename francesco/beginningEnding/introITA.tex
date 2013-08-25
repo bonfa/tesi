@@ -377,6 +377,7 @@
 	\addcontentsline{toc}{section}{Implementazione e testing}
 		In questa sezione si spiega l'algoritmo utilizzato per il riconoscimento di forme di \emph{n} lati nelle figure e si discute la strategia di testing applicata.
 		
+		%implementazione
 		L'algoritmo per il riconoscimento di forme è composto da numerosi passaggi.
 		Ciò è dovuto alle esigenze di rendere l'operazione il più generica possibile e di ridurre al minimo l'informazione contestuale utilizzata.
 		La prima operazione effettuata è un filtraggio, finalizzato alla riduzione del rumore nell'immagine.
@@ -392,6 +393,13 @@
 		Al termine di questa operazione, si hanno tutte le forme di \emph{n} lati che sono state identificate nell'immagine. 
 
 		Al momento, l'algoritmo appena descritto è stato testato solo con triangoli e quadrilateri; tuttavia, può essere adattato per riconoscere forme che presentano un numero arbitrario di lati. 
+		
+		%testing
+		In questo lavoro, l'obiettivo principale dell'attività di test è quello di valutare correttezza e affidabilità del codice sviluppato.
+		A tale fine, il Team ha scelto di applicare una strategia di test che dipendesse strettamente dalla creazione delle classi.
+		È stato stabilito, infatti, che la creazione di una suite di test contenente tutti i test di una determinata classe fosse immediatamente successiva alla creazione della classe stessa e che la generazione di tutti i casi di test di un determinato metodo seguissero la creazione del metodo stesso.
+		Per garantire una buona copertura dei casi di test, sono state applicate le tecniche del \emph{boundary value} e dell'\emph{equivalent partitioning}, utilizzando le due partizioni \emph{valori validi} e \emph{valori non validi}.
+		
 		
 		
 	
