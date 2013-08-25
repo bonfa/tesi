@@ -373,11 +373,30 @@
 
 
 
-
-
-
 	\section*{Implementazione e testing}
 	\addcontentsline{toc}{section}{Implementazione e testing}
+		In questa sezione si spiega l'algoritmo utilizzato per il riconoscimento di forme di \emph{n} lati nelle figure e si discute la strategia di testing applicata.
+		
+		L'algoritmo per il riconoscimento di forme è composto da numerosi passaggi.
+		Ciò è dovuto alle esigenze di rendere l'operazione il più generica possibile e di ridurre al minimo l'informazione contestuale utilizzata.
+		La prima operazione effettuata è un filtraggio, finalizzato alla riduzione del rumore nell'immagine.
+		Successivamente, un'operazione di ricerca degli angoli viene applicata ai singoli livelli di colore dell'immagine.
+		In particolare, essa viene applicata tre volte per ogni livello: ad ogni iterazione vengono utilizzate diverse soglie.
+		Il risultato ottenuto è una lista di insiemi di punti; ciascun insieme rappresenta una forma geometrica, la quale è descritta tramite i suoi vertici.
+		Per selezionare le figure di \emph{n} lati, dalla lista si estraggono tutti gli insiemi di punti che contengono \emph{n} o più vertici e ciascuno di essi subisce un'operazione finalizzata all'eliminazione dei falsi angoli.
+		Può succedere, infatti, che, a causa del rumore presente nell'immagine o di imperfezioni nella procedura di rilevamento degli angoli, vengano individuati più vertici di quelli effettivamente presenti nella forma.
+		Un'azione che elimini tali elementi risulta quindi necessaria per il corretto funzionamento dell'algoritmo.
+		Al termine dell'operazione, un filtraggio mantiene solo gli insiemi che contengono \emph{n} vertici.
+		L'avere applicato l'algoritmo di ricerca degli angoli più volte fa sì che la stessa forma sia riconosciuta più volte.	
+		Per questo è necessaria un'altra operazione che elimini le diverse copie della stessa forma.
+		Al termine di questa operazione, si hanno tutte le forme di \emph{n} lati che sono state identificate nell'immagine. 
+
+		Al momento, l'algoritmo appena descritto è stato testato solo con triangoli e quadrilateri; tuttavia, può essere adattato per riconoscere forme che presentano un numero arbitrario di lati. 
+		
+		
+	
+		
+
 	
 
 	\section*{Conclusioni}
