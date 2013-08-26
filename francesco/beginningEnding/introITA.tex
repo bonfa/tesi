@@ -244,7 +244,7 @@
 			
 			%Ruoli
 			Tutti i ruoli del framework sono definiti all'interno dello \emph{Scrum Team}, che è composto da \emph{Product Owner}, \emph{Development Team} e \emph{Scrum Master} e che ha come obiettivo comune aggiungere al prodotto un insieme finito e utilizzabile di nuove funzionalità a intervalli di tempo regolari.
-			Il Product Owner rappresenta gli stakeholder del prodotto ed è responsabile delle prestazioni del Team.
+			Il Product Owner rappresenta gli stakeholder\footnote{Con il termine stakeholder si definiscono tutte quelle persone che hanno interesse nello sviluppo del prodotto software.} del prodotto ed è responsabile delle prestazioni del Team.
 			Egli definisce i requisiti di ciascuna nuova versione del prodotto e le priorità di ciascuno di essi.
 			
 			Il Development Team è composto da programmatori e ha il compito di implementare le nuove funzionalità del prodotto.
@@ -252,13 +252,13 @@
 			Caratteristica fondamentale di ogni Development Team è l'auto-organizzazione. 
 			Ogni gruppo di sviluppo, infatti, può scegliere il proprio modo di gestire il lavoro e si auto dirige.
 			Altra peculiarità è la cross-funzionalità.
-			Il Team, infatti, è eterogeneo, cioè contiene al suo interno tutte le competenze necessarie per sviluppare il lavoro e non rischia di essere bloccato da fattori esterni ad esso. 
+			Il Team, infatti, è eterogeneo, cioè contiene al suo interno tutte le competenze necessarie per sviluppare il lavoro e non rischia di essere bloccato da fattori o ruoli esterni ad esso. 
 			
 			Lo Scrum Master ha il ruolo di verificare che il framework Scrum sia implementato correttamente da tutti i membri dello Scrum Team.
 			Egli, in particolare, interagisce con ogni membro del gruppo e lo aiuta a implementare il metodo al meglio, focalizzandosi in particolare sulla minimizzazione delle interruzioni.
 
 			%Eventi
-			Gli obiettivi di tutti gli eventi di Scrum sono di controllare l'evoluzione del prodotto nel tempo e di minimizzare le interruzioni. 
+			I due principali obiettivi di tutti gli eventi di Scrum sono controllare l'evoluzione del prodotto nel tempo e minimizzare le interruzioni. 
 			Ciò viene realizzato definendo esplicitamente degli intervalli di tempo di durata limitata in cui le diverse figure professionali aziendali possono incontrarsi per interagire e comunicare tra loro.
 			I principali eventi di Scrum sono: \emph{Sprint}, \emph{Sprint Planning Meeting}, \emph{Daily Scrum}, \emph{Sprint Review Meeting} e \emph{Sprint Retrospective Meeting}.
 
@@ -266,7 +266,7 @@
 			Esso inizia con lo Sprint Planning Meeting e termina con Sprint Review Meeting e Sprint Retrospective Meeting.
 			
 			Lo Sprint Planning Meeting è un evento in cui partecipano tutti i membri dello Scrum Team e rappresenta il momento in cui vengono definite le funzionalità da sviluppare nel prossimo Sprint e le loro priorità.
-			Per ciascuna funzione viene effettua una stima del tempo necessario per lo sviluppo e viene effettuata una divisione della stessa in sotto-attività che hanno durata massima di due giorni.
+			Per ciascuna funzione vengono effettuate una stima del tempo necessario per lo sviluppo e una divisione in sotto-attività della durata massima di due giorni.
 			Spesso questo incontro è segnato da una progressiva chiarificazione tra Product Owner e Development Team riguardo ai requisiti del prodotto. 
 			In questo evento deve anche essere definito lo \emph{Sprint Goal}, cioè uno slogan che riassume l'obiettivo del lavoro dello Sprint e agisce come una sorta di motivazione.
 		
@@ -277,7 +277,7 @@
 			
 			Lo Sprint Review Meeting viene realizzato alla fine di ogni Sprint tra tutti i membri dello Scrum Team e all'interno di esso si analizza l'incremento di lavoro effettuato.
 			Il Development Team spiega le difficoltà che ha incontrato e come le ha risolte e mostra le nuove funzionalità del prodotto.
-			Inoltre si discute su funzionalità da aggiungere, eliminare o modificare.
+			Successivamente si discute di quali funzionalità aggiungere, quali modificare e quali eliminare.
 
 			Durante lo Sprint Retrospective Meeting si analizza l'implementazione di Scrum. 
 			In particolare ci si concentra su persone, relazioni, processi e strumenti.
@@ -288,14 +288,14 @@
 			
 			Il Product Backlog contiene la lista dei requisiti del prodotto, che sono chiamati \emph{Backlog Item}.
 			All'interno del Product Backlog i Backlog Item sono ordinati per priorità.
-			In generale, gli elementi con priorità maggiore saranno quelli più dettagliati, mentre quelli con priorità minore sono  piuttosto generici, in quanto non urgenti e quindi non ancora approfonditi.
+			In generale, gli elementi con priorità maggiore sono quelli più dettagliati, mentre quelli con priorità minore sono  piuttosto generici, in quanto non urgenti e quindi non ancora approfonditi.
 			Il documento è dinamico: al termine di ogni Sprint, infatti, le funzionalità che sono state implementate vengono cancellate dal Product Backlog e vengono inseriti i nuovi requisiti o i nuovi dettagli definiti nelle riunioni del Team.
 
 			Lo Sprint Backlog contiene i requisiti da sviluppare nello Sprint corrente, ordinati secondo la priorità stabilita dal Product Owner durante lo Sprint Planning Meeting.
 			Ciascun requisito viene diviso in compiti, il cui livello di dettaglio è tale da poter essere misurato giornalmente durante il Daily Scrum.
 			Ciascun compito, infatti, deve avere una stima del numero di ore necessarie per essere effettuato, la cui durata non può essere maggiore di sedici ore.
 			In questo modo, lo Sprint Backlog permette di monitorare l'avanzamento del lavoro ogni giorno dello Sprint.
-			Spesso, per rappresentare meglio tale progresso, si utilizza un \emph{Burndown Chart}, che misura il numero completo di compiti completati e paragona l'andamento reale del lavoro con l'andamento ideale con cui esso dovrebbe evolvere~\cite{scrumEnglishGuide}.
+			Spesso, per rappresentare meglio tale progresso, si utilizza un \emph{Burndown Chart}, che misura il numero completo di compiti completati a partire dall'inizio dello Sprint e paragona l'andamento reale del lavoro con l'andamento ideale con cui esso dovrebbe evolvere~\cite{scrumEnglishGuide}.
 
 			
 
@@ -303,18 +303,18 @@
 		\addcontentsline{toc}{subsection}{Il Processo di Sviluppo Adottato}
 			Il Team ha adottato un processo di sviluppo incrementale e iterativo implementando il metodo Scrum.
 
-			Il motivo principale che ha portato a tale scelta è l'alta flessibilità che esso garantisce a fronte di cambiamenti di requisiti.
+			Il motivo principale che ha portato a tale scelta è l'alta flessibilità che esso garantisce in caso di cambiamento dei requisiti.
 			Spesso, infatti, nei progetti accade che alcune funzionalità, in un primo momento ritenute fondamentali, si rivelino meno importanti di altre, oppure che alcune subiscano cambiamenti, altre vengano eliminate e altre ancora introdotte.
-			Le revisioni continue e periodiche previste in Scrum permettono di affrontare in maniera dinamica e flessibile tali cambiamenti di requisiti.
+			Le revisioni continue e periodiche previste in Scrum permettono di affrontare in maniera dinamica e flessibile tali modifiche ai requisiti.
 	
 			Inoltre, l'introduzione di riunioni a intervalli costanti aumenta considerevolmente le prestazioni del gruppo di lavoro.
 			Grazie a Scrum, infatti, viene risolto il problema della comunicazione tra le diverse figure professionali che collaborano allo sviluppo del software.  
 			Gli stakeholder non hanno più la necessità di chiamare gli sviluppatori in momenti sconvenienti per questi ultimi ma contattano il Product Owner, che riceve i messaggi e li comunica al Development Team durante le riunioni apposite.
 			Ciò favorisce il lavoro del Team e dei supervisori, che avviene in un ambiente con minore stress poiché le interruzioni sono minime.
 
-			Un altro vantaggio di Scrum è che il prodotto sviluppato aderisce strettamente ai requisiti definiti.
+			Un altro vantaggio di Scrum sta nel fatto che il prodotto sviluppato aderisce strettamente ai requisiti definiti.
 			Ciò è dovuto agli eventi di durata limitata al termine dei quali vengono presentate le nuove funzionalità e si aggiornano i requisiti.
-			Durante gli Sprint Review Meeting il Team mostra le nuove funzionalità ai committenti che possono dare consigli e chiarire ulteriormente la loro idea dei compiti che il software deve svolgere.
+			Durante gli Sprint Review Meeting il Team mostra le nuove funzionalità ai committenti, che possono dare consigli e chiarire ulteriormente la loro idea riguardo ai compiti che il software deve svolgere.
 			Gli eventi di questo tipo sono realizzati appositamente per garantire una stretta aderenza del prodotto ai requisiti.
 
 			Infine, Scrum permette di valutare costantemente le prestazioni del Team.
