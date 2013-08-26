@@ -3,19 +3,19 @@
 	
 	\section*{Introduzione}
 	\addcontentsline{toc}{section}{Introduzione}
-	Questo documento descrive i principali passi dello sviluppo di un modulo software di computer vision che effettua l'analisi di immagini e comunica i risultati all'architettura cognitiva \mbox{\emph{ACT-R}}\footnote{ACT-R è un'architettura cognitiva, cioè un framework che modella la struttura e il comportamento umano. Per maggiori informazioni, vedere~\url{act-r.psy.cmu.edu}.}.
+	Questo documento descrive i principali passi dello sviluppo di un modulo software di computer vision che effettua l'analisi di immagini e comunica i risultati all'architettura cognitiva \mbox{\emph{ACT-R}}\footnote{ACT-R è un'architettura cognitiva, cioè un framework che modella la struttura e il comportamento del cervello umano. Per maggiori informazioni, vedere~\url{act-r.psy.cmu.edu}.}.
 	In particolare, il programma ha il compito di riuscire a riconoscere le forme geometriche contenute nelle immagini, i loro colori ed effettuare valutazioni qualitative e quantitative su tali oggetti.
 
 	L'attività è stata svolta presso il \emph{Center for Cognitive Science} dell'università \emph{Albert-Ludwigs-Universität Freiburg} della città di Friburgo.
-	Le attività di ricerca del centro, che come suggerisce il nome hanno come ambito principale le \emph{scienze cognitive}\footnote{\emph{Le scienze cognitive sono un gruppo di discipline che hanno come scopo lo studio delle capacità cognitive delle menti naturali o artificiali, della possibilità di trasmettere questo sapere agli altri e di averne consapevolezza. La scienza cognitiva è la specifica materia, tra le scienze cognitive, che spiega i modi in cui menti naturali o artificiali filtrano e colgono informazioni percettive, le rielaborano e riescono a intraprendere delle decisioni in base alle circostanze esperite, tanto da "reagire" al mondo esterno anche elaborando degli artefatti}~\cite{legrenzi2005prima}.}, 	
+	Le attività di ricerca del centro, che, come suggerisce il suo nome, hanno come ambito principale le \emph{scienze cognitive}\footnote{\emph{Le scienze cognitive sono un gruppo di discipline che hanno come scopo lo studio delle capacità cognitive delle menti naturali o artificiali, della possibilità di trasmettere questo sapere agli altri e di averne consapevolezza. La scienza cognitiva è la specifica materia, tra le scienze cognitive, che spiega i modi in cui menti naturali o artificiali filtrano e colgono informazioni percettive, le rielaborano e riescono a intraprendere delle decisioni in base alle circostanze esperite, tanto da "reagire" al mondo esterno anche elaborando degli artefatti}~\cite{legrenzi2005prima}.}, 	
 	al momento si focalizzano sul ragionamento spaziale\footnote{Il ragionamento spaziale è una disciplina che si occupa del ragionamento basato sugli oggetti nello spazio; in particolare studia le astrazioni dei concetti spaziali della conoscenza di base sulla quale si basa la prospettiva umana della realtà fisica.} e i ricercatori utilizzano ACT-R come strumento di supporto per i loro studi. 
 	
-	In questo contesto, il lavoro discusso in questo documento rappresenta una parte del lavoro sviluppato da un team di tre persone, il cui obiettivo finale risulta essere quello di migliorare la percezione dell'architettura cognitiva, rendendola più simile a quella umana.  
-	Una delle maggiori limitazioni di \mbox{ACT-R}, infatti, è il fatto che essa lavora in un ambiente virtuale troppo semplice per rappresentare la realtà. 
+	In questo contesto, il lavoro discusso in questo documento rappresenta una parte del lavoro sviluppato da un team di tre persone, il cui obiettivo ultimo risulta essere quello di migliorare la percezione dell'architettura cognitiva, rendendola più simile a quella umana.  
+	Una delle maggiori limitazioni di \mbox{ACT-R}, infatti, è il fatto che esso lavora in un ambiente virtuale troppo semplice per rappresentare la realtà. 
 	Il software sviluppato rappresenta un punto di partenza per permettere ad \mbox{ACT-R} di elaborare oggetti direttamente dal mondo reale, superando tale limite.
 	 
-	Dal momento che allo stato attuale l'architettura cognitiva non presenta dei moduli propri per l'elaborazione dei dati visuali, il software sviluppato è stato creato esternamente come software indipendente. 
-	Ciò ha permesso di utilizzare la libreria esterna \mbox{\emph{OpenCV}} per l'elaborazione di immagini e richiede l'introduzione di un protocollo di comunicazione client-server in modo da rendere possibile la comunicazione tra \mbox{ACT-R} e il modulo di visione sviluppato.
+	Dal momento che allo stato attuale l'architettura cognitiva non presenta dei moduli propri per l'elaborazione dei dati visuali, il software sviluppato è creato come software indipendente. 
+	Ciò permette di utilizzare la libreria esterna \mbox{\emph{OpenCV}} per l'elaborazione di immagini e richiede l'introduzione di un protocollo di comunicazione in modo da rendere possibile la comunicazione tra \mbox{ACT-R} e il modulo di visione sviluppato.
 
 	\section*{L'ambiente di lavoro}
 	\addcontentsline{toc}{section}{L'ambiente di lavoro}
