@@ -127,7 +127,7 @@
 	\section*{Gli obiettivi}\label{obiettivi}
 	\addcontentsline{toc}{section}{Gli obiettivi}
 		%il contesto		
-		L'obiettivo ultimo del progetto che comprende questo lavoro è di dotare \mbox{ACT-R} di un sistema visivo che sia il più simile possibile a quello umano.
+		L'obiettivo ultimo del progetto che comprende questo lavoro è dotare \mbox{ACT-R} di un sistema visivo che sia il più simile possibile a quello umano.
 		Per raggiungere tale intento, i ricercatori sono costantemente alla ricerca di tecniche innovative nel campo della visione artificiale che siano il più possibile di uso generale.
 		Tal ricerca, tuttavia, non è facile; infatti, la maggior parte delle pubblicazioni riguardanti la computer vision utilizza informazione contestuale che rende gli algoritmi adatti solamente ai compiti per cui vengono sviluppati.
 		
@@ -137,22 +137,22 @@
 
 		%l'obiettivo del team
 		L'obiettivo del gruppo di lavoro è quello di creare un software general purpose che riceva in ingresso un flusso video oppure un'immagine ed effettui un processo di riconoscimento di oggetti sui dati in ingresso.
-		\mbox{ACT-R} utilizzerà tale software per orientarsi all'interno di un edificio, distinguendo diversi tipi di stanza a partire dagli oggetti riconosciuti all'interno di ciascuna di esse.
+		\mbox{ACT-R} utilizzerà tale software per orientarsi all'interno di un edificio, distinguendo i diversi tipi di stanze a partire dagli oggetti riconosciuti all'interno di ciascuna di esse.
 
 		Come funzionalità fondamentale di tale software, il gruppo deve implementare uno strumento per riconoscere forme geometriche nelle immagini di ingresso. 
 		Tali forme rappresentano il punto di partenza per effettuare il processo di riconoscimento degli oggetti. 
-		Solo le forme riconosciute dallo strumento sviluppato, infatti, verranno poi analizzate più in dettaglio per verificare che rappresentino o meno degli oggetti di interesse.
+		Solo le forme individuate dallo strumento sviluppato, infatti, verranno poi analizzate più in dettaglio per verificare se rappresentino o meno degli oggetti di interesse.
 
 		%l'obiettivo del software
-		Un seconda seconda applicazione dello strumento è di rendere più facile la definizione del modello al creatore di modelli di \mbox{ACT-R}.
+		Un seconda seconda applicazione dello strumento è rendere più facile la definizione del modello al creatore di modelli di \mbox{ACT-R}.
 		Per capire meglio questo secondo obiettivo è necessario spiegare come un modello viene creato.
-		Il creatore di modelli ha bisogno di un insieme di parametri su cui basare le proprie assunzioni riguardanti alle modalità in cui il cervello umano risolve un determinato compito.
-		Tali dati vengono raccolti tramite esperimenti, realizzati grazie a strutture e software appositi, in cui alcuni volontari sono chiamati a risolvere diverse istanze dello stesso compito.
+		Il creatore di modelli ha bisogno di un insieme di parametri su cui basare le proprie assunzioni riguardanti le modalità in cui il cervello umano risolve un determinato compito.
+		Tali dati vengono raccolti tramite esperimenti, realizzati grazie a strutture e software appositi, in cui alcuni volontari sono chiamati a risolvere diverse istanze del compito.
 		
 		Si prenda per esempio l'immagine~\ref{fig:RushHourHumanIta}, che descrive un'istanza del gioco Rush Hour.
 		Tale gioco viene utilizzato come test da alcuni psicologi del Centro delle Scienze Cognitive dell'università di Friburgo per confermare alcune loro ipotesi riguardanti i processi cognitivi umani, la cui spiegazione esula da questo documento.
 		L'obiettivo del gioco è spostare le automobili colorate al fine di liberare il percorso tra l'auto rossa e l'uscita, che si trova sulla destra del campo di gioco.
-		Ogni automobile, rappresentata da un rettangolo, può spostarsi solo in una direzione, cioè quella parallela al lato maggiore di ciascun rettangolo.
+		Ogni automobile, rappresentata da un rettangolo, può spostarsi solo in una direzione, cioè quella parallela al lato più lungo di ciascuna automobile.
 		Minore è il numero di spostamenti dell'automobile, migliore è la soluzione. 	
 
 		\begin{figure}[!h]
@@ -178,8 +178,8 @@
 			
 		\subsection*{Requisiti Funzionali}
 		\addcontentsline{toc}{subsection}{Requisiti Funzionali}
-			L'obiettivo del lavoro è di progettare e implementare un modulo software indipendente che riceva in input un'immagine e la analizzi estraendo una serie di caratteristiche da essa.
-			L'immagine in ingresso è un'immagine a colori che contiene diverse forme geometriche non sovrapposte. 
+			L'obiettivo del lavoro è progettare e implementare un modulo software indipendente, che riceva in input un'immagine e la analizzi estraendo una serie di caratteristiche da essa.
+			L'input del software è un'immagine a colori che contiene diverse forme geometriche non sovrapposte. 
 
 			Il software deve riconoscere forme semplici, come:
 			\begin{itemize}
@@ -195,7 +195,7 @@
 				\item perimetro;
 				\item dimensioni;
 				\item angolo di rotazione;
-				\item una cornice rettangolare (bounding box);
+				\item una cornice rettangolare, chiamata bounding box;
 				\item centro;
 			\end{itemize}	
 		
@@ -225,7 +225,7 @@
 		Inoltre, dovrà essere possibile adattare il modulo software al fine di usarlo come riconoscitore di forme per l'orientamento all'interno di un edificio (si veda pagina~\pageref{obiettivi}).
 		Al fine di realizzare la comunicazione con \mbox{ACT-R}, i dati devono essere trasmessi in maniera standardizzata.
 
-		Per quanto riguarda i requisiti organizzativi:
+		Devono, infine, essere rispettati i seguenti requisiti organizzativi:
 		\begin{itemize}
 				\item il linguaggio dell'implementazione deve essere C++;
 				\item la libreria di computer vision utilizzata deve essere \mbox{OpenCV};
