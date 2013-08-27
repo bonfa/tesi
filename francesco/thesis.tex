@@ -53,12 +53,13 @@
 \usepackage[pagebackref=true, colorlinks=true, linkcolor=blue, hyperindex=true, urlcolor=blue, citecolor = green, linktocpage=true]{hyperref}		% indici e riferimenti cliccabili
 \pagestyle{scrheadings}
 \clearscrheadfoot
-\ihead [Francesco Bonfadelli]{Francesco Bonfadelli}	%Kopfzeile Innen
-\chead {}					%Kopfzeile Mitte
-\ohead [\headmark]{\headmark}			%Kopfzeile Auﬂen
-\ifoot {}					%Fuﬂzeile Innen
-\cfoot[\pagemark]{\pagemark} 			%Fuﬂzeile Mitte
+\ihead [Francesco Bonfadelli]{Francesco Bonfadelli}	%Inner header
+\chead {}															%Central header
+\ohead [\headmark]{\headmark}									%Outern Header
+\ifoot {}					
+\cfoot[\pagemark]{\pagemark} 			
 \ofoot {}
+
 
 \automark[chapter]{chapter}
 \KOMAoptions{cleardoublepage=scrheadings}	%per lasciate style=scrheadings anche per le pag vuoto (svuotate col comando cleardoublepage), si puo? anche scegliere cleardoublepage=plain o empty
@@ -92,8 +93,12 @@
 \newpage
 \thispagestyle{empty}
 \mbox{}
+		% cambio l'header per l'intro italiana	
+		\ohead [Sommario]{Sommario}									
 	\input{beginningEnding/introITA.tex}
 	\newpage	
+		% metto l'header standard
+		\ohead [\headmark]{\headmark}			
 	\input{chapters/chap_01_introduction.tex}
 	\newpage
 	\input{chapters/chap_02_state_of_the_art.tex}
