@@ -379,7 +379,7 @@
 
 	\section*{Implementazione e testing}
 	\addcontentsline{toc}{section}{Implementazione e testing}
-		In questa sezione si spiega l'algoritmo utilizzato per il riconoscimento di forme di \emph{n} lati nelle figure e si discute la strategia di testing applicata.
+		In questa sezione si spiega l'algoritmo utilizzato per il riconoscimento di forme di \emph{n} lati presenti nelle immagini e si discute la strategia di testing applicata.
 		
 		%implementazione
 		L'algoritmo per il riconoscimento di forme è composto da numerosi passaggi.
@@ -393,8 +393,7 @@
 		Un'azione che elimini tali elementi risulta quindi necessaria per il corretto funzionamento dell'algoritmo.
 		Al termine dell'operazione, un filtraggio mantiene solo gli insiemi che contengono \emph{n} vertici.
 		L'avere applicato l'algoritmo di ricerca degli angoli più volte fa sì che la stessa forma sia riconosciuta più volte.	
-		Per questo è necessaria un'altra operazione che elimini le diverse copie della stessa forma.
-		Al termine di questa operazione, si hanno tutte le forme di \emph{n} lati che sono state identificate nell'immagine. 
+		Per questo è necessaria un'altra operazione che elimini le diverse copie della stessa forma, al termine della quale si hanno tutte le forme di \emph{n} lati che sono state identificate nell'immagine. 
 
 		Al momento, l'algoritmo appena descritto è stato testato solo con triangoli e quadrilateri; tuttavia, può essere facilmente adattato per riconoscere forme che presentano un numero arbitrario di lati. 
 		
@@ -411,14 +410,14 @@
 	\addcontentsline{toc}{section}{Conclusioni}
 		In questo documento sono descritti i passi principali che hanno portato alla realizzazione di un modulo software in grado di analizzare immagini, estrarre particolari informazioni contenute all'interno di esse e di comunicare tali informazioni all'architettura cognitiva \mbox{ACT-R}, su richiesta di quest'ultima.
 		In particolare, le principali informazioni da riconoscere sono	forme geometriche, i loro colori, le loro dimensioni e le loro posizioni.
-		Lo scopo ultimo del lavoro è sviluppare un modulo software per \mbox{ACT-R} finalizzato a rendere la percezione visuale dell'architettura cognitiva più simile a quella umana.
+		Lo scopo ultimo del lavoro di cui il progetto sviluppato fa parte è sviluppare un modulo software per \mbox{ACT-R} finalizzato a rendere la percezione visuale dell'architettura cognitiva più simile a quella umana.
 
-		Il software sviluppato utilizza la libreria \mbox{OpenCV} per implementare le operazioni visuali e un metodo di comunicazione basto sul paradigma client-server per lo scambio di messaggi tra il modulo sviluppato e l'architettura cognitiva. 
+		Il software realizzato utilizza la libreria \mbox{OpenCV} per implementare le operazioni visuali e un metodo di comunicazione basato sul paradigma client-server per lo scambio di messaggi tra il modulo di visione e l'architettura cognitiva. 
 		Questa soluzione è semplice, veloce e permette di utilizzare una libreria che offre funzioni sviluppate appositamente per la computer vision.
 
-		Lo strumento implementato al momento riconosce triangoli, quadrilateri e cerchi ed effettua valutazioni qualitative e quantitative riguardo ai colori delle forme, alle loro dimensioni e alle loro posizioni.
+		Lo strumento implementato riconosce triangoli, quadrilateri e cerchi ed effettua valutazioni qualitative e quantitative riguardo ai colori delle forme, alle loro dimensioni e alle loro posizioni.
 		In particolare, esso è utilizzato nell'esperimento Rush Hour per analizzare l'immagine che corrisponde a un'istanza reale di esperimento, creare la lista di oggetti contenuti in essa e comunicarla ad \mbox{ACT-R}.
-		In tal modo, l'architettura cognitiva non è obbligata a lavorare su una lista di oggetti, precedentemente creata ad hoc per risolvere la specifica istanza, ma è in grado di elaborare direttamente l'immagine. 
+		In tal modo, l'architettura cognitiva non è obbligata a lavorare su una lista di oggetti, precedentemente creata ad hoc per risolvere la specifica istanza, ma è in grado di elaborare l'immagine direttamente. 
 		Questa soluzione conferisce ad \mbox{ACT-R} la possibilità di elaborare oggetti direttamente nel mondo reale.
 		%Questa soluzione rende la percezione di \mbox{ACT-R} più simile a quella umana.
 
@@ -426,11 +425,11 @@
 		È sufficiente, tuttavia, aggiungere nuove funzionalità al software per estendere sempre di più l'applicabilità di questa soluzione e usarla in un numero sempre maggiore di casi in congiunzione con \mbox{ACT-R}.
 
 		Al fine di adattare il sistema a lavorare con altri esperimenti, tra le prime funzionalità da introdurre ci sono il riconoscimento di nuovi tipi di forme geometriche, ellissi in particolare, e l'integrazione di uno strumento di \emph{Optical Character Recognition\footnote{Uno strumento di Optical Character Recognition, anche noto come OCR, è un software che riconosce e decodifica lettere e testi nelle immagini.}.}
-		Le immagini utilizzate negli esperimenti effettuati dal Centro di Scienze Cognitive, infatti, sono piuttosto semplici: esse contengono forme geometriche semplici e, in alcuni casi, del testo.
+		Le immagini utilizzate negli esperimenti effettuati dal Centro di Scienze Cognitive, infatti, sono piuttosto semplici: esse contengono forme geometriche elementari colorate uniformemente e, in alcuni casi, del testo.
 		L'introduzione di metodi per il riconoscimento di nuove forme e testi renderebbe il sistema più scalabile con la definizione di nuovi esperimenti che richiedono l'elaborazione dell'immagine da parte di \mbox{ACT-R}.
 
 		%L'introduzione di nuove funzionalità, inoltre, potrebbe portare all'applicazione di questo approccio in molti ambiti della ricerca scientifica, incluso nel ragionamento spaziale.
-		L'introduzione di nuove funzionalità, inoltre, potrebbe portare grandi miglioramenti nell'ambito della ricerca scientifica, in particolare nelle scienze cognitive.
+		L'introduzione di nuove funzionalità, inoltre, potrebbe portare grandi miglioramenti nell'ambito della ricerca scientifica, in particolare nel campo delle scienze cognitive.
 		Una prima applicazione nell'ambito del ragionamento spaziale arriva direttamente dal Centro di Scienze Cognitive dell'università di Friburgo: il gruppo di lavoro in cui l'autore di questo documento è stato inserito, infatti, ha sviluppato un sistema di navigazione spaziale in ambiente chiuso, basato sull'utilizzo di landmark.
 		%Un esempio in questo particolare campo di ricerca viene direttamente dal Centro di Scienze Cognitive dell'università di Friburgo: il gruppo di lavoro in cui l'autore di questo documento è stato inserito, infatti, ha sviluppato un sistema di navigazione spaziale in ambiente chiuso basato sull'utilizzo di landmark.
 		Il robot, grazie al modulo di visione sviluppato, infatti, è capace di identificare un landmark, avvicinarvisi, decodificare l'informazione contenuta in esso e inviarla all'architettura cognitiva, la quale, successivamente, comunica al robot come comportarsi sulla base dell'informazione ricevuta.
@@ -440,9 +439,9 @@
 
 		L'innovazione di questo software consiste nell'aver fornito ad \mbox{ACT-R} la possibilità di elaborare immagini direttamente nel mondo reale.
 		Ciò consente di superare uno dei più grandi limiti dell'architettura stessa: lavorare in un ambiente virtuale.
-		Spostare la maggior parte dei compiti di visione da \mbox{ACT-R} al modulo di visione porta l'immediato vantaggio di poter utilizzare soluzioni pronte e facili da usare che consentono di svolgere molti compiti di visione artificiale.
-		Inoltre, dal momento che la ricerca in questo campo è molto attiva e produce sempre nuove soluzioni, sarà sempre possibile sperimentare i nuovi algoritmi in nuovi esperimenti.
-		Per tutte queste ragioni lo sviluppo di questo modulo apre un ampio campo di possibilità per la ricerca nel campo delle scienze cognitive.
+		Spostare la maggior parte dei compiti di visione da \mbox{ACT-R} al modulo di visione porta l'immediato vantaggio di poter utilizzare soluzioni pronte e facili da usare, che consentono di svolgere molti compiti di visione artificiale.
+		Inoltre, dal momento che la ricerca in questo campo è molto attiva e produce sempre nuove soluzioni, sarà spesso possibile sperimentare i nuovi algoritmi in nuovi esperimenti.
+		Per tutte queste ragioni lo sviluppo di questo software apre la strada ad una serie di opportunità per la ricerca nel campo delle scienze cognitive.
 	
 
  
