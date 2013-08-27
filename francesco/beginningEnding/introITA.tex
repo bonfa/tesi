@@ -339,12 +339,12 @@
 		Il meccanismo di comunicazione utilizzato è sincrono e basato sul protocollo \mbox{TCP/IP}.
 		Si è scelto di utilizzare questo protocollo dal momento che è standardizzato, è supportato dagli interpreti Lisp e garantisce flessibilità e scalabilità.
 		L'opzione di compilare il software come libreria statica e invocarne le funzioni direttamente, evitando l'introduzione di un protocollo di comunicazione, avrebbe comportato una maggiore efficienza.
-		Il problema di questa soluzione è dovuto al fatto che ogni interprete Lisp presenta metodi diversi per gestire le librerie statiche e ciò rende il software non portabile.
+		Il problema di questa soluzione è dovuto al fatto che ogni interprete Lisp presenta metodi diversi per gestire le librerie statiche e ciò rende il software non portabile~\cite{SWIGDoc}.
 
-		TCP è stato preferito a UDP per le sue caratteristiche di affidabilità e bidirezionalità.
-		Inoltre la ridotta quantità di dati ha reso possibile il suo utilizzo.
+		TCP viene preferito a UDP per le sue caratteristiche di affidabilità e bidirezionalità.
+		Inoltre la ridotta quantità di dati contenuta nei messaggi ne rende più opportuno l'utilizzo.
 		La comunicazione è sincrona, cioè, una volta effettuata la richiesta, \mbox{ACT-R}, il client, rimane in attesa della risposta del Visual Module, il server. 
-		Ciò è coerente con la natura del compito: infatti l'architettura cognitiva non può prendere decisioni riguardanti i dati dell'esterno se prima non elabora tali dati.
+		Ciò è coerente con la natura del compito: infatti è desiderabile che l'architettura cognitiva prenda decisioni riguardanti l'ambiente esterno dopo aver ricevuto ed elaborato tali dati inerenti ad esso.
 
 		Il Modulo Vision Operation è diviso logicamente in tre gruppi di classi: quella che si dedica all'elaborazione di immagini e video, quella che rappresenta le forme riconosciute nelle immagini e quella che gestisce le funzioni di utilità e le eccezioni.
 		In figura \ref{fig:classOverviewITA}, si può vedere un diagramma delle classi, realizzato nel linguaggio UML, che descrive ad alto livello i primi due gruppi di classi del Vision Module.
@@ -360,17 +360,17 @@
 	 	\end{figure}	
 		
 		Nel diagramma, sulla sinistra si può vedere l'insieme di classi che elaborano le immagini.
-		In particolare, la classe \emph{Feature Extractor} è la classe fondamentale di questo insieme, in quanto è quella che effettua tutte le elaborazioni sull'immagine, estraendo le forme contenute in essa e creando la corrispondente gerarchia di forme. 
+		In particolare, la classe \emph{Feature Extractor} è la classe fondamentale di questo insieme, in quanto è quella che effettua tutte le elaborazioni sull'immagine, riconoscendo le forme contenute in essa e creando la corrispondente gerarchia di oggetti. 
 		Oltre a tali operazioni, essa riconosce i colori, calcola le distanze tra oggetti, stabilisce le loro posizioni reciproche e li confronta sulla base della dimensione.
 		La classe \emph{Input} si occupa di interagire con il filesystem e l'hardware del calcolatore; in particolare, acquisisce immagini e video.
 		\emph{Feature Getter} rappresenta un livello di astrazione e offre un'interfaccia semplice a \emph{Proxy}, classe incaricata di preparare i dati in un formato standard per la comunicazione con \mbox{ACT-R}.
-		Le classi \emph{MarkerDetector} e \emph{QRScanner} svolgono funzioni non presentate nel documento dei requisiti di questo documento. Esse acquistano senso se si analizzano gli obiettivi globali del software.
+		Le classi \emph{MarkerDetector} e \emph{QRScanner} svolgono funzioni non presentate tra i requisiti enunciati in questo documento. Esse acquistano senso se si analizzano gli obiettivi globali del software.
 		Le classi sono comunque presenti nel diagramma perché influenzano l'architettura del sistema.
 
 		Sulla destra nel diagramma è presentata la gerarchia degli oggetti.
 		\emph{Object} è la super classe e rappresenta qualsiasi oggetto che può essere riconosciuto dal sistema.
 		Esso viene specificato dalle due sotto-classi \emph{Blob} e \emph{QR}.
-		Blob rappresenta tutte le possibili forme geometriche e la sua presenza ha senso per distinguerle da oggetti di altra natura, come QR o altri che verranno in futuro introdotti.
+		Blob rappresenta tutte le possibili forme geometriche e la sua presenza ha senso per distinguerle da oggetti di altra natura, come QR o altri che verranno introdotti in futuro.
 		QR e \emph{Marker}, esattamente come MarkerDetector e QRScanner, sono oggetti non descritti in questo lavoro ma essenziali per le funzionalità dell'intero sistema.
 		Blob viene specializzato dalle classi \emph{Circle}, \emph{Triangle} e \emph{Quadrilateral}, che rappresentano rispettivamente cerchi, triangoli e quadrilateri.
 		\emph{Button} rappresenta un bottone e specializza il quadrilatero.
@@ -396,13 +396,14 @@
 		Per questo è necessaria un'altra operazione che elimini le diverse copie della stessa forma.
 		Al termine di questa operazione, si hanno tutte le forme di \emph{n} lati che sono state identificate nell'immagine. 
 
-		Al momento, l'algoritmo appena descritto è stato testato solo con triangoli e quadrilateri; tuttavia, può essere adattato per riconoscere forme che presentano un numero arbitrario di lati. 
+		Al momento, l'algoritmo appena descritto è stato testato solo con triangoli e quadrilateri; tuttavia, può essere facilmente adattato per riconoscere forme che presentano un numero arbitrario di lati. 
 		
 		%testing
 		In questo lavoro, l'obiettivo principale dell'attività di test è quello di valutare correttezza e affidabilità del codice sviluppato.
 		A tale fine, il Team ha scelto di applicare una strategia di test che dipendesse strettamente dalla creazione delle classi.
-		È stato stabilito, infatti, che la creazione di una suite di test contenente tutti i test di una determinata classe fosse immediatamente successiva alla creazione della classe stessa e che la generazione di tutti i casi di test di un determinato metodo seguissero la creazione del metodo stesso.
-		Per garantire una buona copertura dei casi di test, sono state applicate le tecniche del \emph{boundary value} e dell'\emph{equivalent partitioning}, utilizzando le due partizioni \emph{valori validi} e \emph{valori non validi}.
+		È stato stabilito, infatti, che la creazione di una suite di test contenente tutti i test di una determinata classe fosse immediatamente successiva alla creazione della classe stessa e che la generazione di tutti i casi di test di un determinato metodo seguisse la creazione del metodo stesso.
+		Per garantire una buona copertura dei casi di test, sono state applicate le tecniche del \emph{boundary value} e dell'\emph{equivalent partitioning}.
+		Per quanto riguarda il secondo metodo, le due partizioni utilizzate sono state \emph{valori validi} e \emph{valori non validi}.
 		Il software utilizzato per la creazione e l'organizzazione di test case e test suite è \emph{CUTE\footnote{Si possono trovare ulteriori informazioni sul software all'indirizzo \url{http://cute-test.com/}}}.
 		
 
