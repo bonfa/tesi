@@ -9,14 +9,14 @@
 	In particolare, il programma ha il compito di riuscire a riconoscere le forme geometriche contenute nelle immagini, i loro colori ed effettuare valutazioni qualitative e quantitative su tali oggetti.
 
 	L'attività è stata svolta presso il \emph{Center for Cognitive Science} dell'università \emph{Albert-Ludwigs-Universität Freiburg} della città di Friburgo.
-	Le attività di ricerca del centro, che, come suggerisce il suo nome, hanno come ambito principale le \emph{scienze cognitive}\footnote{\emph{Le scienze cognitive sono un gruppo di discipline che hanno come scopo lo studio delle capacità cognitive delle menti naturali o artificiali, della possibilità di trasmettere questo sapere agli altri e di averne consapevolezza. La scienza cognitiva è la specifica materia, tra le scienze cognitive, che spiega i modi in cui menti naturali o artificiali filtrano e colgono informazioni percettive, le rielaborano e riescono a intraprendere delle decisioni in base alle circostanze esperite, tanto da "reagire" al mondo esterno anche elaborando degli artefatti}~\cite{legrenzi2005prima}.}, 	
+	Le attività di ricerca del centro, che, come suggerisce il nome, hanno come ambito principale le \emph{scienze cognitive}\footnote{\emph{Le scienze cognitive sono un gruppo di discipline che hanno come scopo lo studio delle capacità cognitive delle menti naturali o artificiali, della possibilità di trasmettere questo sapere agli altri e di averne consapevolezza. La scienza cognitiva è la specifica materia, tra le scienze cognitive, che spiega i modi in cui menti naturali o artificiali filtrano e colgono informazioni percettive, le rielaborano e riescono a intraprendere delle decisioni in base alle circostanze esperite, tanto da "reagire" al mondo esterno anche elaborando degli artefatti}~\cite{legrenzi2005prima}.}, 	
 	al momento si focalizzano sul ragionamento spaziale\footnote{Il ragionamento spaziale è una disciplina che si occupa del ragionamento basato sugli oggetti nello spazio; in particolare studia le astrazioni dei concetti spaziali della conoscenza di base sulla quale si basa la prospettiva umana della realtà fisica.} e i ricercatori utilizzano ACT-R come strumento di supporto per i loro studi. 
 	
 	In questo contesto, il lavoro discusso in questo documento rappresenta una parte del lavoro sviluppato da un team di tre persone, il cui obiettivo ultimo risulta essere quello di migliorare la percezione dell'architettura cognitiva, rendendola più simile a quella umana.  
-	Una delle maggiori limitazioni di \mbox{ACT-R}, infatti, è il fatto che esso lavora in un ambiente virtuale troppo semplice per rappresentare la realtà. 
-	Il software sviluppato rappresenta un punto di partenza per permettere ad \mbox{ACT-R} di elaborare oggetti direttamente dal mondo reale, superando tale limite.
+	Una delle maggiori limitazioni di \mbox{ACT-R}, infatti, è il fatto che esso lavora in un ambiente virtuale, troppo semplice per rappresentare la realtà. 
+	Il software sviluppato rappresenta un punto di partenza per permettere ad \mbox{ACT-R} di elaborare oggetti direttamente nel mondo reale, superando tale limite.
 	 
-	Dal momento che allo stato attuale l'architettura cognitiva non presenta dei moduli propri per l'elaborazione dei dati visuali, il software sviluppato è creato come software indipendente. 
+	Dal momento che, allo stato attuale, l'architettura cognitiva non presenta dei moduli propri per l'elaborazione dei dati visuali, il software sviluppato è creato come software indipendente. 
 	Ciò permette di utilizzare la libreria esterna \mbox{\emph{OpenCV}} per l'elaborazione di immagini e richiede l'introduzione di un protocollo di comunicazione in modo da rendere possibile la comunicazione tra \mbox{ACT-R} e il modulo di visione sviluppato.
 
 	\section*{L'ambiente di lavoro}
@@ -28,7 +28,7 @@
 	Ciò che viene studiato, in particolare, sono le modalità con cui pensiero, emozione, immaginazione, intelletto e creatività vengono formati~\cite{legrenzi2005prima}.
 	La sfida per queste discipline sta nello studiare questi aspetti data l'impossibilità di osservare i processi cognitivi umani nelle diverse fasi in cui essi si sviluppano. 
 	
-	Un aspetto caratterizzante di tutte le scienze cognitive è la loro natura multidisciplinare: esse infatti accorpano informazioni provenienti da discipline eterogenee (fisiologia, neurologia, intelligenza artificiale, filosofia e psicologia) al fine di creare un modello per la mente che sia il più generale possibile~\cite{legrenzi2005prima}. 
+	Un aspetto caratterizzante di tutte le scienze cognitive è la loro natura multidisciplinare: esse infatti accorpano informazioni provenienti da discipline eterogenee (fisiologia, neurologia, intelligenza artificiale, filosofia e psicologia) al fine di creare un modello della mente che sia il più generale possibile~\cite{legrenzi2005prima}. 
 
 	La cognizione spaziale è la scienza cognitiva che studia acquisizione, organizzazione, utilizzo e revisione della conoscenza riguardante gli ambienti spaziali~\cite{r8Cspace}. L'ambito di applicabilità di tale disciplina è molto vasto e comprende sia ambienti reali che modelli astratti e prevede agenti sia umani che automatici.
 	Fondamentale per questa materia è lo studio del processo di ragionamento, che comprende la successione di eventi che portano alla formazione di conoscenza a partire da una serie di premesse. 
@@ -51,7 +51,7 @@
 				Nel momento di attuare un comportamento, tuttavia, i moduli interagiscono tra loro per raggiungere l'obiettivo comune, proprio come un sistema integrato. 
 				La comunicazione tra le diverse parti avverrebbe grazie a specifiche connessioni tra i moduli~\cite{Anderson04anintegrated}.
 
-				Un altro pilastro fondamentale su cui si basa la teoria di \mbox{ACT-R} è la distinzione tra \emph{memoria dichiarativa} e \emph{memoria procedurale}. La prima rappresenta fatti e nozioni che l'essere umano sa ed è conscio di sapere. Per richiamare questo tipo di conoscenza, l'essere umano deve effettuare un processo consapevole. La seconda, invece, si riferisce a tutte quelle abilità e capacità che l'essere umano sa ma che ha imparato in maniera implicita. Esempi di questo tipo di conoscenza sono la lettura e la scrittura~\cite{anderson1976language}. 
+				Un altro pilastro fondamentale su cui si basa la teoria di \mbox{ACT-R} è la distinzione tra \emph{memoria dichiarativa} e \emph{memoria procedurale}. La prima rappresenta fatti e nozioni che l'essere umano sa ed è conscio di sapere. Per richiamare questo tipo di conoscenza, l'essere umano deve effettuare un processo consapevole. La seconda, invece, si riferisce a tutte quelle abilità e capacità che l'essere umano sa ma che ha imparato in maniera implicita. Esempi di questo secondo tipo di conoscenza sono la lettura e la scrittura~\cite{anderson1976language}. 
 
 				Gli elementi di base dell'architettura di \mbox{ACT-R} sono \emph{chunk} e \emph{produzioni}.
 				I chunk rappresentano la memoria dichiarativa e sono delle strutture dati caratterizzate da un tipo, chiamato \emph{type}, e da una lista di coppie, ognuna delle quali è costituita da un attributo, chiamato \emph{slot}, e da un valore, chiamato \emph{value}.
@@ -66,13 +66,13 @@
 				
 				\mbox{ACT-R} è in grado di effettuare infiniti ragionamenti, indipendentemente dal compito da eseguire. 
 				Per essere in grado di eseguire una singola attività, tuttavia, necessita di uno specifico \emph{modello}.
-				Ciascun modello contiene le assunzioni che il creatore di modelli vuole testare per il determinato compito da eseguire.
-				Tali assunzioni sono espresse sotto forma di produzioni e interagiscono con i moduli durante l'esecuzione.
+				Ciascun modello rispecchia le assunzioni che il creatore di modelli ha riguardo al determinato compito da eseguire.
+				Tali assunzioni sono espresse sotto forma di produzioni, che interagiscono con i moduli durante l'esecuzione.
 				Questo atto produce una serie di operazioni atomiche cognitive che, passo dopo passo, portano alla soluzione del compito~\cite{Sears2012}. 
 				
 				Le operazioni presentano delle misure qualitative e quantitative sulla qualità dell'azione stessa, come la correttezza della soluzione trovata e il tempo necessario per completare l'operazione. 
-				Ciò conferisce ai modelli la possibilità di predire la sequenza delle azioni cognitive prodotte dagli esseri umani quando questi provano a risolvere lo stesso compito. 
-				Effettuare dei confronti con le prestazioni degli esseri umani permette di misurare la qualità del modello~\cite{Sears2012}.
+				Ciò conferisce ai modelli la possibilità di predire la sequenza delle azioni cognitive prodotte dagli esseri umani quando questi provano a risolvere un determinato compito. 
+				Effettuare dei confronti con le prestazioni degli esseri umani permette di misurare la qualità dei modelli~\cite{Sears2012}.
 
 				Dal punto di vista informatico, \mbox{ACT-R} è scritto in lisp e fornisce una sintassi specifica, simile al lisp, per scrivere i modelli.
 
@@ -82,10 +82,10 @@
 				\mbox{OpenCV}, acronimo di Open Computer Vision, è una libreria per la computer vision, sviluppata inizialmente da Intel e supportata poi dall'incubatore tecnologico Willow Garage.
 				La libreria è multi piattaforma ed è rilasciata sotto una licenza BSD che la rende gratuita e open source. 
 				È stata sviluppata per supportare applicazioni in tempo reale e perciò è caratterizzata da una grande efficienza computazionale.
-				La versione 2.4 contiene più di 2500 algoritmi che coprono molte aree della computer vision.
+				La versione 2.4 contiene più di 2500 algoritmi, che coprono molte aree della computer vision.
 
 				% computer vision
-				La computer vision è essenzialmente la trasformazione di un'immagine o di un video in una nuova rappresentazione che può essere anche di natura completamente differente rispetto al dato iniziale. 
+				La computer vision è essenzialmente la trasformazione di un'immagine o di un video in una nuova rappresentazione, che può essere anche di natura completamente differente rispetto al dato iniziale. 
 				L'obiettivo potrebbe essere, ad esempio, una versione in scala di grigi dell'immagine originale, oppure si potrebbe desiderare che il calcolatore sia in grado di prendere una decisione a partire dalle informazioni estratte dall'immagine in ingresso.
 				In entrambi i casi si sta parlando di computer vision~\cite{bradski2008learning}.
 		
@@ -94,7 +94,7 @@
 				Tale rappresentazione rende complesse molte delle operazioni di visione, comprese quelle più semplici come, per esempio, il riconoscimento di un semplice oggetto.
 				Purtroppo al momento questa modalità di descrizione è la migliore alternativa tra le possibilità esistenti~\cite{bradski2008learning}.
 
-				Oltre alla rappresentazione matriciale, uno dei motivi che rendono così complicata la computer vision è la necessità molto frequente di ricostruire un mondo tridimensionale a partire da un'immagine bidimensionale. 
+				Oltre alla rappresentazione matriciale, uno dei fattori che rendono così complicata la computer vision è la necessità molto frequente di ricostruire un mondo tridimensionale a partire da un'immagine bidimensionale. 
 				Questo è un problema mal posto, che ha come diretta conseguenza l'esistenza di infinite soluzioni, cioè infinite ricostruzioni tridimensionali del mondo a partire dall'immagine bidimensionale.
 				In particolare, la soluzione dipende dall'angolo con cui si analizza l'immagine~\cite{bradski2008learning}.
 
@@ -113,7 +113,7 @@
 				Storicamente, il progetto OpenCV viene avviato nel 1999 da Intel Research, divisione del gruppo Intel dedicata alla ricerca. 
 				L'iniziativa è finalizzata a migliorare le applicazioni che richiedono un alto carico di lavoro della CPU, in particolare quelle legate alla visione artificiale. 
 				Le intenzioni iniziali comprendono la creazione di codice ottimizzato per un'infrastruttura standard di base per la visione, la diffusione di essa tra gli sviluppatori, la portabilità del codice e la possibilità di creare sia applicazioni di natura commerciale che gratuite grazie all'infrastruttura. 
-				Nel 2000 viene rilasciata la prima versione alpha, seguita da cinque versioni beta tra il 2001 e il 2005 che portano nel 2006 a \mbox{OpenCV} 1.0.	
+				Nel 2000 viene rilasciata la prima versione alpha, seguita da cinque versioni beta tra il 2001 e il 2005, che portano nel 2006 a \mbox{OpenCV} 1.0.	
 				Nel 2008 l'incubatore tecnologico Willow Garage comincia a supportare il progetto e nel 2009 viene rilasciata la versione 2.0. 
 				Come stabilito nel piano di rilascio, ogni sei mesi viene resa pubblica una nuova versione di \mbox{OpenCV}~\cite{OpenCV:ChangeLogs}.
 
@@ -121,7 +121,7 @@
 				In particolare offre strutture dati per la gestione di immagini e video, funzioni per la visualizzazione e per la gestione degli eventi da parte di tastiera e mouse, procedure per l'interazione con il filesystem, possibilità di manipolare le immagini sia tramite matrici che tramite funzioni di algebra vettoriale, supporto alle strutture dati più comuni e funzioni per tutte le operazioni di base di computer vision: filtraggio, riconoscimento di contorni e di angoli, conversione dei colori, campionamento e interpolazione, operazioni morfologiche e istogrammi.
 				Inoltre la libreria integra molte funzioni per l'analisi strutturale dell'immagine, la calibrazione di telecamere, l'analisi del movimento, il riconoscimento di oggetti e il machine learning~\cite{Agam2006}.
 				
-				Dal punto di vista informatico, la libreria è scritta in C e C++ e presenta interfacce per i linguaggi Python, Java, Ruby e Matlab.
+				Dal punto di vista dei linguaggi di programmazione, la libreria è scritta in C e C++ e presenta interfacce per i linguaggi Python, Java, Ruby e Matlab.
 				Dalla versione 2.4 l'architettura è organizzata in moduli, ognuno dei quali svolge specifiche funzioni~\cite{OpenCVDoc}. 
 				
 
@@ -131,7 +131,7 @@
 		%il contesto		
 		L'obiettivo ultimo del progetto che comprende questo lavoro è dotare \mbox{ACT-R} di un sistema visivo che sia il più simile possibile a quello umano.
 		Per raggiungere tale intento, i ricercatori sono costantemente alla ricerca di tecniche innovative nel campo della visione artificiale che siano il più possibile di uso generale.
-		Tal ricerca, tuttavia, non è facile; infatti, la maggior parte delle pubblicazioni riguardanti la computer vision utilizza informazione contestuale che rende gli algoritmi adatti solamente ai compiti per cui vengono sviluppati.
+		Tal ricerca, tuttavia, non è facile; infatti, la maggior parte delle pubblicazioni riguardanti la computer vision utilizza informazione contestuale, che rende gli algoritmi adatti solamente ai compiti per cui vengono sviluppati.
 		
 		Questo documento si focalizza solo su un sottoinsieme di funzionalità, cioè quelle che sono state sviluppate dal gruppo di lavoro in cui l'autore di questo documento è stato inserito.	
 		Ciò è dovuto al fatto che l'obiettivo dell'intero progetto è molto ambizioso e richiede un tempo ignoto e difficile da stimare a priori. 
@@ -146,13 +146,13 @@
 		Solo le forme individuate dallo strumento sviluppato, infatti, verranno poi analizzate più in dettaglio per verificare se rappresentino o meno degli oggetti di interesse.
 
 		%l'obiettivo del software
-		Un seconda seconda applicazione dello strumento è rendere più facile la definizione del modello al creatore di modelli di \mbox{ACT-R}.
+		Un seconda applicazione dello strumento è rendere più facile la definizione del modello al creatore di modelli di \mbox{ACT-R}.
 		Per capire meglio questo secondo obiettivo è necessario spiegare come un modello viene creato.
-		Il creatore di modelli ha bisogno di un insieme di parametri su cui basare le proprie assunzioni riguardanti le modalità in cui il cervello umano risolve un determinato compito.
+		Il creatore di modelli ha bisogno di un insieme di parametri su cui basare le proprie assunzioni riguardanti le modalità con le quali il cervello umano risolve un determinato compito.
 		Tali dati vengono raccolti tramite esperimenti, realizzati grazie a strutture e software appositi, in cui alcuni volontari sono chiamati a risolvere diverse istanze del compito.
 		
 		Si prenda per esempio l'immagine~\ref{fig:RushHourHumanIta}, che descrive un'istanza del gioco Rush Hour.
-		Tale gioco viene utilizzato come test da alcuni psicologi del Centro delle Scienze Cognitive dell'università di Friburgo per confermare alcune loro ipotesi riguardanti i processi cognitivi umani, la cui spiegazione esula da questo documento.
+		Tale gioco viene utilizzato come test da alcuni psicologi del Centro delle Scienze Cognitive dell'università di Friburgo per confermare alcune ipotesi riguardanti i processi cognitivi umani, la cui spiegazione esula da questo documento.
 		L'obiettivo del gioco è spostare le automobili colorate al fine di liberare il percorso tra l'auto rossa e l'uscita, che si trova sulla destra del campo di gioco.
 		Ogni automobile, rappresentata da un rettangolo, può spostarsi solo in una direzione, cioè quella parallela al lato più lungo di ciascuna automobile.
 		Minore è il numero di spostamenti dell'automobile, migliore è la soluzione. 	
@@ -210,7 +210,7 @@
 				\item calcolare la posizione relativa di un oggetto rispetto a un altro.
 			\end{itemize}
 
-			Il software deve essere in grado di comunicare con \mbox{ACT-R}, in particolare \mbox{ACT-R} deve segnalargli quale deve essere l'immagine da analizzare e richiedere di estrarre le caratteristiche.
+			Il software deve essere in grado di comunicare con \mbox{ACT-R}; in particolare, \mbox{ACT-R} deve segnalargli quale deve essere l'immagine da analizzare e richiedere di estrarre le caratteristiche.
 			Il modulo, da parte sua, deve ritornare tutta l'informazione estratta ad \mbox{ACT-R}.
 		
 		\subsection*{Requisiti Non Funzionali}
@@ -240,7 +240,7 @@
 		
 		\subsection*{Scrum}
 		\addcontentsline{toc}{subsection}{Scrum}
-			Lo Scrum è un framework per la gestione dei progetti che segue le metodologie agili.
+			Scrum è un framework per la gestione dei progetti che segue le metodologie agili.
 			In quanto tale, esso non definisce in maniera tecnica le modalità che gli sviluppatori devono adottare per ottenere i loro obiettivi ma si concentra sul processo di sviluppo.
 			Scrum comprende diverse dimensioni: ruoli, eventi, regole e artefatti; ognuno dei quali è dotato di specifiche funzioni e scopi.
 			
@@ -261,24 +261,25 @@
 
 			%Eventi
 			I due principali obiettivi di tutti gli eventi di Scrum sono controllare l'evoluzione del prodotto nel tempo e minimizzare le interruzioni. 
-			Ciò viene realizzato definendo esplicitamente degli intervalli di tempo di durata limitata in cui le diverse figure professionali aziendali possono incontrarsi per interagire e comunicare tra loro.
+			Ciò viene realizzato definendo esplicitamente degli intervalli di tempo di durata limitata, in cui le diverse figure professionali aziendali possono incontrarsi per interagire e comunicare tra loro.
 			I principali eventi di Scrum sono: \emph{Sprint}, \emph{Sprint Planning Meeting}, \emph{Daily Scrum}, \emph{Sprint Review Meeting} e \emph{Sprint Retrospective Meeting}.
 
-			Lo Sprint è un intervallo di tempo che può variare tra una settimana e un mese in cui il Team crea una porzione di prodotto completa. 
+			Lo Sprint è l'intervallo di tempo, la cui durata può variare tra una settimana e un mese, in cui il Team crea una porzione di prodotto completa. 
 			Esso inizia con lo Sprint Planning Meeting e termina con Sprint Review Meeting e Sprint Retrospective Meeting.
 			
 			Lo Sprint Planning Meeting è un evento in cui partecipano tutti i membri dello Scrum Team e rappresenta il momento in cui vengono definite le funzionalità da sviluppare nel prossimo Sprint e le loro priorità.
-			Per ciascuna funzione vengono effettuate una stima del tempo necessario per lo sviluppo e una divisione in sotto-attività della durata massima di due giorni.
+			Per ciascuna funzione vengono effettuate una stima del tempo necessario per lo sviluppo e una divisione in sotto-attività, ognuna delle quali ha durata massima due giorni.
 			Spesso questo incontro è segnato da una progressiva chiarificazione tra Product Owner e Development Team riguardo ai requisiti del prodotto. 
-			In questo evento deve anche essere definito lo \emph{Sprint Goal}, cioè uno slogan che riassume l'obiettivo del lavoro dello Sprint e agisce come una sorta di motivazione.
+			In questo evento deve anche essere definito lo \emph{Sprint Goal}, cioè uno slogan che riassume l'obiettivo del lavoro dello Sprint e agisce come una sorta di motivazione per tutti i membri del Team.
 		
 			Il Daily Scrum è un incontro quotidiano della durata di quindici minuti in cui lo Scrum Master incontra il Development Team. 
 			In questo evento si valuta il lavoro realizzato e si pianificano le attività della nuova giornata di lavoro.
 			Ciascun membro spiega ciò che ha realizzato e cosa farà il giorno successivo.
 			Questo incontro permette di misurare la velocità del Development Team e permette ad esso di migliorare le proprie stime per gli Sprint futuri.
 			
-			Lo Sprint Review Meeting viene realizzato alla fine di ogni Sprint tra tutti i membri dello Scrum Team e all'interno di esso si analizza l'incremento di lavoro effettuato.
-			Il Development Team spiega le difficoltà che ha incontrato e come le ha risolte e mostra le nuove funzionalità del prodotto.
+			Lo Sprint Review Meeting viene realizzato alla fine di ogni Sprint e vi partecipano tutti i membri dello Scrum Team. 
+			Durante questa riunione si analizza l'incremento di lavoro effettuato.
+			Il Development Team spiega le difficoltà che ha incontrato, come le ha risolte e mostra le nuove funzionalità del prodotto.
 			Successivamente si discute di quali funzionalità aggiungere, quali modificare e quali eliminare.
 
 			Durante lo Sprint Retrospective Meeting si analizza l'implementazione di Scrum. 
@@ -295,7 +296,7 @@
 
 			Lo Sprint Backlog contiene i requisiti da sviluppare nello Sprint corrente, ordinati secondo la priorità stabilita dal Product Owner durante lo Sprint Planning Meeting.
 			Ciascun requisito viene diviso in compiti, il cui livello di dettaglio è tale da poter essere misurato giornalmente durante il Daily Scrum.
-			Ciascun compito, infatti, deve avere una stima del numero di ore necessarie per essere effettuato, la cui durata non può essere maggiore di sedici ore.
+			Ciascun compito, infatti, deve avere una stima del numero di ore necessarie per essere effettuato, la cui durata non può superare le sedici ore.
 			In questo modo, lo Sprint Backlog permette di monitorare l'avanzamento del lavoro ogni giorno dello Sprint.
 			Spesso, per rappresentare meglio tale progresso, si utilizza un \emph{Burndown Chart}, che misura il numero completo di compiti completati a partire dall'inizio dello Sprint e paragona l'andamento reale del lavoro con l'andamento ideale con cui esso dovrebbe evolvere~\cite{scrumEnglishGuide}.
 
@@ -346,7 +347,7 @@
 		TCP viene preferito a UDP per le sue caratteristiche di affidabilità e bidirezionalità.
 		Inoltre la ridotta quantità di dati contenuta nei messaggi ne rende più opportuno l'utilizzo.
 		La comunicazione è sincrona, cioè, una volta effettuata la richiesta, \mbox{ACT-R}, il client, rimane in attesa della risposta del Visual Module, il server. 
-		Ciò è coerente con la natura del compito: infatti è desiderabile che l'architettura cognitiva prenda decisioni riguardanti l'ambiente esterno dopo aver ricevuto ed elaborato tali dati inerenti ad esso.
+		Ciò è coerente con la natura del compito: infatti è desiderabile che l'architettura cognitiva prenda decisioni riguardanti l'ambiente esterno dopo aver ricevuto ed elaborato tali dati.
 
 		Il Modulo Vision Operation è diviso logicamente in tre gruppi di classi: quella che si dedica all'elaborazione di immagini e video, quella che rappresenta le forme riconosciute nelle immagini e quella che gestisce le funzioni di utilità e le eccezioni.
 		In figura \ref{fig:classOverviewITA}, si può vedere un diagramma delle classi, realizzato nel linguaggio UML, che descrive ad alto livello i primi due gruppi di classi del Vision Module.
@@ -362,7 +363,7 @@
 	 	\end{figure}	
 		
 		Nel diagramma, sulla sinistra si può vedere l'insieme di classi che elaborano le immagini.
-		In particolare, la classe \emph{Feature Extractor} è la classe fondamentale di questo insieme, in quanto è quella che effettua tutte le elaborazioni sull'immagine, riconoscendo le forme contenute in essa e creando la corrispondente gerarchia di oggetti. 
+		In particolare, la classe \emph{Feature Extractor} è la classe fondamentale di questo insieme, in quanto effettua tutte le elaborazioni sull'immagine, riconoscendo le forme contenute in essa e creando la corrispondente gerarchia di oggetti. 
 		Oltre a tali operazioni, essa riconosce i colori, calcola le distanze tra oggetti, stabilisce le loro posizioni reciproche e li confronta sulla base della dimensione.
 		La classe \emph{Input} si occupa di interagire con il filesystem e l'hardware del calcolatore; in particolare, acquisisce immagini e video.
 		\emph{Feature Getter} rappresenta un livello di astrazione e offre un'interfaccia semplice a \emph{Proxy}, classe incaricata di preparare i dati in un formato standard per la comunicazione con \mbox{ACT-R}.
@@ -397,12 +398,12 @@
 		L'avere applicato l'algoritmo di ricerca degli angoli più volte fa sì che la stessa forma sia riconosciuta più volte.	
 		Per questo è necessaria un'altra operazione che elimini le diverse copie della stessa forma, al termine della quale si hanno tutte le forme di \emph{n} lati che sono state identificate nell'immagine. 
 
-		Al momento, l'algoritmo appena descritto è stato testato solo con triangoli e quadrilateri; tuttavia, può essere facilmente adattato per riconoscere forme che presentano un numero arbitrario di lati. 
+		Al momento, l'algoritmo descritto è stato testato solo con triangoli e quadrilateri; tuttavia, può essere facilmente adattato per riconoscere forme che presentano un numero arbitrario di lati. 
 		
 		%testing
 		In questo lavoro, l'obiettivo principale dell'attività di test è quello di valutare correttezza e affidabilità del codice sviluppato.
 		A tale fine, il Team ha scelto di applicare una strategia di test che dipendesse strettamente dalla creazione delle classi.
-		È stato stabilito, infatti, che la creazione di una suite di test contenente tutti i test di una determinata classe fosse immediatamente successiva alla creazione della classe stessa e che la generazione di tutti i casi di test di un determinato metodo seguisse la creazione del metodo stesso.
+		È stato stabilito, infatti, che la creazione di una suite di test contenente tutti i casi di test di una determinata classe fosse immediatamente successiva alla creazione della classe stessa e che la generazione di tutti i casi di test di un determinato metodo seguisse la creazione del metodo stesso.
 		Per garantire una buona copertura dei casi di test, sono state applicate le tecniche del \emph{boundary value} e dell'\emph{equivalent partitioning}.
 		Per quanto riguarda il secondo metodo, le due partizioni utilizzate sono state \emph{valori validi} e \emph{valori non validi}.
 		Il software utilizzato per la creazione e l'organizzazione di test case e test suite è \emph{CUTE\footnote{Si possono trovare ulteriori informazioni sul software all'indirizzo \url{http://cute-test.com/}}}.
