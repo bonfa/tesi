@@ -30,7 +30,8 @@
 	
 	Un aspetto caratterizzante di tutte le scienze cognitive è la loro natura multidisciplinare: esse infatti accorpano informazioni provenienti da discipline eterogenee (fisiologia, neurologia, intelligenza artificiale, filosofia e psicologia) al fine di creare un modello della mente che sia il più generale possibile~\cite{legrenzi2005prima}. 
 
-	La cognizione spaziale è la scienza cognitiva che studia acquisizione, organizzazione, utilizzo e revisione della conoscenza riguardante gli ambienti spaziali~\cite{r8Cspace}. L'ambito di applicabilità di tale disciplina è molto vasto e comprende sia ambienti reali che modelli astratti e prevede agenti sia umani che automatici.
+	La cognizione spaziale è la scienza cognitiva che studia acquisizione, organizzazione, utilizzo e revisione della conoscenza riguardante gli ambienti spaziali~\cite{r8Cspace}. 
+	L'ambito di applicabilità di tale disciplina è molto vasto e comprende sia ambienti reali che modelli astratti e prevede che gli agenti possano essere sia umani che automatici.
 	Fondamentale per questa materia è lo studio del processo di ragionamento, che comprende la successione di eventi che portano alla formazione di conoscenza a partire da una serie di premesse. 
 	
 	Una delle grandi sfide che il centro di ricerca si pone è quella di \emph{gettare le basi per nuove teorie cognitive, riguardanti il ragionamento e la pianificazione, applicando metodi di intelligenza artificiale ed esperimenti comportamentali~\cite{TesiEnr}}.
@@ -223,7 +224,7 @@
 				\item comunicare con \mbox{ACT-R}.			
 			\end{itemize}
 			
-		Per multi-purpose si intende che il software deve essere facilmente adattato per lavorare con gli esperimenti che verranno realizzati in futuro.
+		Per multi-purpose si intende che il software debba essere facilmente modificabile in modo da poter lavorare con gli esperimenti che verranno realizzati in futuro.
 		Inoltre, dovrà essere possibile adattare il modulo software al fine di usarlo come riconoscitore di forme per l'orientamento all'interno di un edificio (si veda pagina~\pageref{obiettivi}).
 		Al fine di realizzare la comunicazione con \mbox{ACT-R}, i dati devono essere trasmessi in maniera standardizzata.
 
@@ -236,7 +237,7 @@
 
 	\section*{Il processo di sviluppo}
 	\addcontentsline{toc}{section}{Il processo di sviluppo}
-		Di seguito si descrive il framework di sviluppo Scrum seguito dalle motivazioni che hanno portato all'utilizzo di esso.
+		Di seguito si descrive il framework di sviluppo Scrum, seguito dalle motivazioni che hanno portato all'utilizzo di esso.
 		
 		\subsection*{Scrum}
 		\addcontentsline{toc}{subsection}{Scrum}
@@ -347,9 +348,9 @@
 		TCP viene preferito a UDP per le sue caratteristiche di affidabilità e bidirezionalità.
 		Inoltre la ridotta quantità di dati contenuta nei messaggi ne rende più opportuno l'utilizzo.
 		La comunicazione è sincrona, cioè, una volta effettuata la richiesta, \mbox{ACT-R}, il client, rimane in attesa della risposta del Visual Module, il server. 
-		Ciò è coerente con la natura del compito: infatti è desiderabile che l'architettura cognitiva prenda decisioni riguardanti l'ambiente esterno dopo aver ricevuto ed elaborato tali dati.
+		Ciò è coerente con la natura del compito: infatti è desiderabile che l'architettura cognitiva prenda decisioni riguardanti l'ambiente esterno dopo aver ricevuto ed elaborato i dati che lo riguardano.
 
-		Il Modulo Vision Operation è diviso logicamente in tre gruppi di classi: quella che si dedica all'elaborazione di immagini e video, quella che rappresenta le forme riconosciute nelle immagini e quella che gestisce le funzioni di utilità e le eccezioni.
+		Il Modulo Vision Operation è diviso logicamente in tre gruppi di classi: quello che si dedica all'elaborazione di immagini e video, quello che rappresenta le forme riconosciute nelle immagini e quello che gestisce le funzioni di utilità e le eccezioni.
 		In figura \ref{fig:classOverviewITA}, si può vedere un diagramma delle classi, realizzato nel linguaggio UML, che descrive ad alto livello i primi due gruppi di classi del Vision Module.
 	
 		\begin{figure}[h]
