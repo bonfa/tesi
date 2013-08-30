@@ -7,7 +7,7 @@
 	\section{Details About The Architecture} \label{appA}
 		This section describes aspects about the design of the architecture which have been omitted in chapter \ref{chDesign}.
 		In particular, it deepens the architecture of the Visual Module.
-		At first it gives an overview of the whole classes that compose such module and, then, it focuses on the aspects not described in the design chapter: the architecture of the Server Module and of the Utility Part of Visual Module.
+		At first it gives an overview of all the classes that compose such module and, then, it focuses on the aspects not described in the design chapter: the architecture of the Server Module and of the Utility Part of Visual Module.
 		
 		
 		Again the description is helped by class diagrams. 
@@ -66,14 +66,20 @@
 		The modules, as not classes, can not be shown in the diagram but the prototypes of the functions they contain are listed below.
 		
 		%\subsubsection{Functions prototypes in extractorUtils.h and utils.h}
-			\lstset{frame=single, 
+			\lstset{
+				frame=single, 
 				breaklines=true, 
 				basicstyle=\scriptsize,
 				language=c++, 
-				framexleftmargin=0pt, 
+				linewidth = \linewidth,
+				xleftmargin = -35pt,
+				framexleftmargin= -35pt, 
 				%columns=fullflexible,  
 				%keepspaces=true,
 				stepnumber=2, 
+				%xleftmargin=-0.5in,
+				%breaklines = false,
+				breakautoindent = false,	
 				caption=\textit{Prototypes of the functions included in extractorUtils.h and utils.h},
 				morekeywords={Point,vector,cv,std},
 				label=lst:proto
