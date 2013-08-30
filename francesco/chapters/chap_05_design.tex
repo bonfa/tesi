@@ -33,7 +33,7 @@
 	As shown in the picture, the \mbox{Lisp} interpreter and the Visual Module run on two separated processes. 
 	The processes are independent and their management is left to the operative system.
 
-	The design on the communication protocol is such that the two processes can be run only on the same computer. 
+	The design of the communication protocol is such that the two processes can be run only on the same computer. 
 	The images to be processed, in fact, at the moment are not sent as messages from the client to the server but are stored on the computer which runs both the processes.
 	Anyway, it is enough to modify the message exchange by adding a message sent from the client to the server encapsulating the image data in order to run them on two different computers.
 	
@@ -59,7 +59,7 @@
 	\mbox{ACT-R} models represent the clients, the developed software the server. 
 	The format used for the messages is \mbox{JSON}.  		
 
-	The client-server approach has been chosen because it is standardized and is supported by the interpreters that run \mbox{ACT-R}. 
+	The client-server approach has been chosen because it is standardized and supported by the interpreters that run \mbox{ACT-R}. 
 	Moreover, the time spent for coding and decoding the message is negligible if compared to the time needed for the image processing.
 	Finally, the possibility of using shared resources and the transparency offered by the mechanism ensure very high flexibility and scalability.
 	
@@ -78,7 +78,7 @@
 	This method, though, is not maintainable. 
 	In fact, every \mbox{Lisp} interpreter has a different method of calling foreign functions~\cite{SWIGDoc}. 
 	As consequence of this, every time the interpreter is changed, the interface of the visual module must be re-written.
- 	At design time it has been decided to prefer maintainability to an irrelevant improvement of the performances, thus the client-server has been chosen.
+ 	At design time it has been decided to prefer maintainability to an irrelevant improvement of the performances, thus the client-server solution has been chosen.
 
 	TCP has been preferred to \mbox{UDP} mainly because of the reliability guaranteed by that protocol. 
 	Secondly, the bi-directionality of the communication and the small quantity of data exchanged make it more suitable for the purpose.
@@ -95,7 +95,7 @@
 	After this, the message is decoded and its content is translated in chunks and then delivered to the model, that uses it for the cognitive reasoning.
 
 	All the messages exchanged between client and server are encoded in \mbox{JSON}. 
-	Appendix \ref{appB} contains an example of the messages.
+	Appendix \ref{appB} contains an example of these messages.
 %		In the next paragraph will be described more in detail how the data are encoded.
 
 
@@ -115,7 +115,7 @@
 	For a more detailed description about all the aspects of the architecture, see appendix \ref{appA}.
 
 		\subsection{Architecture}\label{visOpModArch}
-		The vision operation module is composed of three main parts, one for processing images and videos, one for containing the hierarchy of the objects recognized during such processing and one containing the exception classes and the utility functions used by all the other components.
+		The vision operation module is composed of three main parts, one for processing images and videos, one for containing the hierarchy of the objects recognized in the recognition process and one containing the exception classes and the utility functions used by all the other components.
 
 	\begin{comment}
 		The vision module is composed of four main parts, one for processing images and videos, one for containing the hierarchy of the objects recognized during such processing, one for the communication with the model and one containing all the utility functions used by all the other components.
@@ -156,7 +156,7 @@
 	 	\end{figure}
 	
 		Figure \ref{fig:FeatureDesign} contains the class diagram that designs the interface of these classes.
-		\emph{FeatureExtractor} represents the core of this part. It receives in input an image and processes it in order to extract the features that contains. For each extracted feature it creates a correspondent element in the \emph{object hierarchy}. Such hierarchy is described in section \ref{classHierarchy}. Once the objects are generated, the class creates a list containing them and delivers it to FeatureGetter. 
+		\emph{FeatureExtractor} represents the core of this part. It receives as input an image and processes it in order to extract the features it contains. For each extracted feature it creates a correspondent element in the \emph{object hierarchy}. Such hierarchy is described in section \ref{classHierarchy}. Once the objects are generated, the class creates a list containing them and delivers it to FeatureGetter. 
 		FeatureExtractor is also responsible for accomplishing other goals described in the requirements, like recognizing colors of pixels and objects, calculating the distances of two objects as well as the relative position of one object in respect with another one and making dimensional comparisons between two objects. These features have not been included in the initial design of the class. %even if it has been thought that this class would have accomplished all these tasks.
 
 		\emph{Input} is responsible for interacting with the file system and the hardware of the computer. In particular its tasks are loading images from files, saving images to files and loading video streams from the web-cam. The acquired data are delivered to FeatureGetter. 
