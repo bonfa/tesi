@@ -118,7 +118,7 @@
 	The testing activity depends strictly on the class creation.
 	In particular, a class creation is always followed by the creation of its correspondent test module, which contains all the procedures required for checking the correctness of constructors, destructors and methods of the class to be tested.
 	
-	Differently from the \emph{test driven development} approach, in this case the test cases are not written before the definition of single methods; rather they are developed when the creation of the whole class is completed.
+	Differently from the \emph{test driven development} approach, in this case the test cases are not written before the definition of single methods but immediately after it.
 	As consequence of this, a test case does not necessarily fail the first time it is run. 
 	
 	Every method is tested ensuring that all the possible flows of the execution are followed.
@@ -129,7 +129,7 @@
 	Moreover, conforming to the \emph{boundary value testing} technique, input values on the boundaries of data categories are introduced in the test cases in order to make the test cover as wide as possible. 
 
 	The test cases are organized in test suites. All the suites specific of a class are included in the same test module. 
-	All the test operations are automatically realized thanks to the CUTE software.
+	All the test operations are automatically realized thanks to the CUTE\footnote{In order to have more information about CUTE, see:~\url{www.cute-test.com}} software.
 
 	The objective of the testing operation is to evaluate correctness and reliability of the system.
 
