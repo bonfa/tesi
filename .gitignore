@@ -2,6 +2,12 @@
 *.backup
 enrico/thesis.pdf
 
+#ringraziamenti
+francesco/beginningEnding/acknowledgments.tex
+#documento completo
+francesco/thesis.pdf
+
+
 #Files temporanei generati durante la compilazione .tex
 *.aux
 *.idx
